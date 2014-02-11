@@ -1,0 +1,16 @@
+source 'https://rubygems.org'
+ruby '2.0.0'
+gem 'sinatra'
+gem 'warden'
+gem 'kappa'
+gem 'haml'
+gem 'pony'
+gem 'tux'
+gem 'data_mapper'
+gem 'dm-core'
+gem 'dm-validations'
+gem 'dm-migrations'
+gem 'dm-timestamps'
+gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'dm-postgres-adapter', :group => :production
+gem 'dm-sqlite-adapter', :group => :development

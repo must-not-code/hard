@@ -1,0 +1,182 @@
+.span8
+  %article.well.well-raised
+    %h2
+      %a{href: "/tournament/#{@tournament.id}"}
+        = @tournament.title
+      %button#signout.btn.btn-danger.btn-large.pull-right
+        Отменить
+      .dropdown.btn-group.pull-right
+        %button#signin.btn.btn-primary.btn-large.dropdown-toggle{"data-toggle" => "dropdown"}
+          Записаться
+        %ul#class.dropdown-menu
+          %li{style: "text-align: center"}
+            Выберите класс
+          %li.divider
+          %li
+            %a#druid{href: "#"}
+              %img.minipic{src: "/img/class/druid.png"}
+              Друид
+          %li
+            %a#hunter{href: "#"}
+              %img.minipic{src: "/img/class/hunter.png"}
+              Охотник
+          %li
+            %a#mage{href: "#"}
+              %img.minipic{src: "/img/class/mage.png"}
+              Маг
+          %li
+            %a#paladin{href: "#"}
+              %img.minipic{src: "/img/class/paladin.png"}
+              Паладин
+          %li
+            %a#priest{href: "#"}
+              %img.minipic{src: "/img/class/priest.png"}
+              Жрец
+          %li
+            %a#rogue{href: "#"}
+              %img.minipic{src: "/img/class/rogue.png"}
+              Разбойник
+          %li
+            %a#shaman{href: "#"}
+              %img.minipic{src: "/img/class/shaman.png"}
+              Шаман
+          %li
+            %a#warlock{href: "#"}
+              %img.minipic{src: "/img/class/warlock.png"}
+              Чернокнижник
+          %li
+            %a#warrior{href: "#"}
+              %img.minipic{src: "/img/class/warrior.png"}
+              Воин
+    #alert_placeholder
+    .tabbable
+      %ul#tab.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", href: "#info"} Инфо
+        %li
+          %a{"data-toggle" => "tab", href: "#players"} Участники
+        %li
+          %a{"data-toggle" => "tab", href: "#bracket"} Сетка
+      .tab-content
+        #info.tabbed
+          %p= @tournament.content
+        #players.tabbed
+          #players-list
+            // - @tournament.kinds(order: [:created_at.desc]).each do |kind|
+            // - user = User.get(kind.user_id)
+            - @tournament.users.each do |user|
+              %p.player-list.shadow
+                %img.minipic{src: "/avatars/#{user.avatar}"}
+                %a.gray{href: "/user/#{user.username}"}
+                  = user.username
+                %img.minipic{src: "/img/class/#{user.kinds.first(tournament_id: @tournament.id).kind}.png"}
+                %span
+                  = user.tag
+                %span.pull-right
+                  %img.minipic{src: "/img/skype.png"}
+                  = user.skype
+        #bracket.tabbed
+
+:javascript
+  jQuery(function ($) {
+    $(function() {
+      if (!("#{env['warden'].user}")) {
+        $('#signout').hide()
+        $('#signin').show()
+      } else {
+        if ("#{@tournament.users.first(id: env['warden'].user.id) if env['warden'].user}" == '' ) {
+          $('#signout').hide()
+          $('#signin').show()
+        } else {
+          $('#signin').hide()
+          $('#signout').show()
+        }
+      }
+    })
+
+    var minimalData = {
+      teams : [
+        [, ],
+        [, ],
+        [, ],
+        [, ],
+        [, ],
+        [, ],
+        [, ],
+        [, ]
+      ],
+      results : [
+        [[,], [,], [,], [,], [,], [,], [,], [,]],
+        [[,], [,], [,], [,]],
+        [[,], [,]],
+        [[,], [,]]
+      ]}
+
+    $(function() {
+      $('#bracket').bracket({
+      init: minimalData})
+    })
+
+    $(function() {
+      $('#info').siblings().hide()
+    })
+
+    $('#tab a').click(function(e) {
+      e.preventDefault()
+      var div = $(this).attr('href')
+      $('.tabbed').hide()
+      $(div).show()
+    })
+
+    warning = function(message) {
+      $('#alert_placeholder').html('<div class="alert alert-error alert-floating">'+message+'</div>');
+    }
+
+    success = function(message) {
+      $('#alert_placeholder').html('<div class="alert alert-success alert-floating">'+message+'</div>');
+    }
+
+    $('#class a').on('click', function(f) {
+      f.preventDefault()
+      $('#signin').attr('disabled', true)
+      var kind = $(this).attr('id')
+      if (#{env['warden'].authenticated?} == false) {
+        warning('Для регистрации в турнире необходимо авторизоваться.')
+      } else {
+        $.ajax({
+          type: 'POST',
+          url: '/tournament/signin',
+          data: {'id': "#{@tournament.id}", 'kind': kind},
+          success: function(msg){
+            $('#signin').removeAttr("disabled")
+            if (msg) {
+              warning(msg)
+            } else {
+              success('Вы успешно зарегистрированы.')
+              $('#signin').hide()
+              $('#signout').show()
+              $('#players').load('/tournament/#{@tournament.id} #players-list')
+            }
+          }
+        })
+      }
+    })
+
+    $('#signout').on('click', function() {
+      if (confirm("Вы уверены, что хотите отказаться от участия в турнире?")) {
+        $('#signout').attr('disabled', true)
+        $.ajax({
+          type: 'POST',
+          url: '/tournament/signout',
+          data: {'id': "#{@tournament.id}"},
+          success: function(msg){
+            $('#signout').hide()
+            $('#signin').show()
+            $('#signout').removeAttr("disabled")
+            success('Вы больше не записаны на этот турнир.')
+            $('#players').load('/tournament/#{@tournament.id} #players-list')
+          }
+        })
+      }
+    })
+  })

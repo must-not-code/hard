@@ -1,0 +1,16 @@
+.span8
+  %article.well.well-raised
+    %h2
+      %a{href: "/stream"}
+        Hearthstone: Heroes of Warcraft
+    %hr
+    .row-fluid
+      - Twitch.streams.find(game: 'Hearthstone: Heroes of Warcraft', limit: 9) do |stream|
+        .span3{style: "margin-left: 2.5641%; margin-bottom: 20px"}
+          %a{href: "/stream/#{stream.channel.display_name}"}
+            %img{src: "http://static-cdn.jtvnw.net/previews-ttv/live_user_#{stream.channel.display_name}-320x200.jpg"}
+          %a{href: "/stream/#{stream.channel.display_name}"}
+            = stream.channel.display_name
+            %span.pull-right
+              = stream.viewer_count
+              %i.icon-eye-open

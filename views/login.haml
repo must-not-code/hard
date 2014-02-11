@@ -1,0 +1,54 @@
+#login
+  %form.form-vertical.well.well-raised.clearfix
+    %fieldset
+      %legend
+        Вход
+        %small.pull-right
+          Эй, парень! Не хочешь
+          %a{href: "/signup"} Зарегистрироваться?
+      #alert_placeholder
+      .control-group
+        %label.control-label{for: "username"} Логин
+        .controls
+          %input#username.input-full{autofocus: "autofocus", name: "username", type: "text"}
+      .control-group
+        %label.control-label{for: "password"} Пароль
+        .controls
+          %input#password.input-full{name: "password", type: "password"}
+      %button.btn.btn-primary.btn-large.pull-right{id: "submit"}
+        Войти
+      %label.checkbox.inline
+        %input{type: "checkbox"}
+        Лень снова набирать?
+//.row.align-center
+//  Забыли пароль?
+//  %a{href: "#"} Сочувствую
+
+:javascript
+  jQuery(function ($) {
+    warning = function(message) {
+      $('#alert_placeholder').html('<div class="alert alert-error alert-floating">'+message+'</div>');
+    }
+
+    $('#footer, #sidebar').hide()
+
+    $('#submit').on('click', function(submit) {
+      submit.preventDefault();
+      $('#submit').attr('disabled', true)
+      var username = $('#username').val();
+      var password = $('#password').val();
+      $.ajax({
+        type: "POST",
+        url: "/login",
+        data: {'username': username, 'password': password},
+        success: function(msg){
+          if (msg) {
+            warning(msg)
+            $('#submit').removeAttr("disabled");
+          } else {
+            window.location.replace('/')
+          }
+        }
+      })
+    })
+  })

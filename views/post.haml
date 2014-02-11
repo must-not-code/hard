@@ -1,0 +1,71 @@
+.span8
+  %article.well.well-raised
+    %h2
+      %a{href: "/post/#{@post.id}"} #{@post.title}
+    %hr
+    %p.muted
+      = @post.created_at.strftime("%d.%m.%Y в %H:%M")
+    %p
+      = @post.content
+    %hr
+      %i.icon-user
+      = User.get(@post.user_id).username
+      %i.icon-pencil
+      = @post.comments.count
+    %hr
+    - @post.comments.each do |comment|
+      - author = User.get(comment.user_id)
+      %img{src: "/avatars/#{author.avatar}", width: "48", height: "48" }
+      %a{href: "/user/#{author.username}"}
+        = author.username
+      %span.muted
+        = comment.created_at.strftime("%d.%m.%Y в %H:%M")
+      - if author == env['warden'].user
+        %button#delete.delete.btn.btn-danger.btn-mini{"data-comment" => "#{comment.id}"}
+          %i.icon-large.icon-trash{title: "Удалить"}
+      %p= comment.content
+    - if env['warden'].authenticated?
+      #alert_placeholder
+      %textarea#comment{rows: "5", maxlength: "5000", style: "width: 98%"}
+      %button#submit.btn.btn-primary Оставить комментарий
+
+:javascript
+  jQuery(function ($) {
+    warning = function(message) {
+      $('#alert_placeholder').html('<div class="alert alert-error alert-floating">'+message+'</div>');
+    }
+
+    $('#submit').on('click', function(submit) {
+      $('#submit').attr('disabled', true)
+      var post = "#{@post.id}"
+      var user = "#{env['warden'].user.id if env['warden'].user}"
+      var text = $('#comment').val();
+      $.ajax({
+        type: "POST",
+        url: "/comment/create",
+        data: {'post': post, 'user': user, 'text': text},
+        success: function(msg){
+          if (msg) {
+            warning(msg)
+            $('#submit').removeAttr("disabled");
+          } else {
+            window.location.replace("/post/#{@post.id}")
+          }
+        }
+      })
+    })
+
+    $('.delete').on('click', function() {
+      if (confirm("Вы уверены, что хотите удалить этот комментарий?")) {
+        var id = $(this).data('comment')
+        $.ajax({
+          type: "POST",
+          url: "/comment/delete",
+          data: {'id': id},
+          success: function(){
+            window.location.replace("/post/#{@post.id}")
+          }
+        })
+      }
+    })
+  })

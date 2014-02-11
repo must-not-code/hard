@@ -1,0 +1,28 @@
+.span8
+  %article.well.well-raised
+    %h2
+      %a{href: "/user/#{@user.username}"}
+        = @user.username
+      - if @user == env['warden'].user
+        %button.btn.btn-primary.pull-right{onclick: "location.href='/user/edit/#{@user.username}'"} Редактировать
+    %hr
+    .row-fluid
+      .span3{style: "text-align: center"}
+        %img.img-polaroid{src: "/avatars/#{@user.avatar}", style: "width: 120px; height: 120px;"}
+        %p Репутация: #{@user.reputation}
+      .span9
+        %table.table.table-bordered.table-hover
+          - if @user == env['warden'].user
+            %tr
+              %td Email
+              %td= @user.email
+          %tr
+            %td Skype
+            %td= @user.skype
+          %tr
+            %td BattleTag
+            %td= @user.tag
+          %tr
+            %td Зарегистрирован
+            %td= @user.created_at.strftime("%d.%m.%Y")
+        = @user.about

@@ -1,0 +1,172 @@
+!!!
+%html
+  %head
+    %title Hard Random
+    %meta{charset: "utf-8"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %script{src: "//code.jquery.com/jquery-latest.min.js"}
+    %link{href: "/img/favicon.ico", rel: "shortcut icon"}
+    %link{href: "//fonts.googleapis.com/css?family=Noto+Serif&subset=cyrillic,latin", rel: "stylesheet"}
+    %link{href: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css", rel: "stylesheet"}
+    %link{href: "/css/main.css", rel: "stylesheet"}
+    %link{href: "/css/distinctive.css", rel: "stylesheet"}
+    %link{href: "/css/jquery.bracket.min.css", rel: "stylesheet"}
+    %link{href: "/css/hard.css", rel: "stylesheet"}
+  %body
+    #wrap
+      #content
+        .navbar.navbar-inverse.navbar-fixed-top
+          .navbar-inner
+            %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand{href: "/"} Hard Random
+            .nav-collapse
+              %ul#nav.nav
+                %li
+                  %a{href: "/"} Новости
+                %li
+                  %a{href: "/tournaments"} Турниры
+                %li
+                  %a{href: "/stream"} Стримы
+                %li
+                  %a{href: "/rules"} Правила
+              %ul.nav.pull-right
+                - if env['warden'].authenticated?
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "/noob"}
+                      %img.minipic{src: "/avatars/#{env['warden'].user.avatar}"}
+                      = env['warden'].user.username
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{href: "/user/#{env['warden'].user.username}"}
+                          %i.icon-cog
+                          Настройки
+                      %li
+                        %a{href: "/logout"}
+                          %i.icon-off
+                          Выйти
+                - else
+                  %li
+                    %a{href: "/signup"} Регистрация
+                  %li
+                    %a{href: "/login"} Войти
+        .navbar-spacer
+        .container
+          %br
+          %header
+            #main.hero-unit
+              // %h1#jumbotron Lorem Ipsum
+              // %p.lead Воруй, убивай, еби гусей!
+          .row-fluid
+            = yield
+            .span4
+              %aside#sidebar.well
+                %ul.nav.nav-list
+                  %li.nav-header Последние посты
+                  - Post.last(5).each do |post|
+                    %li
+                      %a{href: "/post/#{post.id}"}
+                        = post.title
+                        %span.pull-right
+                          = post.comments.count
+                          %i.icon-pencil
+                  %li.nav-header Стримы
+                  - Twitch.streams.find(game: 'Hearthstone: Heroes of Warcraft', limit: 5) do |stream|
+                    %li
+                      %a{href: "/stream/#{stream.channel.display_name}"}
+                        = stream.channel.display_name
+                        %span.pull-right
+                          = stream.viewer_count
+                          %i.icon-eye-open
+                // %form.well
+                // %fieldset
+                //   %legend Письмо админу
+                //   %small.help-block Бла бла бла
+                //   .control-group
+                //     .controls
+                //       %input#appendedInputButton.input-full{placeholder: "Email", type: "email"}/
+                //   %button.btn.btn-primary.btn-large Послать
+    %footer#footer
+      .container
+        .row
+          .span3
+            %h4 Навигация
+            %ul
+              %li
+                %a{href: "/"} Новости
+              %li
+                %a{href: "/tournaments"} Турниры
+              %li
+                %a{href: "/stream"} Стримы
+              %li
+                %a{href: "/rules"} Правила
+          .span3
+            %h4 Контакты
+            %i.fa.fa-skype
+            Skype: Hard.random
+            %br
+            %i.fa.fa-linux
+            Email:
+            %a{href: "mailto:mailhardrandom@gmail.com"} mailhardrandom@gmail.com
+          .span4
+            %h4 Инфо
+            %p Мы всегда открыты для сотрудничества.<br> По любым возникающим вопросам и предложениям Вы можете обратиться по указанным контактам.
+          .span2.social
+            %h4 Соцсети
+            .row-fluid
+              .pull-left
+                %a.btn.btn-small{href: "https://facebook.com/hardrandom", target: "blank"}
+                  %img{src: "/img/icons/fb.ico"}
+              .pull-left
+                %a.btn.btn-small{href: "http://vk.com/hardrandom", target: "blank"}
+                  %img{src: "/img/icons/vk.ico"}
+            .row-fluid
+              .pull-left
+                %a.btn.btn-small{href: "https://twitter.com/HardRandom", target: "blank"}
+                  %img{src: "/img/icons/twitter.ico"}
+              .pull-left
+                %a.btn.btn-small{href: "http://twitch.tv/hardrandom", target: "blank"}
+                  %img{src: "/img/icons/twitch.ico"}
+
+  %script{src: "/js/bootstrap.min.js"}
+  %script{src: "/js/bootstrap-fileupload.js"}
+  %script{src: "/js/jquery.fittext.js"}
+  %script{src: "/js/main.js"}
+  %script{src: "/js/jquery.bracket.min.js"}
+
+:javascript
+  jQuery(function ($) {
+    var url = location.pathname
+    if (url != '/') {
+      $("header").hide()
+    }
+    active = function(tab) {
+      $("#nav, a[href='"+ tab +"']").parent().addClass('active')
+    }
+    if (/post|\/$/.test(url)) {
+      active("/")
+    } else if (/tourn/.test(url)) {
+      active("/tournaments")
+    } else if (/stream/.test(url)) {
+      active("/stream")
+    } else if (/rules/.test(url)) {
+      active("/rules")
+    } else if (/login/.test(url)) {
+      active("/login")
+    } else if (/signup/.test(url)) {
+      active("/signup")
+    }
+  })
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47857545-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();

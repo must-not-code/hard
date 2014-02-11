@@ -1,0 +1,56 @@
+#login
+  %form.form-vertical.well.well-raised.clearfix
+    %fieldset
+      %legend.align-center Регистрация
+      %small.help-block Уверены, Вы знаете, что делать дальше.
+      #alert_placeholder
+      .control-group
+        %label.control-label
+          Логин
+          %input#username.input-full{autofocus: "autofocus", type: "text"}
+      .control-group
+        %label.control-label
+          Email
+          %input#email.input-full{type: "text"}
+      .control-group
+        %label.control-label
+          Пароль
+          %input#password.input-full{type: "password"}
+      .control-group
+        %label.control-label
+          Подтвердите пароль
+          %input#password_confirm.input-full{type: "password"}
+      .form-actions.align-center
+        %button#submit.btn.btn-primary.btn-large.btn-block
+          (\/)(;,,;)(\/)
+
+:javascript
+  jQuery(function ($) {
+    warning = function(message) {
+      $('#alert_placeholder').html('<div class="alert alert-error alert-floating">'+message+'</div>');
+    }
+
+    $('#footer, #sidebar').hide()
+
+    $('#submit').on('click', function(submit) {
+      submit.preventDefault();
+      $('#submit').attr('disabled', true)
+      var username         = $('#username').val();
+      var email            = $('#email').val();
+      var password         = $('#password').val();
+      var password_confirm = $('#password_confirm').val();
+      $.ajax({
+        type: "POST",
+        url: "/signup",
+        data: {'username': username, 'email': email, 'password': password, 'password_confirm': password_confirm},
+        success: function(msg){
+          if (msg) {
+            warning(msg)
+            $('#submit').removeAttr("disabled");
+          } else {
+            window.location.replace('/')
+          }
+        }
+      })
+    })
+  })

@@ -1,0 +1,124 @@
+    #featureCarousel.carousel.slide
+      / Carousel items
+      .carousel-inner
+        .item.active
+          %img{alt: "", src: "img/1.jpg"}/
+          .carousel-caption.clearfix
+            %p Your website doesn't have to look like every other website built with Bootstrap
+            %h1.pull-left Differentiate
+            %p
+              %a.btn.btn-primary.btn-large.pull-right{href: "blog.html"} Make it Distinctive!
+        .item
+          %img{alt: "", src: "img/2.jpg"}/
+          .carousel-caption.clearfix
+            %p Start out on the right foot with an excellent theme for Twitter Bootstrap.
+            %h1.pull-left A Solid Foundation
+            %p
+              %a.btn.btn-primary.btn-large.pull-right{href: "styles.html"} Explore the Changes
+        .item
+          %img{alt: "", src: "img/3.jpg"}/
+          .carousel-caption.clearfix
+            %p Using Distinctive it is easy to build a user interface that people will love to use.
+            %h1.pull-left Nice and Clean
+            %p
+              %a.btn.btn-primary.btn-large.pull-right{href: "signup.html"} See An Example
+      / Carousel nav
+      %a.carousel-control.left{"data-slide" => "prev", href: "#featureCarousel"}
+        %i.icon-chevron-left
+      %a.carousel-control.right{"data-slide" => "next", href: "#featureCarousel"}
+        %i.icon-chevron-right
+    .container
+      %section#why
+        .row
+          .span4
+            %h3
+              %i.icon-resize-full
+              Responsive to the Core
+            Go ahead, resize your browser.  The Distinctive theme it will look great at any resolution.
+          .span4
+            %h3
+              %i.icon-search
+              Small Details
+            The small details are really what make the Distinctive theme shine.  From the subtle background texture to the enhanced depth and definition this theme has it where it counts.
+            %br/
+            %a.btn{href: "styles.html"} Review the Changes
+          .span4
+            %h3
+              %i.icon-font
+              Font Awesome Icons!
+            Distinctive includes the incredible
+            %a{href: "http://fortawesome.github.com/Font-Awesome/", target: "_blank"}
+              Font Awesome
+            icons which can scale infinitely and be styled with css.  To see what we mean check out this demo:
+            %br/
+            %a.btn{href: "styles.html#icons"} Icon Demo
+        .row
+          .span4
+            %h3 $ Pricing Page
+            A well designed pricing page can make a huge difference for your site, and the Distinctive theme comes with a great one.
+          .span4
+            %h3
+              %i.icon-ok
+              Intuitive Forms
+            The Distinctive theme builds upon Bootstrap's already excellent forms by adding several refinements which make it even easier to create forms your users will love.
+            For some examples check out the sample
+            %a{href: "signup.html"} Signup
+            and
+            %a{href: "login.html"} Login
+            forms.
+          .span4
+            %h3
+              %i.icon-github
+              All Files Included
+            Just like Twitter Bootstrap, the Distinctive theme is built with less.  All these less files are included, so you can go back and create custom builds or tweak things as need be.
+    %footer
+      .container
+        .row
+          .span3
+            %h4 Example Pages
+            %ul
+              %li
+                %a{href: "signup.html"} Signup Form
+              %li
+                %a{href: "login.html"} Login Form
+              %li
+                %a{href: "pricing.html"} Pricing Page
+              %li
+                %a{href: "blog.html"} Blog
+          .span3
+            %h4 Contact Us
+            %address
+              %strong Awesome Company
+              %br/
+              123 Success Ave
+              %br/
+              Some City, CA 98888
+              %br/
+              %abbr{title: "Phone"} P:
+              (123) 456-7890
+              %br/
+              %a{href: "mailto:support@AwesomeCompany.com"} support@AwesomeCompany.com
+          .span4
+            %h4 About
+            %p We are an awesome company that does incredible things.  We make our widgets better than anyone else and we take pride in that.
+          .span2.social
+            %h4 Social
+            .row-fluid
+              .pull-left
+                %a.btn.btn-small
+                  %i.icon-large.icon-facebook
+              .pull-left
+                %a.btn.btn-small
+                  %i.icon-large.icon-twitter
+              .pull-left
+                %a.btn.btn-small
+                  %i.icon-large.icon-linkedin
+              .pull-left
+                %a.btn.btn-small
+                  %i.icon-large.icon-google-plus
+              .pull-left
+                %a.btn.btn-small
+                  %i.icon-large.icon-pinterest
+              .pull-left
+                %a.btn.btn-small
+                  %i.icon-large.icon-github
