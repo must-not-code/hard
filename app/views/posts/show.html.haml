@@ -1,0 +1,41 @@
+.col-md-8
+  .well.zoom
+    %h2
+      - if logged_in? && (current_user.group[/admin/] || current_user.id == @post.user_id)
+        .row
+          .col-sm-9
+            = link_to @post.title, post_path(@post.id)
+          .col-sm-3
+            .pull-right
+              %button.btn.btn-hard{onclick: "location.href='#{edit_post_path(@post.id)}'"} Редактировать
+      - else
+        = link_to @post.title, post_path(@post.id)
+    %hr
+    %p.muted
+      = @post.created_at.strftime('%d.%m.%Y в %H:%M')
+    .post-content
+      = @post.content.html_safe
+    .post-info
+      %hr
+      = fa_icon 'user'
+      - username = User.find(@post.user_id).username
+      = link_to username, user_path(username)
+      = fa_icon 'pencil'
+      = @post.comments.count
+    %hr
+    #comments
+      - @post.comments.each do |comment|
+        - author = User.find(comment.user_id)
+        = image_tag "/avatars/#{author.avatar}", class: 'small-avatar'
+        = link_to author.username, user_path(author.username)
+        %span.muted
+          = comment.created_at.strftime('%d.%m.%Y в %H:%M')
+        - if author == current_user &&
+        - Time.parse(comment.created_at.to_s) > Time.now - 10*60
+          %button#delete-comment.btn.btn-danger.btn-xs{'data-comment' => comment.id, title: 'Удалить'}
+            = fa_icon 'trash-o'
+        %p= comment.content
+    - if logged_in?
+      #alert-placeholder
+      %textarea#comment-text{rows: '4', maxlength: '5000'}
+      %button#submit-comment.btn.btn-hard Оставить комментарий

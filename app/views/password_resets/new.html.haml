@@ -1,0 +1,9 @@
+#login
+  .well
+    %fieldset
+      %legend
+        Восстановление пароля
+      = form_tag password_resets_path, method: :post do
+        = label_tag :email
+        = text_field_tag :email, nil, class: 'full-input', autofocus: 'autofocus'
+        = submit_tag 'Сбросить пароль', class: 'btn btn-hard btn-block'

@@ -1,0 +1,66 @@
+!!!
+%html
+  %head
+    %title Hard Random
+    = include_gon
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %link{href: "/favicon.ico", rel: "shortcut icon"}
+    %link{href: "//fonts.googleapis.com/css?family=Exo+2&subset=latin,cyrillic", rel: "stylesheet"}
+  %body
+    #wrap
+      .navbar.navbar-inverse
+        .container
+          .navbar-header
+            .btn.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to image_tag('logo.svg'), root_path, class: 'brand'
+          .collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li{class: ('active' if controller_name == 'posts')}
+                = link_to 'Новости', root_path
+              %li{class: ('active' if controller_name == 'tournaments')}
+                = link_to 'Турниры', tournaments_path
+              %li
+              %li{class: ('active' if current_page?('/rules'))}
+                = link_to 'Правила', rules_path
+              %li{class: ('active' if current_page?('/top'))}
+                = link_to 'Топ', top_path
+              -#%li{class: ('active' if controller_name == 'teams')}
+                = link_to 'Команда', teams_path
+            %ul.nav.navbar-nav.navbar-right
+              - if logged_in?
+                %li.dropdown
+                  = link_to user_path(current_user.username), class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
+                    = image_tag "/avatars/#{current_user.avatar}", class: 'minipic'
+                    = current_user.username
+                    %b.caret
+                  %ul.dropdown-menu
+                    - if current_user.group[/admin|newsman/]
+                      %li
+                        = link_to new_post_path do
+                          = fa_icon 'file'
+                          Новый пост
+                    %li
+                      = link_to user_path(current_user.username) do
+                        = fa_icon 'cog'
+                        Настройки
+                    %li
+                      = link_to logout_path do
+                        = fa_icon 'power-off'
+                        Выйти
+              - else
+                %li{class: ('active' if current_page?(signup_path))}
+                  = link_to 'Регистрация', signup_path
+                %li{class: ('active' if current_page?(login_path))}
+                  = link_to 'Войти', login_path
+      .container
+        .row
+          = yield
+          = render 'layouts/sidebar'
+    = render 'layouts/footer'
+    = link_to image_tag('top.png'), '#', class: 'scrollup'

@@ -1,0 +1,11 @@
+#= require jquery
+#= require jquery_ujs
+#= require bootstrap
+#= require bracket
+#= require smoothzoom.min
+#= require easing
+#= require dotdotdot
+#= require fileupload
+#= require tinymce
+#= require form
+#= require_tree .

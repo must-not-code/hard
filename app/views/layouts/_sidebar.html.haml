@@ -1,0 +1,36 @@
+- unless request.original_fullpath[/password|login|signup/]
+  .col-md-4
+    %aside.well
+      %ul.nav.nav-list
+        - tournaments = Tournament.where(['beginning > ?', (Time.now - 8*60*60)]).order(created_at: :desc)
+        - unless tournaments.empty?
+          %li.dropdown-header Ближайшие турниры
+          - tournaments.each do |tourney|
+            %li
+              = link_to tournament_path(tourney.id) do
+                .row
+                  .col-xs-9.sidebar-title
+                    = tourney.title
+                  .col-xs-3.sidebar-icon
+                    .pull-right
+                      = tourney.users.count
+                      = fa_icon 'user'
+        %li.dropdown-header Последние посты
+        - Post.last(5).reverse.each do |post|
+          %li
+            = link_to post_path(post.id) do
+              .row
+                .col-xs-9.sidebar-title
+                  = post.title
+                .col-xs-3.sidebar-icon
+                  .pull-right
+                    = post.comments.count
+                    = fa_icon 'pensil'
+        %li.dropdown-header Стримы
+        - streams = Stream.order(views: :desc)
+        %li.dropdown-rubric Стрим от портала
+        = render partial: "layouts/stream", collection: streams.where(game: 'all')
+        %li.dropdown-rubric League of Legends
+        = render partial: "layouts/stream", collection: streams.where(game: 'lol')
+        %li.dropdown-rubric HearthStone
+        = render partial: "layouts/stream", collection: streams.where(game: 'hs')

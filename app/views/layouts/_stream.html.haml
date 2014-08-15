@@ -1,0 +1,8 @@
+%li
+  = link_to stream.url, target: 'blank' do
+    = stream.streamer
+    %span.pull-right
+      - if stream.online
+        = fa_icon 'eye', class: 'green'
+      - else
+        = fa_icon 'eye-slash', class: 'red'

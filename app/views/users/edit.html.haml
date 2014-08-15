@@ -1,0 +1,44 @@
+.col-md-8
+  .well
+    %h2
+      = link_to @user.username, user_path(@user.username)
+    %hr
+    #alert-placeholder
+    .row
+      .col-md-3.text-center
+        %form#avatar{action: user_avatar_path(@user.username), enctype: 'multipart/form-data', method: 'post'}
+          = token_tag form_authenticity_token
+          .fileinput.fileinput-new{'data-provides' => 'fileinput'}
+            .fileinput-new.thumbnail.avatar
+              = image_tag "/avatars/#{@user.avatar}"
+            .fileinput-preview.fileinput-exists.thumbnail.avatar{'data-trigger' => 'fileinput'}
+            %div
+              %span.btn.btn-hard.btn-file
+                %span.fileinput-new Загрузить
+                %span.fileinput-exists Изменить
+                %input#upload{name: 'file', type: 'file', accept: 'image/*'}
+          %button#upload-avatar.btn.btn-hard{style: 'display: none'}
+            Сохранить
+      .col-md-9
+        %table.table.table-bordered
+          %tr
+            %td Skype
+            %td
+              %input#skype.table-input{value: @user.skype}
+          %tr
+            %td BattleTag
+            %td
+              %input#tag.table-input{value: @user.tag}
+          %tr
+            %td Email
+            %td
+              %input#email.table-input{value: @user.email}
+          %tr
+            %td{colspan: '2'}
+              = link_to 'Сменить пароль', change_password_path
+          %tr
+            %td{colspan: '2'}
+              %textarea#about{rows: '8', maxlength: '5000'}
+                = @user.about
+        %p
+          %button#update-user-data.btn.btn-hard Применить
