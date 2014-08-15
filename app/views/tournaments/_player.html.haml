@@ -1,0 +1,20 @@
+- user = User.find(player.user_id)
+%tr
+  %th
+    = image_tag "/avatars/#{user.avatar}", class: 'minipic'
+  %th
+    = link_to user.username, user_path(user.username)
+  %th
+    = image_tag "/classes/#{user.kinds.find_by(tournament_id: @tournament.id).kind}.png", class: 'minipic'
+  %th
+    = user.tag
+  %th
+    = fa_icon 'skype lg'
+  %th
+    = user.skype
+  %th
+    - if @check_in_time
+      - if player.confirm
+        = fa_icon 'check', class: 'green'
+      - else
+        = fa_icon 'ban', class: 'red'

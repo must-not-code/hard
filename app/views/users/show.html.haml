@@ -1,0 +1,47 @@
+.col-md-8
+  .well
+    %h2
+      - if @user == current_user
+        .row
+          .col-sm-9
+            = link_to @user.username, user_path(@user.username)
+          .col-sm-3
+            .pull-right
+              %button.btn.btn-hard{onclick: "location.href='#{edit_user_path(@user.username)}'"} Редактировать
+      - else
+        = link_to @user.username, user_path(@user.username)
+    %hr
+    .row
+      .col-md-3.text-center
+        = image_tag "/avatars/#{@user.avatar}", class: 'avatar'
+        %div
+          = fa_icon 'trophy', class: 'gold'
+          = @user.rating
+      .col-md-9
+        %table.table.table-bordered.table-hover
+          %tr
+            %td Skype
+            %td
+              = @user.skype
+          %tr
+            %td BattleTag
+            %td
+              = @user.tag
+          - if @user == current_user
+            %tr
+              %td Email
+              %td
+                = @user.email
+          %tr
+            %td Зарегистрирован
+            %td
+              = @user.created_at.strftime("%d.%m.%Y")
+          - unless @user.about.empty?
+            %tr
+              %td{colspan: "2"}
+                = @user.about
+        .achievement
+          - achievements = Achievement.where(user_id: @user.id)
+          - if achievements
+            - achievements.each do |achievement|
+              = image_tag "rewards/#{achievement.reward}.svg", title: achievement.description, class: 'reward'

@@ -1,0 +1,37 @@
+%footer
+  .container
+    .row
+      .col-md-2
+        %ul
+          %li
+            = link_to 'Новости', root_path
+          %li
+            = link_to 'Турниры', tournaments_path
+          %li
+            = link_to 'Правила', rules_path
+          %li
+            = link_to 'Топ', top_path
+          %li
+            = link_to 'Команда', root_path
+            -#= link_to 'Команда', teams_path
+      .col-md-7.text-center
+        %div
+          Мы всегда открыты для сотрудничества.
+          %br
+          По любым возникающим вопросам и предложениям
+          %br
+          Вы можете обратиться по указанным контактам:
+        %div
+          = fa_icon 'skype'
+          = link_to 'hard.random', 'skype:hard.random?chat'
+        %div
+          = fa_icon 'envelope'
+          = link_to 'mailhardrandom@gmail.com', 'mailto:mailhardrandom@gmail.com'
+      .col-md-3
+        .row.social
+          = link_to 'https://facebook.com/hardrandom', target: 'blank', class: 'btn' do
+            = fa_icon 'facebook 2x'
+          = link_to 'http://vk.com/hardrandom', target: 'blank', class: 'btn' do
+            = fa_icon 'vk 2x'
+          = link_to 'https://twitter.com/HardRandom', target: 'blank', class: 'btn' do
+            = fa_icon 'twitter 2x'

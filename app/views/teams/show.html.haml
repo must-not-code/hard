@@ -1,0 +1,29 @@
+.col-md-8
+  .well
+    %h2
+      = link_to @team.title, team_path
+    %hr
+    .overflow
+      - @team.members.each do |member|
+        .col-md-12
+          .col-md-4
+            = image_tag member.photo, class: 'photo'
+          .col-md-5
+            %p
+              %strong
+                = member.nickname
+            %p
+              = member.name
+            %p
+              = member.role
+            %p
+              = member.birthday.strftime("%d.%m.%Y") if member.birthday
+            %p
+              = member.location
+          .col-md-3
+            .pull-right
+              - if member.vk
+                = link_to image_tag('vk.svg'), member.vk, target: 'blank'
+              - if member.twitch
+                = link_to image_tag('twitch.svg'), member.twitch, target: 'blank'
+              .spacer
