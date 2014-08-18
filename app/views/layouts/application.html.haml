@@ -30,7 +30,7 @@
                 = link_to 'Правила', rules_path
               %li{class: ('active' if current_page?('/top'))}
                 = link_to 'Топ', top_path
-              -#%li{class: ('active' if controller_name == 'teams')}
+              %li{class: ('active' if controller_name == 'teams')}
                 = link_to 'Команда', teams_path
             %ul.nav.navbar-nav.navbar-right
               - if logged_in?

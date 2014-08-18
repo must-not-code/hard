@@ -32,10 +32,10 @@ Hard::Application.routes.draw do
     post ':id/shuffle'            => :shuffle,         as: 'shuffle'
   end
 
-  #get  'teams'                    => 'teams#index',    as: 'teams'
-  #get  'teams/:game'              => 'teams#show',     as: 'team'
-  get  'teams',       to: redirect('/')
-  get  'teams/:game', to: redirect('/')
+  controller :teams, path: '/teams' do
+    get  '/'                      => :index,           as: 'teams'
+    get  ':game'                  => :show,            as: 'team'
+  end
 
   get  'rules'                    => 'rules#index',    as: 'rules'
 

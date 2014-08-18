@@ -20,7 +20,8 @@ $ ->
 
     render_fn = (container, data, score) ->
       return if not data.flag or not data.name
-      container.append('<img src="/classes/'+data.flag+'.png" width="20" height="20"/> ').append('<a href=/users/'+data.name+'>'+data.name+'</a>')
+      container.append('<img src="/classes/'+data.flag+'.png" width="20" height="20"/> ').
+        append('<a href=/users/'+encodeURIComponent(data.name)+'>'+data.name+'</a>')
 
     upload_bracket = () ->
       $.ajax
