@@ -2,27 +2,20 @@
   #carousel.carousel.slide{'data-ride' => 'carousel'}
     %ol.carousel-indicators
       %li.active{'data-slide-to' => '0', 'data-target' => '#carousel'}
-      -#%li{'data-slide-to' => '1', 'data-target' => '#carousel'}
-      -#%li{'data-slide-to' => '2', 'data-target' => '#carousel'}
+      %li{'data-slide-to' => '1', 'data-target' => '#carousel'}
     .carousel-inner
       .item.active
-        = link_to tournament_path(Tournament.last.id) do
-          = image_tag 'hs_carousel.png'
-          .container
-            .carousel-caption
-              %h1 Лига по HearthStone
-      -#.item
         = link_to team_path('lol') do
           = image_tag 'lol_carousel.png'
           .container
             .carousel-caption
               %h1 Команда по<br>League of Legends
-      -#.item
-        = link_to team_path('dota2') do
-          = image_tag 'dota_carousel.png'
+      .item
+        = link_to tournaments_path do
+          = image_tag 'hs_carousel.png'
           .container
             .carousel-caption
-              %h1 Команда по DOTA 2
+              %h1 Лига по HearthStone
     %a.left.carousel-control{'data-slide' => 'prev', href: '#carousel'}
       = fa_icon 'chevron-left', class: 'chevron'
     %a.right.carousel-control{'data-slide' => 'next', href: '#carousel'}
