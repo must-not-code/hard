@@ -5,11 +5,11 @@
       %li{'data-slide-to' => '1', 'data-target' => '#carousel'}
     .carousel-inner
       .item.active
-        = link_to team_path('lol') do
+        = link_to post_path(132) do
           = image_tag 'lol_carousel.png'
           .container
             .carousel-caption
-              %h1 Команда по<br>League of Legends
+              %h1 Новый состав по<br>League of Legends
       .item
         = link_to tournaments_path do
           = image_tag 'hs_carousel.png'
