@@ -4,7 +4,7 @@
       = link_to @team.title, team_path
     %hr
     .overflow
-      - @team.members.sort_by(&:updated_at).each do |member|
+      - @team.members.sort_by(&:position).each do |member|
         .col-md-12
           .col-md-4
             = image_tag member.photo, class: 'photo'
