@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811094357) do
+ActiveRecord::Schema.define(version: 20140819073328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140811094357) do
     t.string   "twitch"
     t.date     "birthday"
     t.string   "location"
+    t.integer  "position"
   end
 
   create_table "posts", force: true do |t|
