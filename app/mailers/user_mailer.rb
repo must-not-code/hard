@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: 'info@hardrandom.com'
+  default from: 'mailer@hardrandom.com'
 
   def activation_needed_email(user)
     @user = user

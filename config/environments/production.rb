@@ -82,10 +82,10 @@ Hard::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.sendgrid.net',
+    address:              'mail.hardrandom.com',
     port:                 587,
     domain:               'hardrandom.com',
-    user_name:            'slowpoke',
+    user_name:            'mailer',
     password:             ENV['MAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true}
