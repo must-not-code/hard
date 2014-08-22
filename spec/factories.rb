@@ -22,4 +22,8 @@ FactoryGirl.define do
     reset_password_token_expires_at nil
     reset_password_email_sent_at nil
   end
+
+  factory :tournament do
+    beginning {Time.now + 24*60*60}
+  end
 end
