@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819084917) do
+ActiveRecord::Schema.define(version: 20140822114500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20140819084917) do
   add_index "comments", ["user_id"], name: "index_comments_user", using: :btree
 
   create_table "kinds", force: true do |t|
-    t.string   "kind",          limit: 50
-    t.integer  "user_id",                  null: false
-    t.integer  "tournament_id",            null: false
+    t.string   "kind"
+    t.integer  "user_id",       null: false
+    t.integer  "tournament_id", null: false
     t.datetime "created_at"
     t.boolean  "confirm"
   end
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 20140819084917) do
 
   create_table "posts", force: true do |t|
     t.datetime "created_at"
-    t.string   "title",      limit: 50
+    t.string   "title"
     t.text     "content"
     t.integer  "user_id"
-    t.string   "game",       limit: 50, default: "hs"
+    t.string   "game",       default: "hs"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_user", using: :btree
@@ -101,34 +101,34 @@ ActiveRecord::Schema.define(version: 20140819084917) do
 
   create_table "tournaments", force: true do |t|
     t.datetime "created_at"
-    t.string   "title",        limit: 50
+    t.string   "title"
     t.text     "content"
     t.text     "standings"
     t.datetime "beginning"
     t.datetime "sign_up_end"
     t.datetime "check_in"
     t.datetime "check_in_end"
-    t.integer  "seats",                   default: 64
+    t.integer  "seats",        default: 64
   end
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
-    t.string   "username",                        limit: 50
-    t.string   "crypted_password",                limit: 60
-    t.string   "email",                           limit: 50
-    t.string   "avatar",                          limit: 50, default: "default_avatar"
-    t.integer  "rating",                                     default: 0
-    t.string   "tag",                             limit: 50, default: ""
-    t.string   "skype",                           limit: 50, default: ""
-    t.text     "about",                                      default: ""
-    t.string   "group",                                      default: "user"
-    t.string   "salt",                                       default: ""
+    t.string   "username"
+    t.string   "crypted_password"
+    t.string   "email"
+    t.string   "avatar",                          default: "default_avatar"
+    t.integer  "rating",                          default: 0
+    t.string   "tag",                             default: ""
+    t.string   "skype",                           default: ""
+    t.text     "about",                           default: ""
+    t.string   "group",                           default: "user"
+    t.string   "salt",                            default: ""
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.string   "activation_state"
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"
-    t.integer  "failed_logins_count",                        default: 0
+    t.integer  "failed_logins_count",             default: 0
     t.datetime "lock_expires_at"
     t.string   "unlock_token"
     t.string   "reset_password_token"
