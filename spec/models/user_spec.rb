@@ -19,12 +19,11 @@ describe User do
   end
 
   it do
-    should allow_value('go-ы go', 'й0ж или_Ёж').for(:username)
+    should allow_value('evil-penguin', 'Ёжик в тумане', 'pro_100_noob').for(:username)
   end
 
   it do
-    should_not allow_value('-x').
-      for(:username).
+    should_not allow_value('_nogebator777_').for(:username).
       with_message('Логин может содержать только латинские и русские буквы, цифры и символы (_- ) между ними.')
   end
 
@@ -32,6 +31,20 @@ describe User do
     should ensure_length_of(:email).
       is_at_least(6).is_at_most(70).
       with_message('Некорректная длина Email.')
+  end
+
+  it do
+    should allow_value('jopa@mail.ru').for(:email)
+  end
+
+  it do
+    should_not allow_value('jopamail.ru').for(:email).
+      with_message('Некорректный Email.')
+  end
+
+  it do
+    should_not allow_value('jopa@mailru').for(:email).
+      with_message('Некорректный Email.')
   end
 
   it do
@@ -56,7 +69,11 @@ describe User do
   end
 
   it do
-    should allow_value('', 'hardrandom').for(:skype)
+    should allow_value('', 'h,a-r.d_random').for(:skype)
+  end
+
+  it do
+    should_not allow_value('0lolol').for(:skype)
   end
 
   it do
@@ -65,7 +82,11 @@ describe User do
   end
 
   it do
-    should allow_value('', 'jopa#12345').for(:tag)
+    should allow_value('', 'jopa#12345', 'Ёжик#7777').for(:tag)
+  end
+
+  it do
+    should_not allow_value('jopa@12345').for(:tag)
   end
 
   it do
