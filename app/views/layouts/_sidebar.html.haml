@@ -2,7 +2,7 @@
   .col-md-4
     %aside.well
       %ul.nav.nav-list
-        - tournaments = Tournament.where(['beginning > ?', (Time.now - 8*60*60)]).order(created_at: :desc)
+        - tournaments = Tournament.where(show: true).order(created_at: :desc)
         - unless tournaments.empty?
           %li.dropdown-header Ближайшие турниры
           - tournaments.each do |tourney|
