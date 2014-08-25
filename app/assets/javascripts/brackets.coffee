@@ -1,12 +1,11 @@
 $ ->
   if $('#brackets').length
     saveFn = (data) ->
-      json = JSON.stringify(data)
       $.ajax
         url: gon.tournament_standings_path
         type: 'POST'
         data:
-          json: json
+          json: JSON.stringify(data)
 
     edit_fn = (container, data, doneCb) ->
       input = $('<input type="text">')
