@@ -15,6 +15,7 @@ gem 'gon'
 # JavaScript
 gem 'jquery-rails'
 gem 'coffee-rails',       '~> 4.0.0'
+gem 'lodash-rails'
 
 # CSS
 gem 'sass-rails',         '~> 4.0.2'

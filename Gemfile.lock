@@ -89,6 +89,11 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    handlebars_assets (0.17.1)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     hike (1.2.3)
     httparty (0.12.0)
       json (~> 1.8)
@@ -106,6 +111,8 @@ GEM
       addressable (~> 2.3.5)
       httparty (~> 0.12.0)
     libv8 (3.16.14.3)
+    lodash-rails (2.4.1)
+      railties (>= 3.1)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -235,10 +242,12 @@ DEPENDENCIES
   font-awesome-rails
   gon
   haml-rails
+  handlebars_assets
   jquery-rails
   json
   kaminari
   kappa
+  lodash-rails
   newrelic_rpm (>= 3.8.1)
   pg
   pry-rails
