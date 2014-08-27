@@ -22,6 +22,7 @@ Hard::Application.routes.draw do
 
   controller :tournaments, path: '/tournaments', as: 'tournament'  do
     get  ':id/list'               => :list,            as: 'list'
+    get  ':id/groups'             => :groups,          as: 'groups'
     get  ':id/bracket'            => :bracket,         as: 'bracket'
     get  ':id/results'            => :results,         as: 'results'
     post ':id/signup'             => :signup,          as: 'signup'

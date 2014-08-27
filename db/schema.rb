@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825120500) do
+ActiveRecord::Schema.define(version: 20140826140623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140825120500) do
     t.datetime "check_in_end"
     t.integer  "seats",        default: 64
     t.boolean  "show",         default: true
+    t.json     "groups"
   end
 
   create_table "users", force: true do |t|

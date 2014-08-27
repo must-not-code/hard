@@ -68,6 +68,9 @@
           = link_to 'Инфо', tournament_path(@tournament.id)
         %li{class: ('active' if action_name == 'list')}
           = link_to 'Участники', tournament_list_path(@tournament.id)
+        - if @tournament.groups
+          %li{class: ('active' if action_name == 'groups')}
+            = link_to 'Группы', tournament_groups_path(@tournament.id)
         %li{class: ('active' if action_name == 'bracket')}
           = link_to 'Сетка', tournament_bracket_path(@tournament.id)
         %li{class: ('active' if action_name == 'results')}
