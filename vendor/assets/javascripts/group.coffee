@@ -182,9 +182,8 @@
   generateNewMatchId = () ->
     ++localMatchCounter
 
-  localTeamCounter = 0
-  generateNewTeamId = () ->
-    ++localTeamCounter
+  generateNewTeamId = (participants) ->
+    localTeamCounter = if participants.size() > 0 then Math.max.apply(Math, participants['__wrapped__'].map((o) -> o['team'].id)) + 1 else 1
 
   initLocalTeamCounter = (participants) ->
     localTeamCounter = if participants.size() > 0 then participants.max("id").value().id else 0
@@ -248,7 +247,7 @@
           el.val()
         ).onValue (value) ->
           participantStream.push
-            id: generateNewTeamId()
+            id: generateNewTeamId(participants)
             name: value
             format: ""
             data: {}

@@ -15,10 +15,18 @@ class TournamentsController < ApplicationController
     render 'list', layout: 'tournament'
   end
 
+  def groups
+    @tournament = Tournament.find(params[:id])
+    tourney_gon(@tournament.id)
+    gon.push({admin: logged_in? ? current_user.group == 'admin' : false,
+              groups: @tournament.groups})
+    render 'groups', layout: 'tournament'
+  end
+
   def bracket
     @tournament = Tournament.find(params[:id])
     tourney_gon(@tournament.id)
-    gon.push({admin: logged_in? ? current_user.username == 'admin' : false,
+    gon.push({admin: logged_in? ? current_user.group == 'admin' : false,
               tournament_standings_path: tournament_standings_path(@tournament.id),
               tournament_shuffle_path: tournament_shuffle_path(@tournament.id)})
     render 'bracket', layout: 'tournament'
