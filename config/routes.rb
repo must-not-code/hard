@@ -42,9 +42,10 @@ Hard::Application.routes.draw do
 
   get  'password_reset'           => 'password_resets#new', as: 'new_password_reset'
 
-  controller :posts, path: '/posts' do
-    post 'save'                   => :save,            as: 'post_save'
-    post 'upload'                 => :upload
+  controller :posts, path: '/posts', as: 'post' do
+    post 'save'                   => :save,            as: 'save'
+    post 'upload'                 => :upload,          as: 'upload'
+    post ':id/approve'            => :approve,         as: 'approve'
   end
 
   resources :posts do

@@ -30,3 +30,6 @@
         Опубликовать
       - else
         Обновить
+    - unless new || @post.approved
+      %button#approve.btn.btn-hard
+        Утвердить

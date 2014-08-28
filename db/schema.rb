@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826140623) do
+ActiveRecord::Schema.define(version: 20140828083552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140826140623) do
     t.text     "content"
     t.integer  "user_id"
     t.string   "game",       default: "hs"
+    t.boolean  "approved"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_user", using: :btree

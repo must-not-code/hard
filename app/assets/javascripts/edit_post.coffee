@@ -32,7 +32,7 @@ $ ->
       $('#submit').attr('disabled', true)
       $.ajax
         type: 'POST'
-        url: gon.post_save
+        url: gon.post_save_path
         data:
           post: gon.post.id
           title: $('#title').val()
@@ -44,3 +44,12 @@ $ ->
           else
             warning(response.errors)
             $('#submit').removeAttr('disabled')
+
+    $('#approve').click ->
+      if confirm('Are you sure?')
+        $('#approve').attr('disabled', true)
+        $.ajax
+          type: 'POST'
+          url: gon.post_approve_path
+          success: ->
+            window.location.replace(gon.post_path)
