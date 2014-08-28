@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.order(id: :desc).page(params[:page]).per(10)
+    if moderator?
+      @posts = Post.order(id: :desc).page(params[:page]).per(10)
+    else
+      @posts = Post.where(approved: true).order(id: :desc).page(params[:page]).per(10)
+    end
   end
 
   def show
@@ -11,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    if logged_in? && current_user.group[/admin|newsman/]
+    if moderator?
       gon.push({post: {title: nil, game: nil, id: nil},
                 post_path: root_path,
                 post_save: post_save_path})
@@ -22,11 +26,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    if logged_in? && current_user.group[/admin|newsman/]
+    if moderator?
       @post = Post.find(params[:id])
       gon.push({post: @post,
                 post_path: post_path(@post.id),
-                post_save: post_save_path})
+                post_save_path: post_save_path,
+                post_approve_path: post_approve_path(@post.id)})
       render 'edit.html.haml'
     else
       head 403
@@ -34,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def save
-    if logged_in? && current_user.group[/admin|newsman/]
+    if moderator?
       if params[:post].empty?
         @post = Post.create(user_id: current_user.id,
                             title:   params[:title],
@@ -59,7 +64,7 @@ class PostsController < ApplicationController
   end
 
   def upload
-    if logged_in? && current_user.group[/admin|newsman/]
+    if moderator?
       img = Digest::SHA1.hexdigest(current_user.username + Time.now.to_i.to_s)[8..16]
       path = 'public/posts/' + img + params[:file].original_filename[/\.[^.]+\z/]
       File.open(path, "wb") do |file|
@@ -69,5 +74,19 @@ class PostsController < ApplicationController
     else
       head 403
     end
+  end
+
+  def approve
+    if moderator?
+      Post.find(params[:id]).update(approved: true)
+      head 200
+    else
+      head 403
+    end
+  end
+
+  private
+  def moderator?
+    logged_in? && current_user.group[/admin|newsman/]
   end
 end
