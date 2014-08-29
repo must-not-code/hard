@@ -17,6 +17,10 @@ describe 'Routing for Tournaments' do
     expect(get: '/tournaments/123/groups').to route_to(controller: 'tournaments', action: 'groups', id: '123')
   end
 
+  it 'routes "/tournaments/:id/groups" to tournaments#update_groups' do
+    expect(post: '/tournaments/123/groups').to route_to(controller: 'tournaments', action: 'update_groups', id: '123')
+  end
+
   it 'routes "/tournaments/:id/bracket" to tournaments#bracket' do
     expect(get: '/tournaments/123/bracket').to route_to(controller: 'tournaments', action: 'bracket', id: '123')
   end

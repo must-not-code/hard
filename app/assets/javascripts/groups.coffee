@@ -1,13 +1,19 @@
 $ ->
   if $('#groups').length
     label = (team) ->
-      '<img src="/classes/' + team.hero + '.png" width="20" height="20"/> <a href=/users/' + encodeURIComponent(team.name) + '>' + team.name + '</a>'
+      '<img src="/classes/' + team.format + '.png" width="20" height="20"/> <a href=/users/' + encodeURIComponent(team.name) + '>' + team.name + '</a>'
 
-    save_json = (state) ->
-      #alert(JSON.stringify(state))
+    render_group = (char, data) ->
+      $("#group-#{char}").group
+        init: data
+        labeler: label
+        save: ((state) ->
+          $.ajax
+            url: gon.update_group_path
+            type: 'POST'
+            data:
+              char: char
+              json: JSON.stringify(state)) if gon.admin
 
     for key, value of gon.groups
-      $("#group-#{key}").group
-        init: value
-        labeler: label
-        save: save_json if gon.admin
+      render_group(key, value)
