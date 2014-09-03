@@ -1,7 +1,11 @@
 $ ->
   if $('#groups').length
     label = (team) ->
-      '<img src="/classes/' + team.format + '.png" width="20" height="20"/> <a href=/users/' + encodeURIComponent(team.name) + '>' + team.name + '</a>'
+      if team.format != ''
+        flag = '<img src="/classes/' + team.format + '.png"/> '
+      else
+        flag = ''
+      flag + '<a href=/users/' + encodeURIComponent(team.name) + '>' + team.name + '</a>'
 
     render_group = (char, data) ->
       $("#group-#{char}").group
