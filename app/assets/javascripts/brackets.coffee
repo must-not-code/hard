@@ -18,9 +18,15 @@ $ ->
           name: input.val()
 
     render_fn = (container, data, score) ->
-      return if not data.flag or not data.name
-      container.append('<img src="/classes/'+data.flag+'.png" width="20" height="20"/> ').
-        append('<a href=/users/'+encodeURIComponent(data.name)+'>'+data.name+'</a>')
+      if data.flag
+        container.append('<img src="/classes/'+data.flag+'.png"/> ')
+      else
+        container.append('')
+
+      if data.name
+        container.append('<a href=/users/'+encodeURIComponent(data.name)+'>'+data.name+'</a>')
+      else
+        container.append('')
 
     upload_bracket = () ->
       $.ajax
