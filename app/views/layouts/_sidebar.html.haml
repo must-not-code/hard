@@ -16,7 +16,7 @@
                       = tourney.users.count
                       = fa_icon 'user'
         %li.dropdown-header Последние посты
-        - Post.last(5).reverse.each do |post|
+        - Post.where(approved: true).last(5).reverse.each do |post|
           %li
             = link_to post_path(post.id) do
               .row
