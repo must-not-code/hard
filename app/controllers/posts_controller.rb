@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if moderator?
       gon.push({post: {title: nil, game: nil, id: nil},
                 post_path: root_path,
-                post_save: post_save_path})
+                post_save_path: post_save_path})
       render 'edit.html.haml'
     else
       head 403
