@@ -5,7 +5,9 @@
   %th
     = link_to user.username, user_path(user.username)
   %th
-    = image_tag "/classes/#{user.kinds.find_by(tournament_id: @tournament.id).kind}.png", class: 'minipic'
+    - hero = user.kinds.find_by(tournament_id: @tournament.id).kind
+    - unless hero.empty?
+      = image_tag "/classes/#{hero}.png", class: 'minipic'
   %th
     = user.tag
   %th

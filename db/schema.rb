@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828083552) do
+ActiveRecord::Schema.define(version: 20140906165420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,9 +109,10 @@ ActiveRecord::Schema.define(version: 20140828083552) do
     t.datetime "sign_up_end"
     t.datetime "check_in"
     t.datetime "check_in_end"
-    t.integer  "seats",        default: 64
-    t.boolean  "show",         default: true
+    t.integer  "seats",                  default: 64
+    t.boolean  "show",                   default: true
     t.json     "groups"
+    t.boolean  "skip_consolation_round"
   end
 
   create_table "users", force: true do |t|

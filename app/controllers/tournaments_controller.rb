@@ -28,6 +28,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
     tourney_gon(@tournament.id)
     gon.push({admin: logged_in? ? current_user.group == 'admin' : false,
+              skip_consolation_round: @tournament.skip_consolation_round,
               tournament_standings_path: tournament_standings_path(@tournament.id),
               tournament_shuffle_path: tournament_shuffle_path(@tournament.id)})
     render 'bracket', layout: 'tournament'
