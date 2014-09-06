@@ -35,6 +35,7 @@ $ ->
         success: (standings) ->
           $('#brackets').bracket
             init: standings
+            skipConsolationRound: gon.skip_consolation_round
             save: saveFn if gon.admin
             decorator:
               edit: edit_fn
