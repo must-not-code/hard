@@ -83,9 +83,9 @@ class TournamentsController < ApplicationController
       elsif tournament.sign_up_end < Time.now
         render json: {success: false,
                       errors: 'К сожалению, истекло время для записи на этот турнир.'}
-      elsif user.rating <= tournament.passing_score
+      elsif user.rating < tournament.passing_score
         render json: {success: false,
-                      errors: "Для регистрации в этом турнире ваш рейтинг должен быть #{tournament.rating}+."}
+                      errors: "Для регистрации в этом турнире ваш рейтинг должен быть #{tournament.passing_score}+."}
       else
         tournament.users << user
         tournament.save
