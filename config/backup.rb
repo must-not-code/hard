@@ -36,14 +36,13 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
     mail.on_warning       = true
     mail.on_failure       = true
 
-    mail.from             = 'backup@hardrandom.com'
+    mail.from             = 'mailer@hardrandom.com'
     mail.to               = 'test4food@me.com'
-    mail.address          = 'smtp.sendgrid.net'
+    mail.address          = 'mail.hardrandom.com'
     mail.port             = 587
-    mail.user_name        = 'slowpoke'
+    mail.user_name        = 'mailer'
     mail.password         = ENV['MAIL_PASSWORD']
     mail.domain           = 'hardrandom.com'
     mail.authentication   = 'plain'
-    mail.encryption       = :starttls
   end
 end
