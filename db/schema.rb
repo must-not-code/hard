@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906165420) do
+ActiveRecord::Schema.define(version: 20140914144938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 20140906165420) do
     t.boolean  "show",                   default: true
     t.json     "groups"
     t.boolean  "skip_consolation_round"
+    t.integer  "passing_score",          default: 0
+    t.boolean  "skip_secondary_final"
   end
 
   create_table "users", force: true do |t|

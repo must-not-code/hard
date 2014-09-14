@@ -36,6 +36,7 @@ $ ->
           $('#brackets').bracket
             init: standings
             skipConsolationRound: gon.skip_consolation_round
+            skipSecondaryFinal: gon.skip_secondary_final
             save: saveFn if gon.admin
             decorator:
               edit: edit_fn
