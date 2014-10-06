@@ -35,7 +35,8 @@ Hard::Application.routes.draw do
   end
 
   controller :teams, path: '/teams' do
-    get  '/'                      => :index,           as: 'teams'
+    #get  '/'                      => :index,           as: 'teams'
+    get  '/', to: redirect('/teams/lol'),              as: 'teams'
     get  ':game'                  => :show,            as: 'team'
   end
 
