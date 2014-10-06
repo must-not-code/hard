@@ -4,7 +4,7 @@
       %ul.nav.nav-list
         - tournaments = Tournament.where(show: true).order(created_at: :desc)
         - unless tournaments.empty?
-          %li.dropdown-header Ближайшие турниры
+          %li.dropdown-header Наши турниры
           - tournaments.each do |tourney|
             %li
               = link_to tournament_path(tourney.id) do

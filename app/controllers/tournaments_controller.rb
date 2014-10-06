@@ -6,13 +6,11 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     tourney_gon(@tournament.id)
-    render 'show', layout: 'tournament'
   end
 
   def list
     @tournament = Tournament.find(params[:id])
     tourney_gon(@tournament.id)
-    render 'list', layout: 'tournament'
   end
 
   def groups
@@ -21,7 +19,6 @@ class TournamentsController < ApplicationController
     gon.push({admin: logged_in? ? current_user.group == 'admin' : false,
               update_group_path: tournament_update_groups_path(@tournament.id),
               groups: @tournament.groups})
-    render 'groups', layout: 'tournament'
   end
 
   def bracket
@@ -32,7 +29,6 @@ class TournamentsController < ApplicationController
               skip_secondary_final: @tournament.skip_secondary_final,
               tournament_standings_path: tournament_standings_path(@tournament.id),
               tournament_shuffle_path: tournament_shuffle_path(@tournament.id)})
-    render 'bracket', layout: 'tournament'
   end
 
   def results
@@ -41,7 +37,6 @@ class TournamentsController < ApplicationController
     gon.push({tournament_id: @tournament.id,
               results_path: results_path,
               tournament_results_path: tournament_results_path(@tournament.id)})
-    render 'results', layout: 'tournament'
   end
 
   def update_groups

@@ -1,5 +1,9 @@
-#groups
-  - @tournament.groups.each do |group|
-    - index = group.first
-    %h3 Группа #{index}
-    %div{id: "group-#{index}"}
+.col-md-8
+  .well
+    = render 'navigation'
+    .overflow
+      #groups
+        - @tournament.groups.each do |group|
+          - index = group.first
+          %h3 Группа #{index}
+          %div{id: "group-#{index}"}

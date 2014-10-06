@@ -1,9 +1,13 @@
-#bracket
-  - if @tournament.standings
-    #brackets
-  - else
-    - if logged_in? && current_user.group[/admin/]
-      %button#shuffle.btn.btn-warning Сгенерить сетку
-    - else
-      %p
-        Турнирная сетка пока еще не сформирована.
+.col-md-8
+  .well
+    = render 'navigation'
+    .overflow
+      #bracket
+        - if @tournament.standings
+          #brackets
+        - else
+          - if logged_in? && current_user.group[/admin/]
+            %button#shuffle.btn.btn-warning Сгенерить сетку
+          - else
+            %p
+              Турнирная сетка пока еще не сформирована.
