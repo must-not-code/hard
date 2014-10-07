@@ -78,7 +78,7 @@ class PostsController < ApplicationController
 
   def approve
     if moderator?
-      Post.find(params[:id]).update(approved: true)
+      Post.find(params[:id]).update(approved: true, created_at: Time.now)
       head 200
     else
       head 403
