@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   def index
     if moderator?
-      @posts = Post.order(id: :desc).page(params[:page]).per(10)
+      @posts = Post.order('created_at DESC').page(params[:page]).per(10)
     else
-      @posts = Post.where(approved: true).order(id: :desc).page(params[:page]).per(10)
+      @posts = Post.where(approved: true).order('created_at DESC').page(params[:page]).per(10)
     end
   end
 
