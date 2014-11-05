@@ -29,7 +29,7 @@
         %li.dropdown-header Стримы
         - Stream.order(views: :desc).each do |stream|
           %li
-            = link_to stream.url, target: 'blank' do
+            = link_to "http://twitch.tv/#{stream.channel}", target: 'blank' do
               = stream.streamer
               %span.pull-right
                 - if stream.online

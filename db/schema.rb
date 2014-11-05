@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914144938) do
+ActiveRecord::Schema.define(version: 20141105124916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,8 +87,6 @@ ActiveRecord::Schema.define(version: 20140914144938) do
     t.string  "streamer"
     t.integer "views"
     t.boolean "online"
-    t.string  "url"
-    t.string  "game"
     t.string  "channel"
   end
 
