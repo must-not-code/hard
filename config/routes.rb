@@ -10,7 +10,6 @@ Hard::Application.routes.draw do
   controller :users do
     get  'signup'                 => :new,             as: 'signup'
     post 'users'                  => :create
-    get  'top'                    => :top,             as: 'top'
     get  'users/:username'        => :show,            as: 'user'
     get  'users/:username/edit'   => :edit,            as: 'edit_user'
     put  'users/:username'        => :update
@@ -21,6 +20,8 @@ Hard::Application.routes.draw do
   end
 
   controller :tournaments, path: '/tournaments', as: 'tournament'  do
+    get  'top'                    => :top,             as: 'top'
+    get  'rules'                  => :rules,           as: 'rules'
     get  ':id/list'               => :list,            as: 'list'
     get  ':id/groups'             => :groups,          as: 'groups'
     post ':id/groups'             => :update_groups,   as: 'update_groups'
@@ -39,8 +40,6 @@ Hard::Application.routes.draw do
     get  '/', to: redirect('/teams/lol'),              as: 'teams'
     get  ':game'                  => :show,            as: 'team'
   end
-
-  get  'rules'                    => 'rules#index',    as: 'rules'
 
   get  'password_reset'           => 'password_resets#new', as: 'new_password_reset'
 

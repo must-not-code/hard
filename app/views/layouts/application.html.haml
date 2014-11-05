@@ -25,11 +25,6 @@
                 = link_to 'Новости', root_path
               %li{class: ('active' if controller_name == 'tournaments')}
                 = link_to 'Турниры', tournaments_path
-              %li
-              %li{class: ('active' if current_page?('/rules'))}
-                = link_to 'Правила', rules_path
-              %li{class: ('active' if current_page?('/top'))}
-                = link_to 'Топ', top_path
               %li{class: ('active' if controller_name == 'teams')}
                 = link_to 'Команда', teams_path
             %ul.nav.navbar-nav.navbar-right

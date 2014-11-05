@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 describe 'Routing for Tournaments' do
+  it 'routes "/tournaments/top" to tournaments#top' do
+    expect(get: '/tournaments/top').to route_to(controller: 'tournaments', action: 'top')
+  end
+
+  it 'routes "/tournaments/rules" to rules#index' do
+    expect(get: '/tournaments/rules').to route_to(controller: 'tournaments', action: 'rules')
+  end
+
   it 'routes "/tournaments" to tournaments#index' do
     expect(get: '/tournaments').to route_to(controller: 'tournaments', action: 'index')
   end

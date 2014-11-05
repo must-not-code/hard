@@ -1,0 +1,9 @@
+%h2
+  = link_to 'Наши турниры', tournaments_path
+%ul.nav.nav-tabs.nav-justified
+  %li{class: ('active' if action_name == 'index')}
+    = link_to 'Список турниров', tournaments_path
+  %li{class: ('active' if action_name == 'rules')}
+    = link_to 'Правила', tournament_rules_path
+  %li{class: ('active' if action_name == 'top')}
+    = link_to 'Топ', tournament_top_path

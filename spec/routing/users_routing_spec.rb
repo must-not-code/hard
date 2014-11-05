@@ -29,10 +29,6 @@ describe 'Routing for Users' do
     expect(post: '/users/admin/avatar').to route_to(controller: 'users', action: 'avatar', username: 'admin')
   end
 
-  it 'routes "/top" to users#top' do
-    expect(get: '/top').to route_to(controller: 'users', action: 'top')
-  end
-
   it 'routes "/change_password" to users#change_password' do
     expect(get: '/change_password').to route_to(controller: 'users', action: 'change_password')
   end
