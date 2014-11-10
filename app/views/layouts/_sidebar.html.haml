@@ -29,9 +29,9 @@
         %li.dropdown-header Стримы
         - Stream.order(views: :desc).each do |stream|
           %li
-            = link_to "http://twitch.tv/#{stream.channel}", target: 'blank' do
+            = link_to stream_path(stream.channel) do
               = stream.streamer
-              %span.pull-right
+              .pull-right
                 - if stream.online
                   = fa_icon 'eye', class: 'green'
                 - else

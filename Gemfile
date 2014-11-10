@@ -42,7 +42,7 @@ gem 'kaminari'
 
 # Stream
 gem 'daemons',                        require: false
-gem 'kappa',                          require: false
+gem 'kappa'
 
 # Backup
 gem 'backup',                         require: false

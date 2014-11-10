@@ -43,6 +43,8 @@ Hard::Application.routes.draw do
 
   get  'password_reset'           => 'password_resets#new', as: 'new_password_reset'
 
+  get 'streams/:channel'         => 'streams#show',   as: 'stream'
+
   controller :posts, path: '/posts', as: 'post' do
     post 'save'                   => :save,            as: 'save'
     post 'upload'                 => :upload,          as: 'upload'
@@ -53,6 +55,7 @@ Hard::Application.routes.draw do
     get 'page/:page', action: :index, on: :collection
   end
 
+  resources :streams
   resources :comments
   resources :results
   resources :tournaments

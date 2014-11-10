@@ -25,6 +25,8 @@
                 = link_to 'Новости', root_path
               %li{class: ('active' if controller_name == 'tournaments')}
                 = link_to 'Турниры', tournaments_path
+              %li{class: ('active' if controller_name == 'streams')}
+                = link_to 'Стримы', streams_path
               %li{class: ('active' if controller_name == 'teams')}
                 = link_to 'Команда', teams_path
             %ul.nav.navbar-nav.navbar-right
