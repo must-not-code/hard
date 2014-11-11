@@ -3,11 +3,12 @@
     %h2
       = link_to @stream.streamer, stream_path(@stream.channel)
     %hr
-    .overflow
-      %object{data: "http://www.twitch.tv/widgets/live_embed_player.swf?channel=#{@stream.channel}", width: '100%', height: '430', type: 'application/x-shockwave-flash', bgcolor: '#000000'}
+    .embed
+      %object{data: "http://www.twitch.tv/widgets/live_embed_player.swf?channel=#{@stream.channel}", type: 'application/x-shockwave-flash', bgcolor: '#000000'}
         %param{name: 'allowFullScreen', value: 'true'}
         %param{name: 'allowScriptAccess', value: 'always'}
         %param{name: 'allowNetworking', value: 'all'}
         %param{name: 'movie', value: 'http://www.twitch.tv/widgets/live_embed_player.swf'}
         %param{name: 'flashvars', value: "hostname=www.twitch.tv&channel=#{@stream.channel}&auto_play=true&start_volume=100"}
-      %iframe{width: '100%', height: '500', scrolling: 'no', src: "http://twitch.tv/chat/embed?channel=#{@stream.channel}&popout_chat=true", frameborder: '0'}
+    .embed
+      %iframe.twitch-chat{scrolling: 'yes', src: "http://twitch.tv/chat/embed?channel=#{@stream.channel}&popout_chat=true", frameborder: '0'}

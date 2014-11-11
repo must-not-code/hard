@@ -4,6 +4,6 @@ class StreamsController < ApplicationController
   end
 
   def show
-    @stream = Stream.find_by_channel(params[:channel])
+    @stream = Stream.find_by_channel(params[:id])
   end
 end

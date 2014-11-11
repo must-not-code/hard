@@ -1,0 +1,7 @@
+.col-md-8
+  .well
+    %h2
+      = link_to @video.title, video_path(@video.youtube_id)
+    %hr
+    .embed
+      %iframe{allowfullscreen: '', frameborder: '0', src: "//www.youtube.com/embed/#{@video.youtube_id}"}

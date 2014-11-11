@@ -1,0 +1,14 @@
+.col-md-8
+  .well
+    %h2
+      = link_to 'Видео', videos_path
+    %hr
+    .overflow
+      - @videos.each do |video|
+        .col-md-6
+          .youtube-banner
+            = link_to video_path(video.youtube_id) do
+              = image_tag "http://i.ytimg.com/vi/#{video.youtube_id}/mqdefault.jpg"
+            %span
+              = video.title
+    = paginate @videos
