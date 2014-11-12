@@ -62,4 +62,6 @@ Hard::Application.routes.draw do
   resources :results
   resources :tournaments
   resources :password_resets
+
+  ActiveAdmin.routes(self)
 end

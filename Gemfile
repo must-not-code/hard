@@ -40,6 +40,9 @@ gem 'tinymce-rails'
 # Pagination
 gem 'kaminari'
 
+# Administration
+gem 'activeadmin',        github: 'activeadmin'
+
 # Stream
 gem 'daemons',                        require: false
 gem 'kappa'
