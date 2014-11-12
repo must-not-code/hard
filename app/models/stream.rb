@@ -1,5 +1,8 @@
 class Stream < ActiveRecord::Base
   before_save do
-    self.banner_url = Twitch.channels.get(self.channel).video_banner_url
+    stream = Twitch.channels.get(self.channel)
+    if stream
+      self.banner_url = stream.video_banner_url
+    end
   end
 end
