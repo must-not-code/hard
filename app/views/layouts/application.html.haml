@@ -39,6 +39,11 @@
                     = current_user.username
                     %b.caret
                   %ul.dropdown-menu
+                    - if current_user.group[/admin/]
+                      %li
+                        = link_to admin_root_path do
+                          = fa_icon 'linux'
+                          Админка
                     - if current_user.group[/admin|newsman/]
                       %li
                         = link_to new_post_path do

@@ -27,7 +27,9 @@
           .col-md-3
             .member-social.pull-right
               - if member.vk
-                = link_to image_tag('vk.svg'), member.vk, target: 'blank'
+                = link_to member.vk, class: 'btn' do
+                  = fa_icon 'vk lg'
               - if member.twitch
-                = link_to image_tag('twitch.svg'), member.twitch, target: 'blank'
+                = link_to member.twitch, class: 'btn' do
+                  = fa_icon 'twitch lg'
               .spacer
