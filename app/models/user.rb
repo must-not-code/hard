@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  has_many :tournaments, through: :kinds
+  has_many :achievements
+  has_many :comments
+  has_many :posts
+  has_many :kinds
+
   validates :username,
     uniqueness: {case_sensitive: false,
       message: 'Пользователь с таким логином уже зарегистрирован.'},
@@ -42,10 +48,4 @@ class User < ActiveRecord::Base
       too_short: 'Не скромничайте. Оставьте о себе больше трех букв.',
       too_long: 'Недопустимое количество символов.'},
     allow_blank: true
-
-  has_many :tournaments, through: :kinds
-  has_many :achievements
-  has_many :comments
-  has_many :posts
-  has_many :kinds
 end

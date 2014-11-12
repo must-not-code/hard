@@ -4,6 +4,19 @@
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging, :external
 Rails.application.config.sorcery.submodules = [:remember_me, :user_activation, :brute_force_protection, :reset_password]
 
+module Sorcery
+  module Controller
+    module InstanceMethods
+      def authenticate_admin
+        unless logged_in? && current_user.group[/admin/]
+          session[:return_to_url] = request.url if Config.save_return_to_url && request.get?
+          self.send(Config.not_authenticated_action)
+        end
+      end
+    end
+  end
+end
+
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
   # -- core --
