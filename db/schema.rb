@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112115924) do
+ActiveRecord::Schema.define(version: 20141112122905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141112115924) do
     t.integer  "post_id",       null: false
     t.integer  "user_id",       null: false
     t.integer  "tournament_id"
+    t.datetime "updated_at"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_post", using: :btree
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20141112115924) do
     t.integer  "tournament_id", null: false
     t.datetime "created_at"
     t.boolean  "confirm"
+    t.datetime "updated_at"
   end
 
   add_index "kinds", ["tournament_id"], name: "index_kinds_tournament", using: :btree
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 20141112115924) do
     t.integer  "user_id"
     t.string   "game",       default: "hs"
     t.boolean  "approved"
+    t.datetime "updated_at"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_user", using: :btree
@@ -99,11 +102,13 @@ ActiveRecord::Schema.define(version: 20141112115924) do
   add_index "results", ["user_id"], name: "index_results_user", using: :btree
 
   create_table "streams", force: true do |t|
-    t.string  "streamer"
-    t.integer "views"
-    t.boolean "online"
-    t.string  "channel"
-    t.string  "banner_url"
+    t.string   "streamer"
+    t.integer  "views"
+    t.boolean  "online"
+    t.string   "channel"
+    t.string   "banner_url"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "teams", force: true do |t|
@@ -129,6 +134,7 @@ ActiveRecord::Schema.define(version: 20141112115924) do
     t.boolean  "skip_consolation_round"
     t.integer  "passing_score",          default: 0
     t.boolean  "skip_secondary_final"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -154,6 +160,7 @@ ActiveRecord::Schema.define(version: 20141112115924) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
