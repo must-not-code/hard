@@ -4,6 +4,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = Video.find_by_youtube_id(params[:id])
+    @video = Video.find_by_youtube_hash(params[:id])
   end
 end

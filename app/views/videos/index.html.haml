@@ -7,8 +7,8 @@
       - @videos.each do |video|
         .col-md-6
           .youtube-banner
-            = link_to video_path(video.youtube_id) do
-              = image_tag "http://i.ytimg.com/vi/#{video.youtube_id}/mqdefault.jpg"
+            = link_to video_path(video.youtube_hash) do
+              = image_tag "http://i.ytimg.com/vi/#{video.youtube_hash}/mqdefault.jpg"
             %span
               = video.title
     = paginate @videos
