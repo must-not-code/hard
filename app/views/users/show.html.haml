@@ -36,7 +36,7 @@
             %td Зарегистрирован
             %td
               = @user.created_at.strftime("%d.%m.%Y")
-          - unless @user.about.empty?
+          - if @user.about
             %tr
               %td{colspan: "2"}
                 = @user.about

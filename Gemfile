@@ -4,6 +4,7 @@ gem 'rails',                 '4.1.5'
 
 # Database
 gem 'pg'
+gem 'nilify_blanks'
 
 # Authentication
 gem 'sorcery'

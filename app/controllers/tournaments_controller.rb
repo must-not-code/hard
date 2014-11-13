@@ -70,7 +70,7 @@ class TournamentsController < ApplicationController
       if user.activation_state != 'active'
         render json: {success: false,
                       errors: 'Для участия в турнире вам нужно активировать аккаунт, пройдя по ссылке из письма, отправленного вам при регистрации.'}
-      elsif user.skype == '' or user.tag == ''
+      elsif user.skype.nil? or user.tag.nil?
         render json: {success: false,
                       errors: "Вам необходимо указать свой Skype и BattleTag в <a href='#{user_path(user.username)}'>настройках профиля</a>."}
       elsif tournament.users.find_by(id: user.id)
