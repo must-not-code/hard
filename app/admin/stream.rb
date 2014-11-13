@@ -18,4 +18,12 @@ ActiveAdmin.register Stream do
   filter :online, as: :check_boxes
   filter :created_at
   filter :updated_at
+
+  form do |f|
+    f.inputs do
+      f.input :streamer
+      f.input :channel
+    end
+    f.actions
+  end
 end
