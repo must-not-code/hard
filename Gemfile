@@ -12,6 +12,7 @@ gem 'sorcery'
 # Views
 gem 'haml-rails'
 gem 'gon'
+gem 'truncate_html'
 
 # JavaScript
 gem 'jquery-rails'
