@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe Team do
+describe Crew do
   it { should have_many(:members) }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113161629) do
+ActiveRecord::Schema.define(version: 20141114141118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20141113161629) do
   add_index "comments", ["post_id"], name: "index_comments_post", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_user", using: :btree
 
+  create_table "crews", force: true do |t|
+    t.string   "game"
+    t.string   "title"
+    t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "kinds", force: true do |t|
     t.string   "kind"
     t.integer  "user_id",       null: false
@@ -68,7 +76,7 @@ ActiveRecord::Schema.define(version: 20141113161629) do
     t.string   "nickname"
     t.string   "role"
     t.string   "photo"
-    t.integer  "team_id"
+    t.integer  "crew_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "vk"
@@ -109,14 +117,6 @@ ActiveRecord::Schema.define(version: 20141113161629) do
     t.string   "banner_url"
     t.datetime "updated_at"
     t.datetime "created_at"
-  end
-
-  create_table "teams", force: true do |t|
-    t.string   "game"
-    t.string   "title"
-    t.string   "logo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "tournaments", force: true do |t|

@@ -29,8 +29,8 @@
                 = link_to 'Стримы', streams_path
               %li{class: ('active' if controller_name == 'videos')}
                 = link_to 'Видео', videos_path
-              %li{class: ('active' if controller_name == 'teams')}
-                = link_to 'Команда', teams_path
+              %li{class: ('active' if controller_name == 'crews')}
+                = link_to 'Команда', crews_path
             %ul.nav.navbar-nav.navbar-right
               - if logged_in?
                 %li.dropdown
