@@ -32,6 +32,8 @@ GEM
       activesupport (= 4.1.5)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    activeadmin_hstore_editor (0.0.4)
+      railties (>= 3.0, < 5.0)
     activemodel (4.1.5)
       activesupport (= 4.1.5)
       builder (~> 3.1)
@@ -275,6 +277,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activeadmin_hstore_editor
   backup
   better_errors
   bootstrap-sass (~> 3.1.1)
