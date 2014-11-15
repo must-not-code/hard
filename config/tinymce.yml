@@ -4,13 +4,13 @@ height: 400
 convert_urls: false
 valid_elements: "*[*]"
 plugins:
-  - advlist 
-  - autolink 
-  - lists 
-  - link 
-  - image 
-  - charmap 
-  - print 
+  - advlist
+  - autolink
+  - lists
+  - link
+  - image
+  - charmap
+  - print
   - searchreplace
   - code
   - media

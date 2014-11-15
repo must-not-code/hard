@@ -8,14 +8,14 @@ ActiveAdmin.register Tournament do
     column :title
     column :show
     column :content
-    column :beginning
-    column :sign_up_end
-    column :check_in
-    column :check_in_end
     column :seats
     column :passing_score
     column :skip_consolation_round
     column :skip_secondary_final
+    column :beginning
+    column :sign_up_end
+    column :check_in
+    column :check_in_end
     column :standings
     column :groups
     column :created_at
@@ -39,15 +39,15 @@ ActiveAdmin.register Tournament do
     f.inputs do
       f.input :title
       f.input :show
-      f.input :content, input_html: {class: 'tinymce'}
-      f.input :beginning
-      f.input :sign_up_end
-      f.input :check_in
-      f.input :check_in_end
+      f.input :content
       f.input :seats
       f.input :passing_score
       f.input :skip_consolation_round
       f.input :skip_secondary_final
+      f.input :beginning
+      f.input :sign_up_end
+      f.input :check_in
+      f.input :check_in_end
       f.input :standings, as: :hstore
       f.input :groups, as: :hstore
     end
