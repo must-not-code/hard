@@ -158,7 +158,7 @@ class TournamentsController < ApplicationController
       end
 
       bracket = {teams: teams_in_pairs, results: results}
-      Tournament.find(params[:id]).update(standings: bracket.to_json)
+      Tournament.find(params[:id]).update(standings: bracket)
       head 200
     else
       head 403

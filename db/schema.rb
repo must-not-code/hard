@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115152514) do
+ActiveRecord::Schema.define(version: 20141115154530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 20141115152514) do
     t.datetime "created_at"
     t.string   "title"
     t.text     "content"
-    t.text     "standings"
     t.datetime "beginning"
     t.datetime "sign_up_end"
     t.datetime "check_in"
@@ -135,7 +134,7 @@ ActiveRecord::Schema.define(version: 20141115152514) do
     t.integer  "passing_score",          default: 0
     t.boolean  "skip_secondary_final"
     t.datetime "updated_at"
-    t.json     "temp_standings"
+    t.json     "standings"
   end
 
   create_table "users", force: true do |t|
