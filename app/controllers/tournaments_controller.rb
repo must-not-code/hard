@@ -31,6 +31,11 @@ class TournamentsController < ApplicationController
               tournament_shuffle_path: tournament_shuffle_path(@tournament.id)})
   end
 
+  def rules
+    @tournament = Tournament.find(params[:id])
+    tourney_gon(@tournament.id)
+  end
+
   def results
     @tournament = Tournament.find(params[:id])
     tourney_gon(@tournament.id)

@@ -5,10 +5,6 @@ describe 'Routing for Tournaments' do
     expect(get: '/tournaments/top').to route_to(controller: 'tournaments', action: 'top')
   end
 
-  it 'routes "/tournaments/rules" to rules#index' do
-    expect(get: '/tournaments/rules').to route_to(controller: 'tournaments', action: 'rules')
-  end
-
   it 'routes "/tournaments" to tournaments#index' do
     expect(get: '/tournaments').to route_to(controller: 'tournaments', action: 'index')
   end
@@ -31,6 +27,10 @@ describe 'Routing for Tournaments' do
 
   it 'routes "/tournaments/:id/bracket" to tournaments#bracket' do
     expect(get: '/tournaments/123/bracket').to route_to(controller: 'tournaments', action: 'bracket', id: '123')
+  end
+
+  it 'routes "/tournaments/:id/rules" to tournaments#rules' do
+    expect(get: '/tournaments/123/rules').to route_to(controller: 'tournaments', action: 'rules', id: '123')
   end
 
   it 'routes "/tournaments/:id/results" to tournaments#results' do

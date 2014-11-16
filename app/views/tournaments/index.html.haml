@@ -1,6 +1,8 @@
 .col-md-8
   .well
-    = render 'navbar'
+    %h2
+      = link_to 'Список турниров', tournaments_path
+    %hr
     %table.table.tourney-table
       - @tournaments.each do |tournament|
         %tr

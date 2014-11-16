@@ -2,6 +2,8 @@
   .well
     = render 'navigation'
     .overflow
+      #promo
+        = @tournament.promo.html_safe if @tournament.promo
       #players-list
         - seats = @tournament.seats
         %table.table.table-responsive.tourney-table

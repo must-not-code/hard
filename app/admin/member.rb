@@ -6,13 +6,6 @@ ActiveAdmin.register Member do
     column :name
     column :nickname
     column :role
-    column :birthday
-    column :location
-    column :photo
-    column :vk
-    column :twitch
-    column :status
-    column :position
     column :created_at
     column :updated_at
 
@@ -23,13 +16,6 @@ ActiveAdmin.register Member do
   filter :name
   filter :nickname
   filter :role
-  filter :birthday
-  filter :location
-  filter :photo
-  filter :vk
-  filter :twitch
-  filter :status
-  filter :position
   filter :created_at
   filter :updated_at
 

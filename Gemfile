@@ -45,7 +45,6 @@ gem 'kaminari'
 # Administration
 gem 'activeadmin',        github: 'activeadmin'
 gem 'activeadmin_hstore_editor'
-gem 'non-stupid-digest-assets'
 
 # Stream
 gem 'daemons',                        require: false

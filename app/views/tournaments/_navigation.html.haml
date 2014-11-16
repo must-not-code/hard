@@ -70,5 +70,7 @@
       = link_to 'Группы', tournament_groups_path(@tournament.id)
   %li{class: ('active' if action_name == 'bracket')}
     = link_to 'Сетка', tournament_bracket_path(@tournament.id)
+  %li{class: ('active' if action_name == 'rules')}
+    = link_to 'Правила', tournament_rules_path(@tournament.id)
   %li{class: ('active' if action_name == 'results')}
     = link_to 'Результаты', tournament_results_path(@tournament.id)
