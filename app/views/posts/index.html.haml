@@ -13,7 +13,7 @@
         %p.muted
           = post.published_at.strftime('%d.%m.%Y в %H:%M') if post.published_at
         .post-content.preview
-          = truncate_html(post.content, length: 1000)
+          = HTML_Truncator.truncate(post.content, 100).html_safe
         .post-info
           %hr
           = fa_icon 'user'

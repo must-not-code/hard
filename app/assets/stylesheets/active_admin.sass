@@ -8,9 +8,9 @@
 // $sidebar-width: 242px;
 
 // Active Admin's got SASS!
-@import "active_admin/mixins"
-@import "active_admin/base"
-@import "active_admin/hstore_editor"
+@import 'active_admin/mixins'
+@import 'active_admin/base'
+@import 'active_admin/hstore_editor'
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
@@ -20,3 +20,10 @@
 .mce-tinymce
   width: calc(80% - 2px) !important
   display: inline-block !important
+
+.row-content
+  img
+    margin: 5px 10px 0 0
+
+  p
+    margin: 0 0 18px

@@ -13,6 +13,7 @@ gem 'sorcery'
 gem 'haml-rails'
 gem 'gon'
 gem 'truncate_html'
+gem 'html_truncator'
 
 # JavaScript
 gem 'jquery-rails'
