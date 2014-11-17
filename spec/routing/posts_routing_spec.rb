@@ -24,8 +24,4 @@ describe 'Routing for Posts' do
   it 'routes "/posts/upload" to posts#upload' do
     expect(post: '/posts/upload').to route_to(controller: 'posts', action: 'upload')
   end
-
-  it 'routes "/posts/:id/approve" to posts#approve' do
-    expect(post: '/posts/123/approve').to route_to(controller: 'posts', action: 'approve', id: '123')
-  end
 end

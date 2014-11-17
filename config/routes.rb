@@ -44,7 +44,6 @@ Hard::Application.routes.draw do
   controller :posts, path: '/posts', as: 'post' do
     post 'save'                   => :save,            as: 'save'
     post 'upload'                 => :upload,          as: 'upload'
-    post ':id/approve'            => :approve,         as: 'approve'
   end
 
   resources :posts do

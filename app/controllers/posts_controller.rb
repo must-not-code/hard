@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   def index
     if moderator?
-      @posts = Post.order('created_at DESC').page(params[:page]).per(10)
+      @posts = Post.order('published_at desc').page(params[:page]).per(10)
     else
-      @posts = Post.where(approved: true).order('created_at DESC').page(params[:page]).per(10)
+      @posts = Post.where.not(published_at: nil).order('published_at desc').page(params[:page]).per(10)
     end
   end
 
@@ -30,8 +30,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       gon.push({post: @post,
                 post_path: post_path(@post.id),
-                post_save_path: post_save_path,
-                post_approve_path: post_approve_path(@post.id)})
+                post_save_path: post_save_path})
       render 'edit.html.haml'
     else
       head 403
@@ -71,15 +70,6 @@ class PostsController < ApplicationController
         file.write(params[:file].read)
       end
       render text: "Ссылка на этот файл <strong>#{path[/(?<=public).*/]}</strong>"
-    else
-      head 403
-    end
-  end
-
-  def approve
-    if moderator?
-      Post.find(params[:id]).update(approved: true, created_at: Time.now)
-      head 200
     else
       head 403
     end

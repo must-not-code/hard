@@ -27,9 +27,6 @@
     %br
     %button#submit.btn.btn-hard
       - if new
-        Опубликовать
+        Создать
       - else
         Обновить
-    - unless new || @post.approved
-      %button#approve.btn.btn-hard
-        Утвердить

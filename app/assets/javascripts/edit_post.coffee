@@ -44,12 +44,3 @@ $ ->
           else
             warning(response.errors)
             $('#submit').removeAttr('disabled')
-
-    $('#approve').click ->
-      if confirm('Are you sure?')
-        $('#approve').attr('disabled', true)
-        $.ajax
-          type: 'POST'
-          url: gon.post_approve_path
-          success: ->
-            window.location.replace(gon.post_path)
