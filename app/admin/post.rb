@@ -11,6 +11,13 @@ ActiveAdmin.register Post do
 
     actions
   end
+
+  filter :user_username, as: :string, label: 'User'
+  filter :title
+  filter :game
+  filter :created_at
+  filter :updated_at
+
   show do
     attributes_table do
       row :id
