@@ -44,7 +44,7 @@ gem 'kaminari'
 
 # Administration
 gem 'activeadmin',        github: 'activeadmin'
-gem 'activeadmin_hstore_editor'
+gem 'activeadmin_hstore_editor', '0.0.2'
 
 # Stream
 gem 'daemons',                        require: false
