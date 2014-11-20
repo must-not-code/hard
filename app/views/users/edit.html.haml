@@ -9,7 +9,9 @@
           = flash[:notice]
     #alert-placeholder
     .row
-      .col-md-3.text-center
+      .col-md-3
+        = render 'user_menu'
+      .col-md-9
         = form_for @user do |f|
           %p
             = image_tag(@user.avatar_url) if @user.avatar?
@@ -17,7 +19,6 @@
             = f.hidden_field :avatar_cache
           %p
             = f.submit 'Загрузить', class: 'btn btn-hard'
-      .col-md-9
         %table.table.table-bordered
           %tr
             %td Skype

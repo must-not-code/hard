@@ -1,0 +1,8 @@
+.text-center
+  = image_tag @user.avatar, class: 'avatar'
+  %div
+    = fa_icon 'trophy', class: 'gold'
+    = @user.rating
+  - if @user == current_user
+    %div
+      = link_to 'Настройки', edit_user_path(@user.username)
