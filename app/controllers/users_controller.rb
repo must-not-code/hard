@@ -27,11 +27,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:id])
   end
 
   def edit
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:id])
     unless @user == current_user
       redirect_to user_path
     end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:username])
+    @user = User.find(params[:id])
     params.permit!
     respond_to do |format|
       if @user.update_attributes(params[:user])

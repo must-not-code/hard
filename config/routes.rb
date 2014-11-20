@@ -9,10 +9,6 @@ Hard::Application.routes.draw do
 
   controller :users do
     get  'signup'                 => :new,             as: 'signup'
-    patch  'users/:username'                 => :update
-    get  'users/:username'        => :show,            as: 'user'
-    get  'users/:username/edit'   => :edit,            as: 'edit_user'
-    put  'users/:username'        => :update
     get  'users/:id/activate'     => :activate,        as: 'activate_user'
     get  'change_password'        => :change_password, as: 'change_password'
     put  'change_password'        => :update_password, as: 'update_password'

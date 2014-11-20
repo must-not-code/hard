@@ -13,16 +13,16 @@ describe 'Routing for Users' do
     expect(get: '/users/ZW9vwDcdVq4D4mXSLDZS/activate').to route_to(controller: 'users', action: 'activate', id: 'ZW9vwDcdVq4D4mXSLDZS')
   end
 
-  it 'routes "/users/:username" to users#show' do
-    expect(get: '/users/admin').to route_to(controller: 'users', action: 'show', username: 'admin')
+  it 'routes "/users/:id" to users#show' do
+    expect(get: '/users/admin').to route_to(controller: 'users', action: 'show', id: 'admin')
   end
 
-  it 'routes "/users/:username/edit" to users#edit' do
-    expect(get: '/users/admin/edit').to route_to(controller: 'users', action: 'edit', username: 'admin')
+  it 'routes "/users/:id/edit" to users#edit' do
+    expect(get: '/users/admin/edit').to route_to(controller: 'users', action: 'edit', id: 'admin')
   end
 
-  it 'routes "/users/:username" to users#update' do
-    expect(put: '/users/admin').to route_to(controller: 'users', action: 'update', username: 'admin')
+  it 'routes "/users/:id" to users#update' do
+    expect(put: '/users/admin').to route_to(controller: 'users', action: 'update', id: 'admin')
   end
 
   it 'routes "/change_password" to users#change_password' do
