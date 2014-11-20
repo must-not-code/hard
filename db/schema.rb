@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117110357) do
+ActiveRecord::Schema.define(version: 20141119151145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 20141117110357) do
     t.string   "username"
     t.string   "crypted_password"
     t.string   "email"
-    t.string   "avatar",                          default: "default_avatar"
+    t.string   "old_avatar",                      default: "default_avatar"
     t.integer  "rating",                          default: 0
     t.string   "tag"
     t.string   "skype"
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(version: 20141117110357) do
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

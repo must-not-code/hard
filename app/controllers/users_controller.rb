@@ -39,20 +39,31 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(username: params[:username])
-    if @user == current_user
-      if @user.update(tag:   params['tag'],
-                      skype: params['skype'],
-                      email: params['email'],
-                      about: params['about'])
-        render json: {success: true}
+    @user = User.find(params[:username])
+    params.permit!
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to user_path(@user.username), notice: 'User was successfully updated.' }
+        format.json { head :no_content }
       else
-        render json: {success: false,
-                      errors: @user.errors.first[1]}
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    else
-      head 403
     end
+   # @user = User.find_by(username: params[:username])
+   # if @user == current_user
+   #   if @user.update(tag:   params['tag'],
+   #                   skype: params['skype'],
+   #                   email: params['email'],
+   #                   about: params['about'])
+   #     render json: {success: true}
+   #   else
+   #     render json: {success: false,
+   #                   errors: @user.errors.first[1]}
+   #   end
+   # else
+   #   head 403
+   # end
   end
 
   def avatar
@@ -96,5 +107,11 @@ class UsersController < ApplicationController
     else
       redirect_to(change_password_path, notice: 'Неправильный старый пароль!')
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:tag, :about, :skype, :email, :avatar, :avatar_cache)
   end
 end

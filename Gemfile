@@ -42,9 +42,13 @@ gem 'tinymce-rails'
 # Pagination
 gem 'kaminari'
 
+# Upload files
+gem 'carrierwave'
+gem 'mini_magick'
+
 # Administration
 gem 'activeadmin',        github: 'activeadmin'
-gem 'activeadmin_hstore_editor', '0.0.2'
+gem 'activeadmin_hstore_editor'
 
 # Stream
 gem 'daemons',                        require: false

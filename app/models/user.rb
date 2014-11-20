@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :tournaments, through: :kinds
   has_many :achievements
   has_many :comments
