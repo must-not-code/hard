@@ -27,11 +27,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(username: params[:id])
+    @user = User.find_by_username(params[:id])
   end
 
   def edit
-    @user = User.find_by(username: params[:id])
+    @user = User.find_by_username(params[:id])
     unless @user == current_user
       redirect_to user_path
     end
@@ -39,37 +39,44 @@ class UsersController < ApplicationController
   end
 
   def update
-   @user = User.find_by(username: params[:id])
-   if @user == current_user
-     if @user.update(tag:   params['tag'],
-                     skype: params['skype'],
-                     email: params['email'],
-                     about: params['about'])
-       render json: {success: true}
-     else
-       render json: {success: false,
-                     errors: @user.errors.first[1]}
-     end
-   else
-     head 403
-   end
+    @user = User.find_by_username(params[:id])
+    if @user == current_user
+      if @user.update(tag:   params['tag'],
+                      skype: params['skype'],
+                      email: params['email'],
+                      about: params['about'])
+        render json: {success: true}
+      else
+        render json: {success: false,
+                      errors: @user.errors.first[1]}
+      end
+    else
+      head 403
+    end
   end
 
   def avatar
     @user = User.find_by_username(params[:id])
+    unless @user == current_user
+      redirect_to user_path
+    end
   end
 
   def upload_avatar
     @user = User.find_by_username(params[:id])
-    params.permit!
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to user_path(@user.username), notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if @user == current_user
+      params.permit!
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          format.html { redirect_to user_path(@user.username), notice: 'User was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      head 403
     end
   end
 
