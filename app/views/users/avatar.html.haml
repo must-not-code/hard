@@ -1,0 +1,21 @@
+.col-md-8
+  .well
+    %h2
+      = link_to @user.username, user_path(@user.username)
+    %hr
+    #notice
+      - unless flash[:notice].blank?
+        .alert.alert-info
+          = flash[:notice]
+    #alert-placeholder
+    .row
+      .col-md-3
+        = render 'user_menu'
+      .col-md-9
+        = form_for @user, url: 'avatar' do |f|
+          %p
+            = image_tag(@user.avatar_url) if @user.avatar?
+            = f.file_field :avatar
+            = f.hidden_field :avatar_cache
+          %p
+            = f.submit 'Загрузить', class: 'btn btn-hard'

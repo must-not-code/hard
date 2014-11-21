@@ -3,22 +3,11 @@
     %h2
       = link_to @user.username, user_path(@user.username)
     %hr
-    #notice
-      - unless flash[:notice].blank?
-        .alert.alert-info
-          = flash[:notice]
     #alert-placeholder
     .row
       .col-md-3
         = render 'user_menu'
       .col-md-9
-        = form_for @user do |f|
-          %p
-            = image_tag(@user.avatar_url) if @user.avatar?
-            = f.file_field :avatar
-            = f.hidden_field :avatar_cache
-          %p
-            = f.submit 'Загрузить', class: 'btn btn-hard'
         %table.table.table-bordered
           %tr
             %td Skype
@@ -32,9 +21,6 @@
             %td Email
             %td
               %input#email.table-input{value: @user.email}
-          %tr
-            %td{colspan: '2'}
-              = link_to 'Сменить пароль', change_password_path
           %tr
             %td{colspan: '2'}
               %textarea#about{rows: '8', maxlength: '5000'}

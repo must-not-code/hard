@@ -39,7 +39,28 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+   @user = User.find_by(username: params[:id])
+   if @user == current_user
+     if @user.update(tag:   params['tag'],
+                     skype: params['skype'],
+                     email: params['email'],
+                     about: params['about'])
+       render json: {success: true}
+     else
+       render json: {success: false,
+                     errors: @user.errors.first[1]}
+     end
+   else
+     head 403
+   end
+  end
+
+  def avatar
+    @user = User.find_by_username(params[:id])
+  end
+
+  def upload_avatar
+    @user = User.find_by_username(params[:id])
     params.permit!
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -49,37 +70,6 @@ class UsersController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
-   # @user = User.find_by(username: params[:username])
-   # if @user == current_user
-   #   if @user.update(tag:   params['tag'],
-   #                   skype: params['skype'],
-   #                   email: params['email'],
-   #                   about: params['about'])
-   #     render json: {success: true}
-   #   else
-   #     render json: {success: false,
-   #                   errors: @user.errors.first[1]}
-   #   end
-   # else
-   #   head 403
-   # end
-  end
-
-  def avatar
-    @user = User.find_by(username: params[:username])
-    if @user == current_user
-      avatar_id = Digest::SHA1.hexdigest(@user.username + Time.now.to_i.to_s)[8..16]
-      if @user.avatar != 'default_avatar'
-        File.delete("public/avatars/#{@user.avatar}")
-      end
-      File.open('public/avatars/' + avatar_id, "wb") do |file|
-        file.write(params['file'].read)
-      end
-      @user.update(avatar: avatar_id)
-      redirect_to user_path
-    else
-      head 403
     end
   end
 

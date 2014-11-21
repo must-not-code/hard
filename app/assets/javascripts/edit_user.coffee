@@ -16,26 +16,3 @@ $ ->
         else
           warning(response.errors)
           $('#update-user-data').removeAttr('disabled')
-
-  $('#upload').bind 'change', ->
-    file = $('input[type="file"]').val()
-    exts = ['gif','png','jpg','jpeg']
-    file_error_text = 'Файл должен быть не больше 200Kб и формата: gif, png, jpg, jpeg.'
-    if file
-      get_ext = file.split('.').reverse()
-      if parseInt(this.files[0].size) > 204800
-        $('#alert-placeholder').show()
-        $('#upload-avatar').hide()
-        warning(file_error_text)
-      else
-        if $.inArray(get_ext[0].toLowerCase(), exts) > -1
-          $('#upload-avatar').show()
-          $('#alert-placeholder').hide()
-        else
-          $('#alert-placeholder').show()
-          $('#upload-avatar').hide()
-          warning(file_error_text)
-
-  $('#upload-avatar').click ->
-    $('#avatar').submit()
-    $('#upload-avatar, #update-user-data').attr('disabled', true)

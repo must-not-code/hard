@@ -5,4 +5,8 @@
     = @user.rating
   - if @user == current_user
     %div
+      = link_to 'Изменить аватар', avatar_path(@user.username)
+    %div
       = link_to 'Настройки', edit_user_path(@user.username)
+    %div
+      = link_to 'Сменить пароль', change_password_path
