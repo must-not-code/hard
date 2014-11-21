@@ -5,17 +5,17 @@
       %li{'data-slide-to' => '1', 'data-target' => '#carousel'}
     .carousel-inner
       .item.active
-        = link_to post_path(132) do
+        = link_to crew_path('lol') do
           = image_tag 'lol_carousel.png'
           .container
             .carousel-caption
-              %h1 Новый состав по<br>League of Legends
+              %h1 Команда по<br>League of Legends
       .item
-        = link_to tournaments_path do
-          = image_tag 'hs_carousel.png'
+        = link_to tournament_path(24) do
+          = image_tag '4cup_carousel.png'
           .container
             .carousel-caption
-              %h1 Лига по HearthStone
+              %h1 Кубок Четырех
     %a.left.carousel-control{'data-slide' => 'prev', href: '#carousel'}
       = fa_icon 'chevron-left', class: 'chevron'
     %a.right.carousel-control{'data-slide' => 'next', href: '#carousel'}
