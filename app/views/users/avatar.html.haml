@@ -12,10 +12,8 @@
       .col-md-3
         = render 'user_menu'
       .col-md-9
-        = form_for @user, url: 'avatar' do |f|
-          %p
-            = image_tag(@user.avatar_url) if @user.avatar?
+        = form_for @user, url: 'avatar', html: {class: 'dropzone', id: 'avatar'} do |f|
+          .fallback
             = f.file_field :avatar
-            = f.hidden_field :avatar_cache
           %p
             = f.submit 'Загрузить', class: 'btn btn-hard'

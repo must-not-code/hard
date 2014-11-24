@@ -65,9 +65,8 @@ class UsersController < ApplicationController
   def upload_avatar
     @user = User.find_by_username(params[:id])
     if @user == current_user
-      params.permit!
       respond_to do |format|
-        if @user.update_attributes(params[:user])
+        if @user.update(avatar: params[:file])
           format.html { redirect_to user_path(@user.username), notice: 'User was successfully updated.' }
           format.json { head :no_content }
         else
@@ -104,11 +103,5 @@ class UsersController < ApplicationController
     else
       redirect_to(change_password_path, notice: 'Неправильный старый пароль!')
     end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:tag, :about, :skype, :email, :avatar, :avatar_cache)
   end
 end

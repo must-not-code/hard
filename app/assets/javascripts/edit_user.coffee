@@ -1,7 +1,7 @@
 $ ->
   $('#update-user-data').on 'click', (event) ->
     event.preventDefault()
-    $('#upload-avatar, #update-user-data').attr('disabled', true)
+    $('#update-user-data').attr('disabled', true)
     $.ajax
       type: 'PUT'
       url: gon.user_path
@@ -16,3 +16,10 @@ $ ->
         else
           warning(response.errors)
           $('#update-user-data').removeAttr('disabled')
+
+Dropzone.options.avatar =
+  maxFilesize: 1
+  maxFiles: 1
+  addRemoveLinks: true
+  thumbnailWidth: 120
+  thumbnailHeight: 120

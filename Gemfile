@@ -45,6 +45,7 @@ gem 'kaminari'
 # Upload files
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dropzonejs-rails'
 
 # Administration
 gem 'activeadmin',        github: 'activeadmin'

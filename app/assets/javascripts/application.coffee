@@ -10,6 +10,7 @@
 #= require easing
 #= require dotdotdot
 #= require fileupload
+#= require dropzone
 #= require tinymce
 #= require form
 #= require_tree .
