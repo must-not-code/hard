@@ -26,9 +26,10 @@ gem 'bootstrap-sass',     '~> 3.1.1'
 # Icons
 gem 'font-awesome-rails'
 
-# Compression
+# Assets
 gem 'uglifier',           '>= 1.3.0'
 gem 'therubyracer'
+gem 'quiet_assets'
 
 # JSON
 gem 'json'
