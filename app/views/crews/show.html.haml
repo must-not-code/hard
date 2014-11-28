@@ -5,14 +5,14 @@
     %hr
     .overflow
       - @crew.members.sort_by(&:position).each do |member|
-        .col-md-12
-          .col-md-4
+        .member.pull-left
+          .col-md-4.pull-left
             .photo
               = image_tag member.photo
               - if member.status
                 %span
                   = member.status
-          .col-md-5
+          .col-md-5.pull-left
             %p
               %strong
                 = member.nickname
