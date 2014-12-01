@@ -30,7 +30,7 @@ describe 'Routing for Users' do
   end
 
   it 'routes "/users/:id/avatar" to users#upload_avatar' do
-    expect(patch: '/users/admin/avatar').to route_to(controller: 'users', action: 'upload_avatar', id: 'admin')
+    expect(post: '/users/admin/avatar').to route_to(controller: 'users', action: 'upload_avatar', id: 'admin')
   end
 
   it 'routes "/change_password" to users#change_password' do

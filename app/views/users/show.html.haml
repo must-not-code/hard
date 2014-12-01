@@ -3,6 +3,10 @@
     %h2
       = link_to @user.username, user_path(@user.username)
     %hr
+    #notice
+      - unless flash[:notice].blank?
+        .alert.alert-info
+          = flash[:notice]
     .row
       .col-md-3
         = render 'user_menu'

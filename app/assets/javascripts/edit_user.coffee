@@ -17,9 +17,36 @@ $ ->
           warning(response.errors)
           $('#update-user-data').removeAttr('disabled')
 
-Dropzone.options.avatar =
-  maxFilesize: 1
-  maxFiles: 1
-  addRemoveLinks: true
-  thumbnailWidth: 120
-  thumbnailHeight: 120
+$ ->
+  if $('#avatar_uploader').length
+    previewNode = document.querySelector('#template')
+    previewNode.id = ''
+    previewTemplate = previewNode.parentNode.innerHTML
+    previewNode.parentNode.removeChild previewNode
+    myDropzone = new Dropzone(document.body,
+      url: 'avatar'
+      maxFilesize: 0.5
+      maxFiles: 1
+      thumbnailWidth: 150
+      thumbnailHeight: 150
+      previewTemplate: previewTemplate
+      autoQueue: false
+      previewsContainer: '#previews'
+      clickable: '#fileinput'
+      acceptedFiles: 'image/*'
+      headers: 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      dictInvalidFileType: 'Нужен файл формата png, gif, jpg или jpeg!'
+      dictFileTooBig: 'Файл не должен быть больше 500кб!'
+    )
+    myDropzone.on 'addedfile', (file) ->
+      file.previewElement.querySelector('#save').onclick = ->
+        myDropzone.enqueueFile file
+
+      document.querySelector('#save').onclick = ->
+        myDropzone.enqueueFiles myDropzone.getFilesWithStatus(Dropzone.ADDED)
+
+      document.querySelector('#cancel').onclick = ->
+        myDropzone.removeAllFiles true
+
+      myDropzone.on 'sending', (file) ->
+        file.previewElement.querySelector('#save').setAttribute 'disabled', 'disabled'
