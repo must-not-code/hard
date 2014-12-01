@@ -30,13 +30,17 @@ $ ->
       thumbnailWidth: 150
       thumbnailHeight: 150
       previewTemplate: previewTemplate
-      autoQueue: false
       previewsContainer: '#previews'
+      autoQueue: false
       clickable: '#fileinput'
       acceptedFiles: 'image/*'
       headers: 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       dictInvalidFileType: 'Нужен файл формата png, gif, jpg или jpeg!'
       dictFileTooBig: 'Файл не должен быть больше 500кб!'
+      init: ->
+        @on 'complete', (file) ->
+          window.location.replace(window.location.pathname.split('/avatar')[0])
+
     )
     myDropzone.on 'addedfile', (file) ->
       file.previewElement.querySelector('#save').onclick = ->
