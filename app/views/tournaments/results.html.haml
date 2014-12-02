@@ -5,7 +5,7 @@
       #results
         - @tournament.results.order(:created_at).each do |result|
           - author = User.find(result.user_id)
-          = image_tag "/avatars/#{author.avatar}", class: 'small-avatar'
+          = image_tag author.avatar.mini
           = link_to author.username, user_path(author.username)
           %span.muted
             = result.created_at.strftime('%d.%m.%Y в %H:%M')
