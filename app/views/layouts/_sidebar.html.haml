@@ -25,7 +25,7 @@
                 .col-xs-3.sidebar-icon
                   .pull-right
                     = post.comments.count
-                    = fa_icon 'pensil'
+                    = fa_icon 'pencil'
         %li.dropdown-header Стримы
         - Stream.order(views: :desc).each do |stream|
           %li
