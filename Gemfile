@@ -52,6 +52,9 @@ gem 'dropzonejs-rails'
 gem 'activeadmin',        github: 'activeadmin'
 gem 'activeadmin_hstore_editor'
 
+# Flags
+gem 'famfamfam_flags_rails'
+
 # Stream
 gem 'daemons',                        require: false
 gem 'kappa'
