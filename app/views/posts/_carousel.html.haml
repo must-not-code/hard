@@ -4,6 +4,7 @@
       %li.active{'data-slide-to' => '0', 'data-target' => '#carousel'}
       %li{'data-slide-to' => '1', 'data-target' => '#carousel'}
       %li{'data-slide-to' => '2', 'data-target' => '#carousel'}
+      %li{'data-slide-to' => '3', 'data-target' => '#carousel'}
     .carousel-inner
       .item.active
         = link_to crew_path('lol') do
@@ -23,6 +24,12 @@
           .container
             .carousel-caption
               %h1 SLTV Starseries<br>Season IV
+      .item
+        = link_to post_path(155) do
+          = image_tag 'lpl_carousel.png'
+          .container
+            .carousel-caption
+              %h1 LoL Pro League<br>Season 2
     %a.left.carousel-control{'data-slide' => 'prev', href: '#carousel'}
       = fa_icon 'chevron-left', class: 'chevron'
     %a.right.carousel-control{'data-slide' => 'next', href: '#carousel'}
