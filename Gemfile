@@ -10,7 +10,7 @@ gem 'nilify_blanks'
 gem 'sorcery'
 
 # Views
-gem 'haml-rails'
+gem 'slim-rails'
 gem 'gon'
 gem 'html_truncator'
 

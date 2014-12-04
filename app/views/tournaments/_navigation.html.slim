@@ -1,0 +1,76 @@
+h2
+  .row
+    .col-sm-9
+      = link_to @tournament.title, tournament_path(@tournament.id)
+    .col-sm-3
+      .pull-right
+        #tournament-button
+          - if @tournament.check_in_end > Time.now
+            - unless (@tournament.kinds.find_by(user_id: current_user.id) if logged_in?)
+              .dropdown.btn-group
+                button#tournament-signup.btn.btn-hard.btn-large.dropdown-toggle data-toggle='dropdown'
+                  | Записаться
+                ul#tournament-class.dropdown-menu
+                  li.text-center
+                    | Выберите класс
+                  li.divider
+                  li
+                    = link_to '#', id: 'druid' do
+                      = image_tag '/classes/druid.png'
+                      | Друид
+                  li
+                    = link_to '#', id: 'hunter' do
+                      = image_tag '/classes/hunter.png'
+                      | Охотник
+                  li
+                    = link_to '#', id: 'mage' do
+                      = image_tag '/classes/mage.png'
+                      | Маг
+                  li
+                    = link_to '#', id: 'paladin' do
+                      = image_tag '/classes/paladin.png'
+                      | Паладин
+                  li
+                    = link_to '#', id: 'priest' do
+                      = image_tag '/classes/priest.png'
+                      | Жрец
+                  li
+                    = link_to '#', id: 'rogue' do
+                      = image_tag '/classes/rogue.png'
+                      | Разбойник
+                  li
+                    = link_to '#', id: 'shaman' do
+                      = image_tag '/classes/shaman.png'
+                      | Шаман
+                  li
+                    = link_to '#', id: 'warlock' do
+                      = image_tag '/classes/warlock.png'
+                      | Чернокнижник
+                  li
+                    = link_to '#', id: 'warrior' do
+                      = image_tag '/classes/warrior.png'
+                      | Воин
+            - else
+              - if @tournament.check_in < Time.now
+                - unless @tournament.kinds.find_by(user_id: current_user.id, confirm: true)
+                  button#tournament-checkin.btn.btn-warning.btn-large
+                    | Подтвердить
+              - else
+                -if @tournament.sign_up_end > Time.now
+                  button#tournament-signout.btn.btn-danger.btn-large
+                    | Отменить
+#alert-placeholder
+ul.nav.nav-tabs.nav-justified
+  li class=('active' if action_name == 'show')
+    = link_to 'Инфо', tournament_path(@tournament.id)
+  li class=('active' if action_name == 'list')
+    = link_to 'Участники', tournament_list_path(@tournament.id)
+  - if @tournament.groups
+    li class=('active' if action_name == 'groups')
+      = link_to 'Группы', tournament_groups_path(@tournament.id)
+  li class=('active' if action_name == 'bracket')
+    = link_to 'Сетка', tournament_bracket_path(@tournament.id)
+  li class=('active' if action_name == 'rules')
+    = link_to 'Правила', tournament_rules_path(@tournament.id)
+  li class=('active' if action_name == 'results')
+    = link_to 'Результаты', tournament_results_path(@tournament.id)

@@ -1,9 +1,0 @@
-.col-md-8
-  .well
-    %h2
-      = link_to 'Команда Hard Random', crews_path
-    %hr
-    .overflow
-      - @crewss.each do |crew|
-        .col-md-6
-          = link_to image_tag(crew.logo, class: 'game-logo'), crew_path(crew.game)

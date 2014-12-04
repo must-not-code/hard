@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       gon.push({post: @post,
                 post_path: post_path(@post.id),
                 post_save_path: post_save_path})
-      render 'edit.html.haml'
+      render 'edit.html.slim'
     else
       head 403
     end

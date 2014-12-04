@@ -1,0 +1,13 @@
+.col-md-8
+  .well
+    h2
+      = link_to 'Список турниров', tournaments_path
+    hr
+    table.table.tourney-table
+      - @tournaments.each do |tournament|
+        tr
+          th
+            = link_to tournament.title, tournament_path(tournament.id)
+          th
+            .pull-right
+              = tournament.beginning.strftime("%d.%m.%Y в %H:%M")

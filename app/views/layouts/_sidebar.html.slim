@@ -1,0 +1,38 @@
+- unless request.original_fullpath[/password|login|signup/]
+  .col-md-4
+    aside.well
+      ul.nav.nav-list
+        - tournaments = Tournament.where(show: true).order(created_at: :desc)
+        - unless tournaments.empty?
+          li.dropdown-header Наши турниры
+          - tournaments.each do |tourney|
+            li
+              = link_to tournament_path(tourney.id) do
+                .row
+                  .col-xs-9.sidebar-title
+                    = tourney.title
+                  .col-xs-3.sidebar-icon
+                    .pull-right
+                      => tourney.users.count
+                      = fa_icon 'user'
+        li.dropdown-header Последние посты
+        - Post.where.not(published_at: nil).limit(5).order(published_at: :desc).each do |post|
+          li
+            = link_to post_path(post.id) do
+              .row
+                .col-xs-9.sidebar-title
+                  = post.title
+                .col-xs-3.sidebar-icon
+                  .pull-right
+                    => post.comments.count
+                    = fa_icon 'pencil'
+        li.dropdown-header Стримы
+        - Stream.order(views: :desc).each do |stream|
+          li
+            = link_to stream_path(stream.channel) do
+              = stream.streamer
+              .pull-right
+                - if stream.online
+                  = fa_icon 'eye', class: 'green'
+                - else
+                  = fa_icon 'eye-slash', class: 'red'

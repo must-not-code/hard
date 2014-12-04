@@ -1,0 +1,20 @@
+.col-md-8
+  .well
+    table.table.table-responsive.top-table
+      thead
+        tr
+          th.col-md-2
+            | Место
+          th
+            | Ник
+          th.col-md-2
+            | Очки
+      tbody
+        - User.where('rating > 0').order('rating desc').each_with_index do |player, i|
+          tr
+            th
+              = i + 1
+            th
+              = link_to player.username, user_path(player.username)
+            th
+              = player.rating

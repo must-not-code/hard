@@ -1,0 +1,26 @@
+= render 'carousel'
+.col-md-8
+  #notice
+    - unless flash[:notice].blank?
+      .alert.alert-info
+        = flash[:notice]
+  #posts
+    - @posts.each do |post|
+      .well
+        h2
+          = link_to post.title, post_path(post.id)
+        hr
+        p.muted
+          = post.published_at.strftime('%d.%m.%Y в %H:%M') if post.published_at
+        .post-content.preview
+          = HTML_Truncator.truncate(post.content, 100).html_safe
+        .post-info
+          hr
+          => fa_icon 'user'
+          - username = User.find(post.user_id).username
+          => link_to username, user_path(username)
+          => fa_icon 'pencil'
+          = post.comments.count
+          .pull-right
+            = link_to 'Читать дальше →', post_path(post.id)
+    = paginate @posts

@@ -1,0 +1,17 @@
+#login
+  .well
+    fieldset
+      legend
+        | Вход
+        small.pull-right
+          = link_to 'Зарегистрироваться?', signup_path
+      #alert-placeholder
+      form
+        label Логин
+        input#username.full-input autofocus='autofocus' type='text'
+        label Пароль
+        input#password.full-input type='password'
+        button#submit-login.btn.btn-hard.pull-right.btn-login Войти
+        label.checkbox
+          input#remember type='checkbox' checked='checked' Запомнить меня
+      = link_to 'Забыли пароль?', new_password_reset_path

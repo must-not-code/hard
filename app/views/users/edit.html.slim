@@ -1,0 +1,29 @@
+.col-md-8
+  .well
+    h2
+      = link_to @user.username, user_path(@user.username)
+    hr
+    #alert-placeholder
+    .row
+      .col-md-3
+        = render 'user_menu'
+      .col-md-9
+        table.table.table-bordered
+          tr
+            td Skype
+            td
+              input#skype.table-input value=@user.skype
+          tr
+            td BattleTag
+            td
+              input#tag.table-input value=@user.tag
+          tr
+            td Email
+            td
+              input#email.table-input value=@user.email
+          tr
+            td colspan='2'
+              textarea#about rows='8' maxlength='5000'
+                = @user.about
+        p
+          button#update-user-data.btn.btn-hard Применить
