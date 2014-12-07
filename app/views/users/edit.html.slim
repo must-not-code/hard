@@ -10,9 +10,37 @@
       .col-md-9
         table.table.table-bordered
           tr
+            td Имя
+            td
+              input#firstname.table-input value=@user.firstname
+          tr
+            td Фамилия
+            td
+              input#lastname.table-input value=@user.lastname
+          tr
             td Skype
             td
               input#skype.table-input value=@user.skype
+          tr
+            td ВКонтакте
+            td
+              input#vk.table-input value=@user.vk
+          tr
+            td Facebook
+            td
+              input#fb.table-input value=@user.fb
+          tr
+            td Сайт
+            td
+              input#site.table-input value=@user.site
+          tr
+            td Twitch
+            td
+              input#twitch.table-input value=@user.twitch
+          tr
+            td Twitter
+            td
+              input#twitter.table-input value=@user.twitter
           tr
             td BattleTag
             td

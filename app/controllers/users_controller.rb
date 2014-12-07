@@ -41,10 +41,17 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_username(params[:id])
     if @user == current_user
-      if @user.update(tag:   params['tag'],
-                      skype: params['skype'],
-                      email: params['email'],
-                      about: params['about'])
+      if @user.update(firstname: params['firstname'],
+                      lastname:  params['lastname'],
+                      skype:     params['skype'],
+                      vk:        params['vk'],
+                      fb:        params['fb'],
+                      site:      params['site'],
+                      twitch:    params['twitch'],
+                      twitter:   params['twitter'],
+                      tag:       params['tag'],
+                      email:     params['email'],
+                      about:     params['about'])
         render json: {success: true}
       else
         render json: {success: false,

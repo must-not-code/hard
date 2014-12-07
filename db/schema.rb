@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121102545) do
+ActiveRecord::Schema.define(version: 20141206105043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,19 @@ ActiveRecord::Schema.define(version: 20141121102545) do
     t.datetime "created_at"
   end
 
+  create_table "teams", force: true do |t|
+    t.string   "title"
+    t.string   "tag"
+    t.string   "logo"
+    t.string   "site"
+    t.string   "vk"
+    t.string   "fb"
+    t.string   "youtube"
+    t.string   "twitter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tournaments", force: true do |t|
     t.datetime "created_at"
     t.string   "title"
@@ -163,6 +176,13 @@ ActiveRecord::Schema.define(version: 20141121102545) do
     t.datetime "reset_password_email_sent_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "vk"
+    t.string   "fb"
+    t.string   "site"
+    t.string   "twitch"
+    t.string   "twitter"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

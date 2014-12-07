@@ -6,10 +6,17 @@ $ ->
       type: 'PUT'
       url: gon.user_path
       data:
-        tag: $('#tag').val()
-        skype: $('#skype').val()
-        email: $('#email').val()
-        about: $('#about').val()
+        firstname: $('#firstname').val()
+        lastname:  $('#lastname').val()
+        skype:     $('#skype').val()
+        vk:        $('#vk').val()
+        fb:        $('#fb').val()
+        site:      $('#site').val()
+        twitch:    $('#twitch').val()
+        twitter:   $('#twitter').val()
+        tag:       $('#tag').val()
+        email:     $('#email').val()
+        about:     $('#about').val()
       success: (response) ->
         if response.success
           window.location.replace(gon.user_path)
@@ -25,7 +32,7 @@ $ ->
     previewNode.parentNode.removeChild previewNode
     myDropzone = new Dropzone(document.body,
       url: 'avatar'
-      maxFilesize: 0.5
+      maxFilesize: 1
       maxFiles: 1
       thumbnailWidth: 150
       thumbnailHeight: 150
@@ -36,9 +43,9 @@ $ ->
       acceptedFiles: 'image/*'
       headers: 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       dictInvalidFileType: 'Нужен файл формата png, gif, jpg или jpeg!'
-      dictFileTooBig: 'Файл не должен быть больше 500кб!'
+      dictFileTooBig: 'Файл не должен быть больше 1мб!'
       init: ->
-        @on 'complete', (file) ->
+        @on 'success', (file) ->
           window.location.replace(window.location.pathname.split('/avatar')[0])
 
     )

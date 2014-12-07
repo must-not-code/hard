@@ -32,7 +32,7 @@ GEM
       activesupport (= 4.1.7)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activeadmin_hstore_editor (0.0.4)
+    activeadmin_hstore_editor (0.0.5)
       railties (>= 3.0, < 5.0)
     activemodel (4.1.7)
       activesupport (= 4.1.7)

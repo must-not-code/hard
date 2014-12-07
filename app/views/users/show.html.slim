@@ -12,14 +12,51 @@
         = render 'user_menu'
       .col-md-9
         table.table.table-bordered.table-hover
-          tr
-            td Skype
-            td
-              = @user.skype
-          tr
-            td BattleTag
-            td
-              = @user.tag
+          - if @user.firstname
+            tr
+              td Имя
+              td
+                = @user.firstname
+          - if @user.lastname
+            tr
+              td Фамилия
+              td
+                = @user.lastname
+          - if @user.skype
+            tr
+              td Skype
+              td
+                = link_to @user.skype, "skype:#{@user.skype}?chat"
+          - if @user.vk
+            tr
+              td Вконтакте
+              td
+                = link_to @user.vk, @user.vk, target: 'blank'
+          - if @user.fb
+            tr
+              td Facebook
+              td
+                = link_to @user.fb, @user.fb, target: 'blank'
+          - if @user.site
+            tr
+              td Сайт
+              td
+                = link_to @user.site, @user.site, target: 'blank'
+          - if @user.twitch
+            tr
+              td Twitch
+              td
+                = link_to @user.twitch, @user.twitch, target: 'blank'
+          - if @user.twitter
+            tr
+              td Twitter
+              td
+                = link_to @user.twitter, @user.twitter, target: 'blank'
+          - if @user.tag
+            tr
+              td BattleTag
+              td
+                = @user.tag
           - if @user == current_user
             tr
               td Email

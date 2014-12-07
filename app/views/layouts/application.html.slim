@@ -42,20 +42,20 @@ html
                     - if current_user.group[/admin/]
                       li
                         = link_to admin_root_path do
-                          = fa_icon 'linux'
+                          => fa_icon 'linux'
                           | Админка
                     - if current_user.group[/admin|newsman/]
                       li
                         = link_to new_post_path do
-                          = fa_icon 'file'
+                          => fa_icon 'file'
                           | Новый пост
                     li
                       = link_to user_path(current_user.username) do
-                        = fa_icon 'cog'
+                        => fa_icon 'cog'
                         | Профиль
                     li
                       = link_to logout_path do
-                        = fa_icon 'power-off'
+                        => fa_icon 'power-off'
                         | Выйти
               - else
                 li class=('active' if current_page?(signup_path))
