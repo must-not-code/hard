@@ -1,0 +1,19 @@
+.col-md-8
+  .well
+    h2
+      = link_to 'Новая команда', new_team_path
+    hr
+    #alert-placeholder
+    .row
+      .col-md-3
+        = render 'users/user_menu'
+      .col-md-9
+        = form_for @team, url: teams_path do |f|
+          .field
+            = f.label :title, 'Полное название'
+            = f.text_field :title, class: 'full-input', autofocus: 'autofocus'
+          .field
+            = f.label :tag, 'Сокращенное название'
+            = f.text_field :tag, class: 'full-input'
+          .actions
+            = f.submit 'Создать', class: 'btn btn-hard btn-block'

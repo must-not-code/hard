@@ -1,0 +1,7 @@
+.text-center
+  = image_tag @team.avatar, class: 'avatar'
+  - if @user == current_user
+    div
+      = link_to 'Изменить аватар', avatar_path(@team.title)
+    div
+      = link_to 'Настройки', edit_team_path(@team.title)

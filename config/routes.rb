@@ -54,6 +54,7 @@ Hard::Application.routes.draw do
   get   'password_reset'           => 'password_resets#new', as: 'new_password_reset'
 
   resources :users
+  resources :teams
   resources :streams
   resources :comments
   resources :results
