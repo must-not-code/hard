@@ -8,12 +8,4 @@
       .col-md-3
         = render 'users/user_menu'
       .col-md-9
-        = form_for @team, remote: true do |f|
-          .field
-            = f.label 'Полное название'
-            = f.text_field :title, class: 'full-input', autofocus: 'autofocus'
-          .field
-            = f.label 'Сокращенное название'
-            = f.text_field :tag, class: 'full-input'
-          .actions
-            = f.submit 'Создать', class: 'btn btn-hard btn-block'
+        = render 'team_form'

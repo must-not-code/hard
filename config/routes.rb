@@ -10,8 +10,6 @@ Hard::Application.routes.draw do
   controller :users do
     get  'signup'                 => :new,             as: 'signup'
     get  'users/:id/activate'     => :activate,        as: 'activate_user'
-    get  'users/:id/avatar'       => :avatar,          as: 'avatar'
-    post 'users/:id/avatar'       => :upload_avatar,   as: 'upload_avatar'
     get  'change_password'        => :change_password, as: 'change_password'
     put  'change_password'        => :update_password, as: 'update_password'
   end

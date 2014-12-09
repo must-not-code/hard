@@ -8,44 +8,4 @@
       .col-md-3
         = render 'team_menu'
       .col-md-9
-        = form_for @team, remote: true, html: {id: 'teamForm', class: 'dropzone'} do |f|
-          #fileinput.btn.btn-hard
-            => fa_icon 'plus'
-            | Выбрать логотип
-          #current-logo.upload_preview
-            = image_tag @team.logo
-          #previews
-            #preview
-              img.upload_preview data-dz-thumbnail=''
-              .dz-message
-          table.table.table-bordered
-            tr
-              td Полное название
-              td
-                = f.text_field :title, class: 'table-input'
-            tr
-              td Сокращенное название
-              td
-                = f.text_field :tag, class: 'table-input'
-            tr
-              td Сайт
-              td
-                = f.text_field :site, class: 'table-input'
-            tr
-              td ВКонтакте
-              td
-                = f.text_field :vk, class: 'table-input'
-            tr
-              td Facebook
-              td
-                = f.text_field :fb, class: 'table-input'
-            tr
-              td Twitter
-              td
-                = f.text_field :twitter, class: 'table-input'
-            tr
-              td YouTube
-              td
-                = f.text_field :youtube, class: 'table-input'
-          .actions
-            = f.submit 'Обновить', class: 'btn btn-hard btn-block'
+        = render 'team_form'

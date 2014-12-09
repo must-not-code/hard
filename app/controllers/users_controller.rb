@@ -39,45 +39,24 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_username(params[:id])
+    @user = User.find(params[:id])
     if @user == current_user
-      if @user.update(firstname: params['firstname'],
-                      lastname:  params['lastname'],
-                      skype:     params['skype'],
-                      vk:        params['vk'],
-                      fb:        params['fb'],
-                      site:      params['site'],
-                      twitch:    params['twitch'],
-                      twitter:   params['twitter'],
-                      tag:       params['tag'],
-                      email:     params['email'],
-                      about:     params['about'])
-        render json: {success: true}
+      if @user.update(firstname: params['user']['firstname'],
+                      lastname:  params['user']['lastname'],
+                      skype:     params['user']['skype'],
+                      vk:        params['user']['vk'],
+                      fb:        params['user']['fb'],
+                      site:      params['user']['site'],
+                      twitch:    params['user']['twitch'],
+                      twitter:   params['user']['twitter'],
+                      tag:       params['user']['tag'],
+                      email:     params['user']['email'],
+                      about:     params['user']['about'],
+                      avatar:    params['file']['0'])
+        flash[:notice] = 'Данные обновлены.'
+        render json: { success: true, url: user_path(@user.username) }
       else
-        render json: {success: false,
-                      errors: @user.errors.first[1]}
-      end
-    else
-      head 403
-    end
-  end
-
-  def avatar
-    @user = User.find_by_username(params[:id])
-    unless @user == current_user
-      redirect_to user_path
-    end
-  end
-
-  def upload_avatar
-    @user = User.find_by_username(params[:id])
-    if @user == current_user
-      respond_to do |format|
-        if @user.update(avatar: params[:file])
-          format.json { render json: {success: true} }
-        else
-          format.json { render json: @user.errors.first[1] }
-        end
+        render json: { error: @user.errors.first[1] }
       end
     else
       head 403

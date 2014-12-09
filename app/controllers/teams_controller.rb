@@ -6,13 +6,19 @@ class TeamsController < ApplicationController
 
   def create
     if logged_in?
-      @team = Team.new(owner: current_user.username,
-                       title: params['team']['title'],
-                       tag: params['team']['tag'])
+      @team = Team.new(owner:   current_user.username,
+                       title:   params['team']['title'],
+                       tag:     params['team']['tag'],
+                       site:    params['team']['site'],
+                       vk:      params['team']['vk'],
+                       fb:      params['team']['fb'],
+                       twitter: params['team']['twitter'],
+                       youtube: params['team']['youtube'],
+                       logo:    params['file']['0'])
       if @team.save
         current_user.update(team_id: @team.id)
         flash[:notice] = "Команда «<b>#{@team.title}</b>» создана."
-        render js: "window.location.pathname='#{team_path(@team.title)}'"
+        render json: { success: true, url: team_path(@team.title) }
       else
         render json: { error: @team.errors.first[1] }
       end
@@ -44,7 +50,7 @@ class TeamsController < ApplicationController
                       youtube: params['team']['youtube'],
                       logo:    params['file']['0'])
         flash[:notice] = 'Данные обновлены.'
-        render json: { success: true }
+        render json: { success: true, url: team_path(@team.title) }
       else
         render json: { error: @team.errors.first[1] }
       end

@@ -3,55 +3,64 @@
     h2
       = link_to @user.username, user_path(@user.username)
     hr
-    #alert-placeholder
+    #notice
     .row
       .col-md-3
         = render 'user_menu'
       .col-md-9
-        table.table.table-bordered
-          tr
-            td Имя
-            td
-              input#firstname.table-input value=@user.firstname
-          tr
-            td Фамилия
-            td
-              input#lastname.table-input value=@user.lastname
-          tr
-            td Skype
-            td
-              input#skype.table-input value=@user.skype
-          tr
-            td ВКонтакте
-            td
-              input#vk.table-input value=@user.vk
-          tr
-            td Facebook
-            td
-              input#fb.table-input value=@user.fb
-          tr
-            td Сайт
-            td
-              input#site.table-input value=@user.site
-          tr
-            td Twitch
-            td
-              input#twitch.table-input value=@user.twitch
-          tr
-            td Twitter
-            td
-              input#twitter.table-input value=@user.twitter
-          tr
-            td BattleTag
-            td
-              input#tag.table-input value=@user.tag
-          tr
-            td Email
-            td
-              input#email.table-input value=@user.email
-          tr
-            td colspan='2'
-              textarea#about rows='8' maxlength='5000'
-                = @user.about
-        p
-          button#update-user-data.btn.btn-hard Применить
+        = form_for @user, remote: true, html: {id: 'dropzone', class: 'dropzone'} do |f|
+          #fileinput.btn.btn-hard
+            => fa_icon 'plus'
+            | Выбрать Аватарa
+          #current-img.upload_preview
+            = image_tag @user.avatar
+          #previews
+            #preview
+              img.upload_preview data-dz-thumbnail=''
+              .dz-message
+          table.table.table-bordered
+            tr
+              td Имя
+              td
+                = f.text_field :firstname, class: 'table-input'
+            tr
+              td Фамилия
+              td
+                = f.text_field :lastname, class: 'table-input'
+            tr
+              td Skype
+              td
+                = f.text_field :skype, class: 'table-input'
+            tr
+              td ВКонтакте
+              td
+                = f.text_field :vk, class: 'table-input'
+            tr
+              td Facebook
+              td
+                = f.text_field :fb, class: 'table-input'
+            tr
+              td Сайт
+              td
+                = f.text_field :site, class: 'table-input'
+            tr
+              td Twitch
+              td
+                = f.text_field :twitch, class: 'table-input'
+            tr
+              td Twitter
+              td
+                = f.text_field :twitter, class: 'table-input'
+            tr
+              td BattleTag
+              td
+                = f.text_field :tag, class: 'table-input'
+            tr
+              td Email
+              td
+                = f.text_field :email, class: 'table-input'
+            tr
+              td colspan='2'
+                = f.text_area :about, rows: 8, maxlength: 5000
+          .actions
+            = f.submit 'Сохранить', class: 'btn btn-hard btn-block'
