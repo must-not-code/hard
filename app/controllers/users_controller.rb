@@ -74,7 +74,6 @@ class UsersController < ApplicationController
     if @user == current_user
       respond_to do |format|
         if @user.update(avatar: params[:file])
-         # format.html { redirect_to user_path(@user.username), notice: 'Аватар был успешно обновлен.' }
           format.json { render json: {success: true} }
         else
           format.json { render json: @user.errors.first[1] }

@@ -61,3 +61,41 @@ $ ->
 
       myDropzone.on 'sending', (file) ->
         file.previewElement.querySelector('#save').setAttribute 'disabled', 'disabled'
+
+
+  Dropzone.options.teamForm =
+    autoProcessQueue: false
+    uploadMultiple: true
+    parallelUploads: 100
+    maxFiles: 100
+    headers: 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    previewsContainer: '#preview'
+    previewTemplate: $.trim($('#previews').html())
+    clickable: '#fileinput'
+    acceptedFiles: 'image/*'
+    thumbnailWidth: 150
+    thumbnailHeight: 150
+    init: ->
+      myDropzone = this
+
+      myDropzone.on 'addedfile', (file) ->
+        $('#current-logo').hide()
+
+      $('input[type="submit"]').click (e) ->
+
+        e.preventDefault()
+        e.stopPropagation()
+        #myDropzone.processQueue()
+
+        if myDropzone.getQueuedFiles().length > 0
+          myDropzone.processQueue()
+        else
+          myDropzone.uploadFiles([])
+
+      @on "sendingmultiple", ->
+
+      @on "successmultiple", (files, response) ->
+       # window.location.replace(window.location.pathname.split('/edit')[0])
+
+      @on "errormultiple", (files, response) ->
+        alert(response.error)

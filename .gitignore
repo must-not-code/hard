@@ -11,6 +11,7 @@
 /public/posts
 /public/assets
 /public/photos
+/public/teams
 
 # Ignore all logfiles and tempfiles.
 /log/*.log

@@ -8,7 +8,19 @@
       .col-md-3
         = render 'team_menu'
       .col-md-9
-        = form_for @team, remote: true do |f|
+        = form_for @team, remote: true, html: {id: 'teamForm', class: 'dropzone'} do |f|
+          #fileinput.btn.btn-hard
+            => fa_icon 'plus'
+            | Выбрать логотип
+          #current-logo
+            = image_tag @team.logo
+          #previews
+            #preview
+              img data-dz-thumbnail=''
+              .dz-message
+                p.name data-dz-name=''
+                p.size data-dz-size=''
+                strong.error.text-danger data-dz-errormessage=''
           table.table.table-bordered
             tr
               td Полное название
