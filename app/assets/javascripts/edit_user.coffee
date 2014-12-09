@@ -66,15 +66,15 @@ $ ->
   Dropzone.options.teamForm =
     autoProcessQueue: false
     uploadMultiple: true
-    parallelUploads: 100
-    maxFiles: 100
+    parallelUploads: 20
+    maxFiles: 20
     headers: 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
     previewsContainer: '#preview'
     previewTemplate: $.trim($('#previews').html())
     clickable: '#fileinput'
     acceptedFiles: 'image/*'
-    thumbnailWidth: 150
-    thumbnailHeight: 150
+    dictInvalidFileType: 'Нужен файл формата png, gif, jpg или jpeg!'
+    dictFileTooBig: 'Файл не должен быть больше 1мб!'
     init: ->
       myDropzone = this
 
@@ -85,7 +85,6 @@ $ ->
 
         e.preventDefault()
         e.stopPropagation()
-        #myDropzone.processQueue()
 
         if myDropzone.getQueuedFiles().length > 0
           myDropzone.processQueue()
@@ -95,7 +94,11 @@ $ ->
       @on "sendingmultiple", ->
 
       @on "successmultiple", (files, response) ->
-       # window.location.replace(window.location.pathname.split('/edit')[0])
+        if response.success
+          window.location.replace(window.location.pathname.split('/edit')[0])
+        else
+          $('#notice').html('<div class="alert alert-danger">' + response.error + '</div>')
+          myDropzone.removeAllFiles true
 
-      @on "errormultiple", (files, response) ->
-        alert(response.error)
+      @on "error", (files, response) ->
+        $('#notice').html('<div class="alert alert-danger">' + response + '</div>')

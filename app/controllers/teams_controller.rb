@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
         flash[:notice] = "Команда «<b>#{@team.title}</b>» создана."
         render js: "window.location.pathname='#{team_path(@team.title)}'"
       else
-        render json: {error: @team.errors.first[1]}
+        render json: { error: @team.errors.first[1] }
       end
     else
       head 403
@@ -35,21 +35,18 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if logged_in? && current_user.username == @team.owner
-      respond_to do |format|
-        if @team.update(title:   params['team']['title'],
-                        tag:     params['team']['tag'],
-                        site:    params['team']['site'],
-                        vk:      params['team']['vk'],
-                        fb:      params['team']['fb'],
-                        twitter: params['team']['twitter'],
-                        youtube: params['team']['youtube'],
-                        logo:    params['file']['0'])
-          flash[:notice] = 'Данные обновлены.'
-#         format.json { head :ok, :status => 200 }
-          format.json { render json: { error: 'test' }, :status => 400 }
-        else
-          render json: {error: @team.errors.first[1]}
-        end
+      if @team.update(title:   params['team']['title'],
+                      tag:     params['team']['tag'],
+                      site:    params['team']['site'],
+                      vk:      params['team']['vk'],
+                      fb:      params['team']['fb'],
+                      twitter: params['team']['twitter'],
+                      youtube: params['team']['youtube'],
+                      logo:    params['file']['0'])
+        flash[:notice] = 'Данные обновлены.'
+        render json: { success: true }
+      else
+        render json: { error: @team.errors.first[1] }
       end
     else
       head 403

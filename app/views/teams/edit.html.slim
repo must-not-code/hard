@@ -12,15 +12,12 @@
           #fileinput.btn.btn-hard
             => fa_icon 'plus'
             | Выбрать логотип
-          #current-logo
+          #current-logo.upload_preview
             = image_tag @team.logo
           #previews
             #preview
-              img data-dz-thumbnail=''
+              img.upload_preview data-dz-thumbnail=''
               .dz-message
-                p.name data-dz-name=''
-                p.size data-dz-size=''
-                strong.error.text-danger data-dz-errormessage=''
           table.table.table-bordered
             tr
               td Полное название

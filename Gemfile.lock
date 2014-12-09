@@ -97,8 +97,6 @@ GEM
     diff-lcs (1.2.5)
     dropbox-sdk (1.5.1)
       json
-    dropzonejs-rails (0.5.1)
-      rails (> 3.1)
     erubis (2.7.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
@@ -149,8 +147,6 @@ GEM
       addressable (~> 2.3.5)
       httparty (~> 0.12.0)
     libv8 (3.16.14.7)
-    lodash-rails (2.4.1)
-      railties (>= 3.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
@@ -301,7 +297,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   daemons
   dropbox-sdk (= 1.5.1)
-  dropzonejs-rails
   factory_girl_rails
   famfamfam_flags_rails
   font-awesome-rails
@@ -311,7 +306,6 @@ DEPENDENCIES
   json
   kaminari
   kappa
-  lodash-rails
   mini_magick
   newrelic_rpm (>= 3.8.1)
   nilify_blanks

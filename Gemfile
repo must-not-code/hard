@@ -17,7 +17,6 @@ gem 'html_truncator'
 # JavaScript
 gem 'jquery-rails'
 gem 'coffee-rails',       '~> 4.0.0'
-gem 'lodash-rails'
 
 # CSS
 gem 'sass-rails',         '~> 4.0.2'
@@ -46,7 +45,6 @@ gem 'kaminari'
 # Upload files
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'dropzonejs-rails'
 
 # Administration
 gem 'activeadmin',        github: 'activeadmin'

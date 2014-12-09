@@ -1,11 +1,11 @@
 #= require jquery
 #= require jquery_ujs
 #= require bootstrap
-#= require bracket
-#= require handlebars
-#= require lodash
-#= require bacon
-#= require group
+#= require brackets/bracket
+#= require brackets/handlebars
+#= require brackets/lodash
+#= require brackets/bacon
+#= require brackets/group
 #= require smoothzoom.min
 #= require easing
 #= require dotdotdot
