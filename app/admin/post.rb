@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :content, :published_at
+  permit_params :title, :game, :content, :published_at
 
   index do
     column :id
