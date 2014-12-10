@@ -18,6 +18,9 @@ $ ->
       myDropzone.on 'addedfile', (file) ->
         $('#current-img').hide()
 
+        $('#cancel').onclick = ->
+          myDropzone.removeAllFiles true
+
       $('input[type="submit"]').click (e) ->
 
         e.preventDefault()
@@ -28,14 +31,13 @@ $ ->
         else
           myDropzone.uploadFiles([])
 
-      @on "sendingmultiple", ->
-
       @on "successmultiple", (files, response) ->
         if response.success
           window.location.replace(response.url)
         else
           $('#notice').html('<div class="alert alert-danger">' + response.error + '</div>')
           myDropzone.removeAllFiles true
+          $('#fileinput').show()
 
       @on "error", (files, response) ->
         $('#notice').html('<div class="alert alert-danger">' + response + '</div>')

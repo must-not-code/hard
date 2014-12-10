@@ -11,13 +11,16 @@
         = form_for @user, remote: true, html: {id: 'dropzone', class: 'dropzone'} do |f|
           #fileinput.btn.btn-hard
             => fa_icon 'plus'
-            | Выбрать Аватарa
+            | Выбрать Аватар
           #current-img.upload_preview
             = image_tag @user.avatar
           #previews
             #preview
               img.upload_preview data-dz-thumbnail=''
               .dz-message
+              button#cancel.btn.btn-warning data-dz-remove=''
+                => fa_icon 'ban'
+                | Отменить
           table.table.table-bordered
             tr
               td Имя

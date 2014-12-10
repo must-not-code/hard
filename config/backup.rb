@@ -8,6 +8,7 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
     archive.add '/home/dev/hard/shared/public/avatars'
     archive.add '/home/dev/hard/shared/public/posts'
     archive.add '/home/dev/hard/shared/public/photos'
+    archive.add '/home/dev/hard/shared/public/teams'
   end
 
   database PostgreSQL do |db|

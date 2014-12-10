@@ -8,6 +8,9 @@
     #preview
       img.upload_preview data-dz-thumbnail=''
       .dz-message
+      button#cancel.btn.btn-warning data-dz-remove=''
+        => fa_icon 'ban'
+        | Отменить
   table.table.table-bordered
     tr
       td Полное название*
