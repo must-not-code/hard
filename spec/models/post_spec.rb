@@ -6,13 +6,13 @@ describe Post do
 
   it do
     should ensure_length_of(:title).
-      is_at_least(4).is_at_most(200).
+      is_at_least(2).is_at_most(255).
       with_message('Посту нужен заголовок адекватной длины!')
   end
 
   it do
     should ensure_length_of(:game).
-      is_at_least(2).is_at_most(30).
+      is_at_least(2).is_at_most(24).
       with_message('Пост должен относиться к какой-то игре!')
   end
 

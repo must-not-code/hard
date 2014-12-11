@@ -36,11 +36,6 @@ Hard::Application.routes.draw do
     get  ':game'                  => :show,            as: 'crew'
   end
 
-  controller :posts, path: '/posts', as: 'post' do
-    post 'save'                   => :save,            as: 'save'
-    post 'upload'                 => :upload,          as: 'upload'
-  end
-
   resources :posts do
     get 'page/:page', action: :index, on: :collection
   end

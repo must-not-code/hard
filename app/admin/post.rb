@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :game, :content, :published_at
+  permit_params :title, :user, :game, :content, :published_at
 
   index do
     column :id
@@ -50,6 +50,12 @@ ActiveAdmin.register Post do
   action_item only: :edit do
     unless resource.published_at
       link_to 'Publish', 'publish'
+    end
+  end
+
+  controller do
+    before_create do
+      resource.user_id = current_user.id
     end
   end
 end

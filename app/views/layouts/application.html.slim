@@ -31,7 +31,7 @@ html
                 = link_to 'Видео', videos_path
               li class=('active' if controller_name == 'crews')
                 = link_to 'Команда', crews_path
-              - if current_user.group[/admin/]
+              - if logged_in? && current_user.group[/admin/]
                 li
                   = link_to 'Админка', admin_root_path
             ul.nav.navbar-nav.navbar-right
