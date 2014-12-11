@@ -44,7 +44,7 @@ Hard::Application.routes.draw do
     get 'page/:page', action: :index, on: :collection
   end
 
-  resources :teams do
+  resources :teams, id: /.*/ do
     post 'leave'                  => 'teams#leave',    as: 'leave'
     resources :invites, only: [:new, :create, :destroy]
   end
