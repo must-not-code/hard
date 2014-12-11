@@ -44,10 +44,17 @@ Hard::Application.routes.draw do
     get 'page/:page', action: :index, on: :collection
   end
 
+  resources :teams do
+    post 'leave'                  => 'teams#leave',    as: 'leave'
+    resources :invites, only: [:new, :create, :destroy]
+  end
+
   get   'password_reset'           => 'password_resets#new', as: 'new_password_reset'
 
-  resources :users
-  resources :teams
+  resources :users do
+    resources :invites, only: [:index]
+  end
+
   resources :streams
   resources :comments
   resources :results

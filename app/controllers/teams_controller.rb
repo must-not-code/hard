@@ -58,4 +58,27 @@ class TeamsController < ApplicationController
       head 403
     end
   end
+
+  def leave
+    @team = Team.find_by_title(params[:team_id])
+    if logged_in? && current_user.team_id == @team.id
+      current_user.update(team_id: nil)
+      flash[:notice] = "Вы покинули команду «<b>#{@team.title}</b>»!"
+      redirect_to user_path(current_user.username)
+    else
+      head 403
+    end
+  end
+
+  def destroy
+    @team = Team.find_by_title(params[:id])
+    if logged_in? && current_user.username == @team.owner
+      @team.users.update_all(team_id: nil)
+      @team.destroy
+      flash[:notice] = 'Ваша команда удалена!'
+      redirect_to user_path(current_user.username)
+    else
+      head 403
+    end
+  end
 end

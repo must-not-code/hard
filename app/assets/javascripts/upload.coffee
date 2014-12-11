@@ -9,6 +9,8 @@ $ ->
     previewsContainer: '#previews'
     clickable: '#fileinput'
     acceptedFiles: 'image/*'
+    thumbnailWidth: 150
+    thumbnailHeight: 150
     dictInvalidFileType: 'Нужен файл формата png, gif, jpg или jpeg!'
     dictFileTooBig: 'Файл не должен быть больше 1мб!'
     init: ->

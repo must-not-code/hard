@@ -36,6 +36,11 @@ html
                   = link_to 'Админка', admin_root_path
             ul.nav.navbar-nav.navbar-right
               - if logged_in?
+                - if current_user.invites.count > 0
+                  li
+                    = link_to user_invites_path(current_user.username) do
+                      => current_user.invites.count
+                      = fa_icon 'envelope', title: 'Приглашения'
                 li
                   = link_to user_path(current_user.username)
                     = image_tag current_user.avatar.mini

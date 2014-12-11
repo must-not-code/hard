@@ -2,6 +2,7 @@ class Team < ActiveRecord::Base
   mount_uploader :logo, TeamUploader
 
   has_many :users
+  has_many :invites
 
   validates :title,
     uniqueness: {case_sensitive: false,

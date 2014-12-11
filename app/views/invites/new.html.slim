@@ -1,0 +1,13 @@
+.col-md-8
+  .well
+    h2
+      = link_to 'Новое приглашение', new_team_invite_path(@team.title)
+    hr
+    #notice
+    .row
+      .col-md-3
+        = render 'teams/team_menu'
+      .col-md-9
+        = form_tag team_invites_path, remote: true do
+          = text_field_tag :username, nil, class: 'full-input'
+          = submit_tag 'Пригласить', class: 'btn btn-hard btn-block'

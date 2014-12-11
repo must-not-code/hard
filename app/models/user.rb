@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many   :comments
   has_many   :posts
   has_many   :kinds
+  has_many   :invites
   belongs_to :team
 
   validates :username,

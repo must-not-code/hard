@@ -1,0 +1,27 @@
+.col-md-8
+  .well
+    h2
+      = link_to 'Приглашения', user_invites_path(@user.username)
+    hr
+    #notice
+    .row
+      .col-md-3
+        = render 'users/user_menu'
+      .col-md-9
+        table.table.table-responsive.tourney-table
+          - @invites.each do |invite|
+            tr
+              th
+                => image_tag User.find_by_username(invite.team.owner).avatar.mini
+                = link_to invite.team.owner, user_path(invite.team.owner)
+              th
+                | пригласил вас в команду
+              th
+                => image_tag invite.team.logo.mini
+                = link_to invite.team.title, team_path(invite.team.title)
+              th
+                .pull-right
+                  = link_to team_invite_path(invite.team.title, invite.id, join: true), method: :delete, data: {confirm: "Вы уверены, что хотите вступить в команду «#{invite.team.title}»?"} do
+                    = fa_icon 'check lg', class: 'green'
+                  = link_to team_invite_path(invite.team.title, invite.id, join: false), method: :delete, data: {confirm: "Вы уверены, что хотите отклонить приглашение в команду «#{invite.team.title}»?"} do
+                    = fa_icon 'times lg', class: 'red'

@@ -6,7 +6,7 @@
     #notice
       - unless flash[:notice].blank?
         .alert.alert-info
-          = flash[:notice]
+          = flash[:notice].html_safe
     .row
       .col-md-3
         = render 'user_menu'
