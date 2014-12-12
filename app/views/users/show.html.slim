@@ -22,6 +22,16 @@
               td Фамилия
               td
                 = @user.lastname
+          - if @user.nick_ru
+            tr
+              td Ник (RU)
+              td
+                = @user.nick_ru
+          - if @user.nick_euw
+            tr
+              td Ник (EUW)
+              td
+                = @user.nick_euw
           - if @user.skype
             tr
               td Skype

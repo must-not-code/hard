@@ -36,11 +36,11 @@ Hard::Application.routes.draw do
     get  ':game'                  => :show,            as: 'crew'
   end
 
-  resources :posts do
+  resources :posts, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
   end
 
-  resources :videos do
+  resources :videos, only: [:index, :show] do
     get 'page/:page', action: :index, on: :collection
   end
 
@@ -55,7 +55,7 @@ Hard::Application.routes.draw do
     resources :invites, only: [:index]
   end
 
-  resources :streams
+  resources :streams, only: [:index, :show]
   resources :comments
   resources :results
   resources :tournaments

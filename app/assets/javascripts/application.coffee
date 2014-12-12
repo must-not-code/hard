@@ -10,5 +10,4 @@
 #= require easing
 #= require dotdotdot
 #= require dropzone
-#= require tinymce
 #= require_tree .

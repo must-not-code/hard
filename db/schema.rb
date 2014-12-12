@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211100832) do
+ActiveRecord::Schema.define(version: 20141212113503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -192,6 +192,8 @@ ActiveRecord::Schema.define(version: 20141211100832) do
     t.string   "twitch"
     t.string   "twitter"
     t.integer  "team_id"
+    t.string   "nick_ru"
+    t.string   "nick_euw"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
