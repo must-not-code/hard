@@ -4,7 +4,7 @@
     .overflow
       #bracket
         - if @tournament.standings
-          #brackets
+          #brackets data-team=@tournament.team.to_s
         - else
           - if logged_in? && current_user.group[/admin/]
             button#shuffle.btn.btn-warning Сгенерить сетку

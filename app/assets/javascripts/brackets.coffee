@@ -23,10 +23,17 @@ $ ->
       else
         container.append('')
 
-      if data.name
-        container.append('<a href=/users/'+encodeURIComponent(data.name)+'>'+data.name+'</a>')
+      if $('#brackets').data('team')
+        if data.name
+          container.append(data.name)
+        else
+          container.append('')
+
       else
-        container.append('')
+        if data.name
+          container.append('<a href=/users/'+encodeURIComponent(data.name)+'>'+data.name+'</a>')
+        else
+          container.append('')
 
     upload_bracket = () ->
       $.ajax
