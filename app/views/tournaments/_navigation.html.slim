@@ -72,5 +72,6 @@ ul.nav.nav-tabs.nav-justified
     = link_to 'Сетка', tournament_bracket_path(@tournament.id)
   li class=('active' if action_name == 'rules')
     = link_to 'Правила', tournament_rules_path(@tournament.id)
-  li class=('active' if action_name == 'results')
-    = link_to 'Результаты', tournament_results_path(@tournament.id)
+  - unless @tournament.team
+    li class=('active' if action_name == 'results')
+      = link_to 'Результаты', tournament_results_path(@tournament.id)
