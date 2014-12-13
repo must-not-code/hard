@@ -1,4 +1,6 @@
 class Team < ActiveRecord::Base
+  before_save :fix_urls
+
   mount_uploader :logo, TeamUploader
 
   has_many :users
@@ -17,4 +19,11 @@ class Team < ActiveRecord::Base
       message: 'Команда с таким тэгом уже существует.'},
     length: {in: 2..6,
       message: 'Тэг должен содержать от 2 до 6 символов.'}
+
+  private
+  def fix_urls
+    %w(vk fb site twitter youtube).each do |column|
+      self.send("#{column}=", (self.send(column)[/https?:\/\//] ? '' : 'http://') + self.send(column))
+    end
+  end
 end

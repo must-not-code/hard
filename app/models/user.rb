@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  before_save :fix_urls
+
   mount_uploader :avatar, AvatarUploader
 
   has_many   :tournaments, through: :kinds
@@ -52,4 +54,11 @@ class User < ActiveRecord::Base
       too_short: 'Не скромничайте. Оставьте о себе больше трех букв.',
       too_long: 'Недопустимое количество символов.'},
     allow_blank: true
+
+  private
+  def fix_urls
+    %w(vk fb site twitch twitter).each do |column|
+      self.send("#{column}=", (self.send(column)[/https?:\/\//] ? '' : 'http://') + self.send(column))
+    end
+  end
 end
