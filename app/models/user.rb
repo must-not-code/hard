@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   private
   def fix_urls
     %w(vk fb site twitch twitter).each do |column|
-      self.send("#{column}=", (self.send(column)[/https?:\/\//] ? '' : 'http://') + self.send(column))
+      self.send("#{column}=", (self.send(column)[/^$|https?:\/\//] ? '' : 'http://') + self.send(column))
     end
   end
 end

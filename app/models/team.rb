@@ -23,7 +23,7 @@ class Team < ActiveRecord::Base
   private
   def fix_urls
     %w(vk fb site twitter youtube).each do |column|
-      self.send("#{column}=", (self.send(column)[/https?:\/\//] ? '' : 'http://') + self.send(column))
+      self.send("#{column}=", (self.send(column)[/^$|https?:\/\//] ? '' : 'http://') + self.send(column))
     end
   end
 end
