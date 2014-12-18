@@ -11,10 +11,6 @@ class InvitesController < ApplicationController
     @invites = Invite.where(user_id: @user.id)
   end
 
-  def show
-    @crew = Crew.find_by(game: params[:game])
-  end
-
   def create
     team = Team.find_by_title(params[:team_id])
     user = User.find_by_username(params[:username])

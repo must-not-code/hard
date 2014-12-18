@@ -35,7 +35,6 @@ class UsersController < ApplicationController
     unless @user == current_user
       redirect_to user_path
     end
-    gon.user_path = user_path(@user.username)
   end
 
   def update
