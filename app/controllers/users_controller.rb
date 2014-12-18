@@ -1,19 +1,17 @@
 class UsersController < ApplicationController
   def new
-    gon.push({root_path: root_path, users_path: users_path})
   end
 
   def create
-    @user = User.new(username: params['username'],
-                     email: params['email'],
-                     password: params['password'],
+    @user = User.new(username:              params['username'],
+                     email:                 params['email'],
+                     password:              params['password'],
                      password_confirmation: params['password_confirmation'])
     if @user.save
       login(params[:username], params[:password], true)
-      render json: {success: true}
+      render json: { url: root_path }
     else
-      render json: {success: false,
-                    errors: @user.errors.first[1]}
+      render json: { error: @user.errors.first[1] }
     end
   end
 
