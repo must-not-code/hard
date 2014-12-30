@@ -57,5 +57,12 @@ ActiveAdmin.register Post do
     before_create do
       resource.user_id = current_user.id
     end
+
+    before_filter do
+       # Disabling this is probably not a good idea,
+       # but the header causes Chrome to choke when being
+       # redirected back after a submit and the page contains an iframe.
+       response.headers['X-XSS-Protection'] = '0'
+    end
   end
 end
