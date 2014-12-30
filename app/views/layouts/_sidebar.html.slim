@@ -13,10 +13,8 @@
                     = tourney.title
                   .col-xs-3.sidebar-icon
                     .pull-right
-                      /=> tourney.users.count
-                      /= fa_icon 'user'
-                      => 4
-                      = fa_icon 'users'
+                      => tourney.users.count
+                      = fa_icon 'user'
         li.dropdown-header Последние посты
         - Post.where.not(published_at: nil).limit(5).order(published_at: :desc).each do |post|
           li

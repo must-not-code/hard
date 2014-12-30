@@ -4,18 +4,12 @@
       li.active data-slide-to='0' data-target='#carousel'
       li data-slide-to='1' data-target='#carousel'
       li data-slide-to='2' data-target='#carousel'
-      li data-slide-to='3' data-target='#carousel'
     .carousel-inner
       .item.active
         = link_to crew_path('lol') do
           = image_tag 'lol_carousel.png'
           .carousel-caption
             h1 Команда по<br>League of Legends
-      .item
-        = link_to tournament_path(24) do
-          = image_tag '4cup_carousel.png'
-          .carousel-caption
-            h1 Кубок Четырех
       .item
         = link_to post_path(153) do
           = image_tag 'sltv_carousel.png'
