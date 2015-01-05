@@ -5,7 +5,7 @@
       #notice
       = form_tag users_path, remote: true do
         = label_tag :username, 'Логин'
-        = text_field_tag :username, nil, class: 'full-input', autofocu: true
+        = text_field_tag :username, nil, class: 'full-input', autofocus: true
         = label_tag :email, 'Email'
         = text_field_tag :email, nil, class: 'full-input'
         = label_tag :password, 'Пароль'

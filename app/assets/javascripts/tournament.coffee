@@ -44,3 +44,8 @@ $ ->
         else
           warning(response.errors)
         update_tournament_list()
+
+  if $('#results-list').length
+    setInterval ->
+      $('#results-list').load("#{gon.tournament_results_path} #results-list")
+    , 60000

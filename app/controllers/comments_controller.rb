@@ -2,13 +2,12 @@ class CommentsController < ApplicationController
   def create
     if logged_in?
       @comment = Comment.new(content: params[:text],
-                             post_id: params[:post],
+                             post_id: params[:post_id],
                              user_id: current_user.id)
       if @comment.save
-        render json: {success: true}
+        render json: { div: '#comments', load: post_path(params[:post_id]) }
       else
-        render json: {success: false,
-                      errors: @comment.errors.first[1]}
+        render json: { error: @comment.errors.first[1] }
       end
     else
       head 403
@@ -17,11 +16,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    if logged_in? && 
+    if logged_in? &&
     current_user.id == @comment.user_id &&
     Time.parse(@comment.created_at.to_s) > Time.now - 10*60
       @comment.destroy
-      head 200
+      render json: { div: '#comments', load: post_path(params[:post_id]) }
     else
       head 403
     end

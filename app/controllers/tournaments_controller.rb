@@ -39,9 +39,7 @@ class TournamentsController < ApplicationController
   def results
     @tournament = Tournament.find(params[:id])
     tourney_gon(@tournament.id)
-    gon.push({tournament_id: @tournament.id,
-              results_path: results_path,
-              tournament_results_path: tournament_results_path(@tournament.id)})
+    gon.push({tournament_results_path: tournament_results_path(@tournament.id)})
   end
 
   def update_groups

@@ -7,7 +7,13 @@
       div
         = link_to 'Пригласить в команду', new_team_invite_path(@team.title)
       div
-        = link_to 'Удалить команду', team_path(@team.title), method: :delete, data: {confirm: 'Вы уверены, что хотите удалить команду?'}
+        = link_to 'Удалить команду',
+                   team_path(@team.title),
+                   method: :delete,
+                   data: {confirm: 'Вы уверены, что хотите удалить команду?'}
     - elsif current_user.team_id == @team.id
       div
-        = link_to 'Выйти из команды', team_leave_path(@team.title), method: :post, data: {confirm: 'Вы уверены, что хотите выйти из команды?'}
+        = link_to 'Выйти из команды',
+                   team_leave_path(@team.title),
+                   method: :post,
+                   data: {confirm: 'Вы уверены, что хотите выйти из команды?'}

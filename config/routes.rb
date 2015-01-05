@@ -49,15 +49,15 @@ Hard::Application.routes.draw do
     resources :invites, only: [:new, :create, :destroy]
   end
 
-  get   'password_reset'           => 'password_resets#new', as: 'new_password_reset'
+  get   'password_reset'          => 'password_resets#new', as: 'new_password_reset'
 
   resources :users do
     resources :invites, only: [:index]
   end
 
   resources :streams, only: [:index, :show]
-  resources :comments
-  resources :results
+  resources :comments, only: [:create, :destroy]
+  resources :results, only: [:create]
   resources :tournaments
   resources :password_resets
 
