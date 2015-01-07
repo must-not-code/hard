@@ -21,7 +21,11 @@
                 = link_to invite.team.title, team_path(invite.team.title)
               th
                 .pull-right
-                  = link_to team_invite_path(invite.team.title, invite.id, join: true), method: :delete, data: {confirm: "Вы уверены, что хотите вступить в команду «#{invite.team.title}»?"} do
+                  = link_to team_invite_path(invite.team.title, invite.id, join: true),
+                            method: :delete,
+                            data: {confirm: "Вы уверены, что хотите вступить в команду «#{invite.team.title}»?"} do
                     = fa_icon 'check lg', class: 'green'
-                  = link_to team_invite_path(invite.team.title, invite.id, join: false), method: :delete, data: {confirm: "Вы уверены, что хотите отклонить приглашение в команду «#{invite.team.title}»?"} do
+                  = link_to team_invite_path(invite.team.title, invite.id, join: false),
+                            method: :delete,
+                            data: {confirm: "Вы уверены, что хотите отклонить приглашение в команду «#{invite.team.title}»?"} do
                     = fa_icon 'times lg', class: 'red'
