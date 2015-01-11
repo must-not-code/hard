@@ -47,5 +47,5 @@ $ ->
 
   if $('#results-list').length
     setInterval ->
-      $('#results-list').load("#{$('#results').data('tournament')}} #results-list")
+      $('#results-list').load("#{$('#results').data('tournament')} #results-list")
     , 60000
