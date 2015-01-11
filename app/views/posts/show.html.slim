@@ -15,7 +15,7 @@
       => fa_icon 'pencil'
       = @post.comments.count
     hr
-    #comments
+    #comments data-post=post_path(@post.id)
       #comments-list
         - @post.comments.each do |comment|
           - author = User.find(comment.user_id)

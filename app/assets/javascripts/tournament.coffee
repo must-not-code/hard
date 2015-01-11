@@ -47,5 +47,5 @@ $ ->
 
   if $('#results-list').length
     setInterval ->
-      $('#results-list').load("#{gon.tournament_results_path} #results-list")
+      $('#results-list').load("#{$('#results').data('tournament')}} #results-list")
     , 60000

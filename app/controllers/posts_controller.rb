@@ -9,6 +9,5 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    gon.push({ post_path: post_path(@post.id) })
   end
 end

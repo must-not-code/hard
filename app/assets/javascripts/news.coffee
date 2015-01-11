@@ -7,5 +7,5 @@ $ ->
 
   if $('#comments').length
      setInterval ->
-       $('#comments-list').load("#{gon.post_path} #comments-list")
+       $('#comments-list').load("#{$('#comments').data('post')} #comments-list")
      , 60000

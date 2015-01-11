@@ -2,7 +2,7 @@
   .well
     = render 'navigation'
     - if @tournament.beginning < Time.now
-      #results
+      #results data-tournament=tournament_results_path(@tournament.id)
         #results-list
           - @tournament.results.order(:created_at).each do |result|
             - author = User.find(result.user_id)
