@@ -13,15 +13,15 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
 
   database PostgreSQL do |db|
     db.name               = 'hardrandom'
-    db.username           = 'dev'
-    db.password           = ENV['DB_PASSWORD']
+    db.username           = Rails.application.secrets.db_username
+    db.password           = Rails.application.secrets.db_password
     db.host               = 'localhost'
     db.port               = 5432
   end
 
   store_with Dropbox do |db|
     db.api_key            = 'zenganherzp0gcz'
-    db.api_secret         = ENV['DROPBOX_SECRET']
+    db.api_secret         = Rails.application.secrets.dropbox_secret
     db.access_type        = :app_folder
     db.path               = '/'
     db.keep               = 14
@@ -42,7 +42,7 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
     mail.address          = 'smtp.sendgrid.net'
     mail.port             = 587
     mail.user_name        = 'slowpoke'
-    mail.password         = ENV['MAIL_PASSWORD']
+    mail.password         = Rails.application.secrets.mail_password
     mail.domain           = 'hardrandom.com'
     mail.authentication   = 'plain'
     mail.encryption       = :starttls

@@ -35,7 +35,7 @@ Hard::Application.configure do
     port:                 587,
     domain:               'hardrandom.com',
     user_name:            'mailer',
-    password:             ENV['MAIL_PASSWORD'],
+    password:             Rails.application.secrets.mail_password,
     authentication:       'plain',
     enable_starttls_auto: true,
     openssl_verify_mode:  'none'}

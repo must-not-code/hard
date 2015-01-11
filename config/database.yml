@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: hardrandom
   pool: 5
-  username: dev
-  password: <%= ENV['DB_PASSWORD'] %>
+  username: <%= Rails.application.secrets.db_username %>
+  password: <%= Rails.application.secrets.db_password %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: hardrandom
   pool: 5
-  username: dev
-  password: <%= ENV['DB_PASSWORD'] %>
+  username: <%= Rails.application.secrets.db_username %>
+  password: <%= Rails.application.secrets.db_password %>
