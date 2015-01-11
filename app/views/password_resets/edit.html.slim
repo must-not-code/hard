@@ -2,16 +2,11 @@
   .well
     fieldset
       legend Восстановление пароля
-      = form_for @user, url: password_reset_path(@user), method: :put do |f|
-        - if @user.errors.any?
-          .alert.alert-danger
-            = @user.errors.first[1]
-        .field
-          = f.label :password, 'Новый пароль'
-          = f.password_field :password, class: 'full-input', autofocus: 'autofocus'
-        .field
-          = f.label :password_confirmation, 'Подтвердите пароль'
-          = f.password_field :password_confirmation, class: 'full-input'
-          = hidden_field_tag :token, @token
-        .actions
-          = f.submit 'Применить', class: 'btn btn-hard btn-block'
+      #notice
+      = form_for @user, url: password_reset_path(@user), method: :put, remote: true do |f|
+        = f.label :password, 'Новый пароль'
+        = f.password_field :password, class: 'full-input', autofocus: 'autofocus'
+        = f.label :password_confirmation, 'Подтвердите пароль'
+        = f.password_field :password_confirmation, class: 'full-input'
+        = hidden_field_tag :token, @token
+        = f.submit 'Применить', class: 'btn btn-hard btn-block'
