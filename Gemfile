@@ -70,6 +70,7 @@ end
 group :development do
   # Useful error page
   gem 'better_errors'
+  gem 'binding_of_caller'
 
   # Deploy
   gem 'capistrano',       '~> 3.1',   require: false

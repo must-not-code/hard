@@ -30,9 +30,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_username(params[:id])
-    unless @user == current_user
-      redirect_to user_path
-    end
+    redirect_to user_path unless @user == current_user
   end
 
   def update
@@ -63,28 +61,22 @@ class UsersController < ApplicationController
   end
 
   def change_password
-    @user = current_user
-    if @user.blank?
-      not_authenticated
-      return
-    end
+    @user = User.find_by_username(params[:id])
+    redirect_to user_path unless @user == current_user
   end
 
   def update_password
-    @user = current_user
-    if @user.blank?
-      not_authenticated
-      return
-    end
+    @user = User.find_by_username(params[:id])
     if BCrypt::Password.new(@user.crypted_password) == params[:user][:old_password] + @user.salt
       @user.password_confirmation = params[:user][:password_confirmation]
       if @user.change_password!(params[:user][:password])
-        redirect_to(root_path, notice: 'Пароль успешно обновлён.')
+        flash[:notice] = 'Пароль успешно обновлён.'
+        render json: { success: true, url: user_path(@user.username) }
       else
-        render action: 'change_password'
+        render json: { error: @user.errors.first[1] }
       end
     else
-      redirect_to(change_password_path, notice: 'Неправильный старый пароль!')
+      render json: { error: 'Неправильный старый пароль!' }
     end
   end
 end

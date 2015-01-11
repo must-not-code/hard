@@ -10,8 +10,8 @@ Hard::Application.routes.draw do
   controller :users do
     get  'signup'                 => :new,             as: 'signup'
     get  'users/:id/activate'     => :activate,        as: 'activate_user'
-    get  'change_password'        => :change_password, as: 'change_password'
-    put  'change_password'        => :update_password, as: 'update_password'
+    get  'users/:id/password'     => :change_password, as: 'change_password'
+    put  'users/:id/password'     => :update_password, as: 'update_password'
   end
 
   controller :tournaments, path: '/tournaments', as: 'tournament'  do
