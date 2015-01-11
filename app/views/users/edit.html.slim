@@ -74,4 +74,6 @@
               td colspan='2'
                 = f.text_area :about, rows: 8, maxlength: 5000
           .actions
-            = f.submit 'Сохранить', class: 'btn btn-hard btn-block'
+            = f.submit 'Сохранить',
+                       class: 'btn btn-hard btn-block',
+                       data: {disable_with: 'Отправляется...'}

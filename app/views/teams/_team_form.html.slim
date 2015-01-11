@@ -41,4 +41,6 @@
       td
         = f.text_field :youtube, class: 'table-input'
   .actions
-    = f.submit @team.new_record? ? 'Создать' : 'Обновить', class: 'btn btn-hard btn-block'
+    = f.submit @team.new_record? ? 'Создать' : 'Обновить',
+               class: 'btn btn-hard btn-block',
+               data: {disable_with: 'Отправляется...'}
