@@ -1,6 +1,9 @@
 #http://meskyanichi.github.io/backup/v4
 #backup perform --trigger hard_backup
 
+require 'yaml'
+config = YAML.load_file(secrets.yml)
+
 Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
   split_into_chunks_of 50
 
@@ -13,15 +16,15 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
 
   database PostgreSQL do |db|
     db.name               = 'hardrandom'
-    db.username           = Rails.application.secrets.db_username
-    db.password           = Rails.application.secrets.db_password
+    db.username           = config['production']['db_username']
+    db.password           = config['production']['db_password']
     db.host               = 'localhost'
     db.port               = 5432
   end
 
   store_with Dropbox do |db|
     db.api_key            = 'zenganherzp0gcz'
-    db.api_secret         = Rails.application.secrets.dropbox_secret
+    db.api_secret         = config['production']['dropbox_secret']
     db.access_type        = :app_folder
     db.path               = '/'
     db.keep               = 14
@@ -42,7 +45,7 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
     mail.address          = 'smtp.sendgrid.net'
     mail.port             = 587
     mail.user_name        = 'slowpoke'
-    mail.password         = Rails.application.secrets.mail_password
+    mail.password         = config['production']['mail_password']
     mail.domain           = 'hardrandom.com'
     mail.authentication   = 'plain'
     mail.encryption       = :starttls
