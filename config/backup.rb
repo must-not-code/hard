@@ -2,7 +2,7 @@
 #backup perform --trigger hard_backup
 
 require 'yaml'
-config = YAML.load_file('secrets.yml')
+config = YAML.load_file('config/secrets.yml')
 
 Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
   split_into_chunks_of 50
