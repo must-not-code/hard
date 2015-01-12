@@ -2,23 +2,24 @@
 #backup perform --trigger hard_backup
 
 require 'yaml'
-config = YAML.load_file('config/secrets.yml')
+
+path = '/home/dev/hard/shared'
+config = YAML.load_file("#{path}/config/secrets.yml")
 
 Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
   split_into_chunks_of 50
 
   archive :hard_archive do |archive|
-    archive.add '/home/dev/hard/shared/public/avatars'
-    archive.add '/home/dev/hard/shared/public/posts'
-    archive.add '/home/dev/hard/shared/public/photos'
-    archive.add '/home/dev/hard/shared/public/teams'
+    archive.add "#{path}/public/avatars"
+    archive.add "#{path}/public/posts"
+    archive.add "#{path}/public/photos"
+    archive.add "#{path}/public/teams"
   end
 
   database PostgreSQL do |db|
     db.name               = 'hardrandom'
     db.username           = config['production']['db_username']
     db.password           = config['production']['db_password']
-    db.host               = 'localhost'
     db.port               = 5432
   end
 
