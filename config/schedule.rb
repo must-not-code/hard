@@ -5,7 +5,7 @@
 #crontab -r
 
 every 1.day, :at => '4:00 am' do
-  command 'backup perform --trigger hard_backup'
+  command 'cd /home/dev/hard/current && rails r backup perform --trigger hard_backup'
 end
 
 every :reboot do

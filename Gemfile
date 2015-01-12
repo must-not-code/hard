@@ -58,9 +58,9 @@ gem 'daemons',                        require: false
 gem 'kappa'
 
 # Backup
-gem 'backup',                         require: false
-gem 'dropbox-sdk',           '1.5.1', require: false
-gem 'whenever',                       require: false
+gem 'backup'
+gem 'dropbox-sdk',           '1.5.1'
+gem 'whenever'
 
 group :production do
   # Analytics
