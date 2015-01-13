@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112203312) do
+ActiveRecord::Schema.define(version: 20150113115342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,9 +100,10 @@ ActiveRecord::Schema.define(version: 20150112203312) do
     t.string   "vk"
     t.string   "twitch"
     t.date     "birthday"
-    t.string   "location"
     t.integer  "position"
     t.string   "status"
+    t.string   "country"
+    t.string   "city"
   end
 
   create_table "posts", force: true do |t|
@@ -149,6 +150,7 @@ ActiveRecord::Schema.define(version: 20150112203312) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "owner"
+    t.string   "country"
   end
 
   create_table "tournaments", force: true do |t|
@@ -206,6 +208,8 @@ ActiveRecord::Schema.define(version: 20150112203312) do
     t.integer  "team_id"
     t.string   "nick_ru"
     t.string   "nick_euw"
+    t.string   "country"
+    t.string   "city"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

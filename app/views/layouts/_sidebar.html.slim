@@ -18,7 +18,6 @@
                 =< event.enemy
               th
                 = event.tourney
-
         - tournaments = Tournament.where(show: true).order(created_at: :desc)
         - unless tournaments.empty?
           li.dropdown-header Наши турниры

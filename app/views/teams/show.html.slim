@@ -22,6 +22,11 @@
               td Сокращенное название
               td
                 = @team.tag
+          - if @team.country
+            tr
+              td Страна
+              td
+                i class="famfamfam-flag-#{@team.country.downcase}"
           - if @team.site
             tr
               td Сайт

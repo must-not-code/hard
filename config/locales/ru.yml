@@ -1,0 +1,14 @@
+ru:
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Вперёд"
+      next: "Назад &rsaquo;"
+      truncate: "&hellip;"
+  time:
+    formats:
+      long: "%d.%m.%Y в %H:%M"
+  date:
+    formats:
+      long: "%-d %B %Y"

@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
       @team = Team.new(owner:   current_user.username,
                        title:   params['team']['title'],
                        tag:     params['team']['tag'],
+                       country: params['team']['country'],
                        site:    params['team']['site'],
                        vk:      params['team']['vk'],
                        fb:      params['team']['fb'],
@@ -43,6 +44,7 @@ class TeamsController < ApplicationController
     if logged_in? && current_user.username == @team.owner
       if @team.update(title:   params['team']['title'],
                       tag:     params['team']['tag'],
+                      country: params['team']['country'],
                       site:    params['team']['site'],
                       vk:      params['team']['vk'],
                       fb:      params['team']['fb'],

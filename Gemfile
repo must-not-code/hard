@@ -52,6 +52,10 @@ gem 'activeadmin_hstore_editor'
 
 # Flags
 gem 'famfamfam_flags_rails'
+gem 'carmen-rails'
+
+# Locale
+gem 'rails-i18n'
 
 # Stream
 gem 'daemons',                        require: false

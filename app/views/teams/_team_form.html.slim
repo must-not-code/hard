@@ -11,35 +11,39 @@
       button#cancel.btn.btn-warning data-dz-remove=''
         => fa_icon 'ban'
         | Отменить
-  table.table.table-bordered
+  table.table.table-bordered.hard-table
     tr
       td Полное название*
       td
-        = f.text_field :title, class: 'table-input'
+        = f.text_field :title
     tr
       td Сокращенное название*
       td
-        = f.text_field :tag, class: 'table-input'
+        = f.text_field :tag
+    tr
+      td Страна
+      td
+        = f.country_select :country, {priority: %w(RU UA BY), prompt: 'Выберите страну'}
     tr
       td Сайт
       td
-        = f.text_field :site, class: 'table-input'
+        = f.text_field :site
     tr
       td ВКонтакте
       td
-        = f.text_field :vk, class: 'table-input'
+        = f.text_field :vk
     tr
       td Facebook
       td
-        = f.text_field :fb, class: 'table-input'
+        = f.text_field :fb
     tr
       td Twitter
       td
-        = f.text_field :twitter, class: 'table-input'
+        = f.text_field :twitter
     tr
       td YouTube
       td
-        = f.text_field :youtube, class: 'table-input'
+        = f.text_field :youtube
   .actions
     = f.submit @team.new_record? ? 'Создать' : 'Обновить',
                class: 'btn btn-hard btn-block',

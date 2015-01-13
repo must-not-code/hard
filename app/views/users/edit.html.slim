@@ -21,55 +21,63 @@
               button#cancel.btn.btn-warning data-dz-remove=''
                 => fa_icon 'ban'
                 | Отменить
-          table.table.table-bordered
+          table.table.table-bordered.hard-table
             tr
               td Имя
               td
-                = f.text_field :firstname, class: 'table-input'
+                = f.text_field :firstname
             tr
               td Фамилия
               td
-                = f.text_field :lastname, class: 'table-input'
+                = f.text_field :lastname
+            tr
+              td Страна
+              td
+                = f.country_select :country, {priority: %w(RU UA BY), prompt: 'Выберите страну'}
+            tr
+              td Город
+              td
+                = f.text_field :city
             tr
               td Ник (RU)
               td
-                = f.text_field :nick_ru, class: 'table-input'
+                = f.text_field :nick_ru
             tr
               td Ник (EUW)
               td
-                = f.text_field :nick_euw, class: 'table-input'
+                = f.text_field :nick_euw
             tr
               td Skype
               td
-                = f.text_field :skype, class: 'table-input'
+                = f.text_field :skype
             tr
               td ВКонтакте
               td
-                = f.text_field :vk, class: 'table-input'
+                = f.text_field :vk
             tr
               td Facebook
               td
-                = f.text_field :fb, class: 'table-input'
+                = f.text_field :fb
             tr
               td Сайт
               td
-                = f.text_field :site, class: 'table-input'
+                = f.text_field :site
             tr
               td Twitch
               td
-                = f.text_field :twitch, class: 'table-input'
+                = f.text_field :twitch
             tr
               td Twitter
               td
-                = f.text_field :twitter, class: 'table-input'
+                = f.text_field :twitter
             tr
               td BattleTag
               td
-                = f.text_field :tag, class: 'table-input'
+                = f.text_field :tag
             tr
               td Email
               td
-                = f.text_field :email, class: 'table-input'
+                = f.text_field :email
             tr
               td colspan='2'
                 = f.text_area :about, rows: 8, maxlength: 5000

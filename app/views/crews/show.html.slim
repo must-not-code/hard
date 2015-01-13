@@ -23,7 +23,9 @@
             p
               = member.birthday.strftime("%d.%m.%Y") if member.birthday
             p
-              = member.location
+              - if member.country
+                i class="famfamfam-flag-#{member.country.downcase}"
+              =< member.city
           .col-md-3
             .member-social.pull-right
               - if member.vk

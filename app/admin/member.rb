@@ -1,5 +1,5 @@
 ActiveAdmin.register Member do
-  permit_params :name, :nickname, :role, :birthday, :location, :photo, :vk, :twitch, :status, :position, :crew
+  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :crew
 
   index do
     column :id
@@ -26,7 +26,8 @@ ActiveAdmin.register Member do
       f.input :nickname
       f.input :role
       f.input :birthday
-      f.input :location
+      f.input :country, priority_countries: ['RU', 'UA', 'BY']
+      f.input :city
       f.input :photo
       f.input :vk
       f.input :twitch

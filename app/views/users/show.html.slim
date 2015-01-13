@@ -22,6 +22,16 @@
               td Фамилия
               td
                 = @user.lastname
+          - if @user.country
+            tr
+              td Страна
+              td
+                i class="famfamfam-flag-#{@user.country.downcase}"
+          - if @user.city
+            tr
+              td Город
+              td
+                = @user.city
           - if @user.nick_ru
             tr
               td Ник (RU)

@@ -38,6 +38,8 @@ class UsersController < ApplicationController
     if @user == current_user
       if @user.update(firstname: params['user']['firstname'],
                       lastname:  params['user']['lastname'],
+                      country:   params['user']['country'],
+                      city:      params['user']['city'],
                       nick_ru:   params['user']['nick_ru'],
                       nick_euw:  params['user']['nick_euw'],
                       skype:     params['user']['skype'],
