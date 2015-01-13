@@ -3,16 +3,16 @@
     aside.well
       ul.nav.nav-list
         li.dropdown-header Матчи
-        table.table
+        table.sidebar-table
           - Event.order(start_at: :desc).limit(8).each do |event|
             tr
               th
-                = event.start_at.strftime("%d.%m  %H:%M")
-              th
-                - if event.hr_score && event.enemy_score
+                = event.start_at.strftime("%d.%m &ensp; %H:%M").html_safe
+              - if event.hr_score && event.enemy_score
+                th class=(event.hr_score > event.enemy_score ? 'green' : 'red' )
                   = event.hr_score.to_s + ':' + event.enemy_score.to_s
-                - else
-                  | VS
+              - else
+                th VS
               th
                 i class="famfamfam-flag-#{event.flag}"
                 =< event.enemy
