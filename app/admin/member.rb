@@ -26,7 +26,7 @@ ActiveAdmin.register Member do
       f.input :nickname
       f.input :role
       f.input :birthday
-      f.input :country, priority_countries: ['RU', 'UA', 'BY']
+      f.input :country, priority_countries: ['RU', 'UA', 'BY'], prompt: 'Выберите страну'
       f.input :city
       f.input :photo
       f.input :vk
