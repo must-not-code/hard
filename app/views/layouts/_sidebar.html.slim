@@ -2,6 +2,23 @@
   .col-md-4
     aside.well
       ul.nav.nav-list
+        li.dropdown-header Матчи
+        table.table
+          - Event.order(start_at: :desc).limit(8).each do |event|
+            tr
+              th
+                = event.start_at.strftime("%d.%m  %H:%M")
+              th
+                - if event.hr_score && event.enemy_score
+                  = event.hr_score.to_s + ':' + event.enemy_score.to_s
+                - else
+                  | VS
+              th
+                i class="famfamfam-flag-#{event.flag}"
+                =< event.enemy
+              th
+                = event.tourney
+
         - tournaments = Tournament.where(show: true).order(created_at: :desc)
         - unless tournaments.empty?
           li.dropdown-header Наши турниры
