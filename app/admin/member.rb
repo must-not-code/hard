@@ -1,5 +1,5 @@
 ActiveAdmin.register Member do
-  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :crew
+  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :crew_id
 
   index do
     column :id
@@ -25,7 +25,7 @@ ActiveAdmin.register Member do
       f.input :name
       f.input :nickname
       f.input :role
-      f.input :birthday
+      f.input :birthday, start_year: 1900, end_year: Date.today.year
       f.input :country, priority_countries: ['RU', 'UA', 'BY'], prompt: 'Выберите страну'
       f.input :city
       f.input :photo
