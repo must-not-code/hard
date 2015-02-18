@@ -76,6 +76,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 
+  # Keeping application running in the background
+  gem 'spring'
+
   # Deploy
   gem 'capistrano',       '~> 3.1',   require: false
   gem 'capistrano-rails', '~> 1.1.1', require: false
