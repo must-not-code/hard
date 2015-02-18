@@ -26,7 +26,7 @@ set :deploy_to, '/home/dev/hard'
 set :linked_files, %w{config/secrets.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{log tmp public/avatars public/posts public/photos public/teams}
+set :linked_dirs, %w{log tmp public/avatars public/posts public/members public/teams}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

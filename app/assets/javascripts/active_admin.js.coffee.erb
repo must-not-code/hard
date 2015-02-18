@@ -11,3 +11,15 @@ $(document).ready ->
     valid_elements: '*[*]'
     plugins: 'link, image, code, media, table'
     content_css: "<%= asset_path('application.css')%>"
+
+  readURL = (input) ->
+    if input.files and input.files[0]
+      reader = new FileReader
+
+      reader.onload = (e) ->
+        $('#member_photo_input img').attr('src', e.target.result)
+
+      reader.readAsDataURL input.files[0]
+
+  $('#member_photo').change ->
+    readURL this

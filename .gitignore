@@ -10,7 +10,7 @@
 /public/avatars
 /public/posts
 /public/assets
-/public/photos
+/public/members
 /public/teams
 
 /config/secrets.yml
