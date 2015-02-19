@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class MemberUploader < CarrierWave::Uploader::Base
+class CarouselUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -13,12 +13,12 @@ class MemberUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "members/#{model.id}/avatar"
+    "carousels/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    'http://placehold.it/200x200'
+    'http://placehold.it/1200x280'
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
@@ -26,7 +26,8 @@ class MemberUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [200, 200]
+  # process :scale => [200, 300]
+  process resize_to_fill: [1200, 280]
   #
   # def scale(width, height)
   #   # do something
@@ -46,6 +47,6 @@ class MemberUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{model.nickname}.#{file.extension}" if original_filename
+    "carousel.#{file.extension}" if original_filename
   end
 end

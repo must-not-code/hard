@@ -44,7 +44,6 @@ ActiveAdmin.register Member do
       f.input :nickname
       f.input :role
       f.input :photo, :as => :file, :hint => image_tag(object.photo.url)
-      f.input :photo_cache, :as => :hidden
       f.input :birthday, start_year: 1900, end_year: Date.today.year
       f.input :country, priority_countries: ['RU', 'UA', 'BY'], prompt: 'Выберите страну'
       f.input :city

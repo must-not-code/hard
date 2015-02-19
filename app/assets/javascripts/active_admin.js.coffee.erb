@@ -15,11 +15,9 @@ $(document).ready ->
   readURL = (input) ->
     if input.files and input.files[0]
       reader = new FileReader
-
       reader.onload = (e) ->
-        $('#member_photo_input img').attr('src', e.target.result)
-
+        $('.file img').attr('src', e.target.result)
       reader.readAsDataURL input.files[0]
 
-  $('#member_photo').change ->
+  $('.file input').change ->
     readURL this

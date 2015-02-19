@@ -12,6 +12,7 @@
 /public/assets
 /public/members
 /public/teams
+/public/carousels
 
 /config/secrets.yml
 
