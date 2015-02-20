@@ -45,6 +45,7 @@ gem 'kaminari'
 # Upload files
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'tinymce-rails-imageupload',  '~> 4.0.0.beta'
 
 # Administration
 gem 'activeadmin',        github: 'activeadmin'

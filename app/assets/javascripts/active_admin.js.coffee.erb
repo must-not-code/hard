@@ -4,13 +4,14 @@
 
 $(document).ready ->
   tinyMCE.init
-    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image'
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | uploadimage'
     selector: '.text textarea'
     height: 400
     convert_urls: false
     valid_elements: '*[*]'
-    plugins: 'link, image, code, media, table'
+    plugins: 'link, image, code, media, table, uploadimage'
     content_css: "<%= asset_path('application.css')%>"
+    uploadimage_form_url: '/post_attachments'
 
   readURL = (input) ->
     if input.files and input.files[0]

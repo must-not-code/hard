@@ -57,6 +57,7 @@ Hard::Application.routes.draw do
 
   resources :streams, only: [:index, :show]
   resources :comments, only: [:create, :destroy]
+  resources :post_attachments, only: [:create, :destroy]
   resources :results, only: [:create]
   resources :tournaments
   resources :password_resets
