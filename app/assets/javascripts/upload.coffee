@@ -1,45 +1,10 @@
 $ ->
-  Dropzone.options.dropzone =
-    autoProcessQueue: false
-    uploadMultiple: true
-    parallelUploads: 20
-    maxFiles: 20
-    headers: 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    previewTemplate: $.trim($('#previews').html())
-    previewsContainer: '#previews'
-    clickable: '#fileinput'
-    acceptedFiles: 'image/*'
-    thumbnailWidth: 150
-    thumbnailHeight: 150
-    dictInvalidFileType: 'Нужен файл формата png, gif, jpg или jpeg!'
-    dictFileTooBig: 'Файл не должен быть больше 1мб!'
-    init: ->
-      myDropzone = this
-      $('#preview').hide()
+  readURL = (input) ->
+    if input.files and input.files[0]
+      reader = new FileReader
+      reader.onload = (e) ->
+        $('.hard-table img').attr('src', e.target.result)
+      reader.readAsDataURL input.files[0]
 
-      myDropzone.on 'addedfile', (file) ->
-        $('#current-img').hide()
-
-        $('#cancel').onclick = ->
-          myDropzone.removeAllFiles true
-
-      $('input[type="submit"]').click (e) ->
-
-        e.preventDefault()
-        e.stopPropagation()
-
-        if myDropzone.getQueuedFiles().length > 0
-          myDropzone.processQueue()
-        else
-          myDropzone.uploadFiles([])
-
-      @on "successmultiple", (files, response) ->
-        if response.success
-          window.location.replace(response.url)
-        else
-          $('#notice').html('<div class="alert alert-danger">' + response.error + '</div>')
-          myDropzone.removeAllFiles true
-          $('#fileinput').show()
-
-      @on "error", (files, response) ->
-        $('#notice').html('<div class="alert alert-danger">' + response + '</div>')
+  $('input[type=file]').change ->
+    readURL this

@@ -13,7 +13,7 @@ class PostAttachmentsController < ApplicationController
           error: {
             message: 'Не надо загружать всякие непотребности!'
           }
-        }
+        }, content_type: 'text/html'
       end
     else
       head 403

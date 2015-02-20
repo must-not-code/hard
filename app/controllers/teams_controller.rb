@@ -15,11 +15,11 @@ class TeamsController < ApplicationController
                        fb:      params['team']['fb'],
                        twitter: params['team']['twitter'],
                        youtube: params['team']['youtube'],
-                       logo:    params['file']['0'])
+                       logo:    params['team']['file'])
       if @team.save
         current_user.update(team_id: @team.id)
         flash[:notice] = "Команда «<b>#{@team.title}</b>» создана."
-        render json: { success: true, url: team_path(@team.title) }
+        render json: { url: team_path(@team.title) }
       else
         render json: { error: @team.errors.first[1] }
       end
@@ -50,9 +50,9 @@ class TeamsController < ApplicationController
                       fb:      params['team']['fb'],
                       twitter: params['team']['twitter'],
                       youtube: params['team']['youtube'],
-                      logo:    params['file']['0'])
+                      logo:    params['team']['file'])
         flash[:notice] = 'Данные обновлены.'
-        render json: { success: true, url: team_path(@team.title) }
+        render json: { url: team_path(@team.title) }
       else
         render json: { error: @team.errors.first[1] }
       end

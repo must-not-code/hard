@@ -9,5 +9,5 @@
 #= require smoothzoom.min
 #= require easing
 #= require dotdotdot
-#= require dropzone
+#= require jquery.remotipart
 #= require_tree .

@@ -46,9 +46,10 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'tinymce-rails-imageupload',  '~> 4.0.0.beta'
+gem 'remotipart',                 '~> 1.0'
 
 # Administration
-gem 'activeadmin',        github: 'activeadmin'
+gem 'activeadmin',                github: 'activeadmin'
 gem 'activeadmin_hstore_editor'
 
 # Flags
@@ -69,7 +70,7 @@ gem 'whenever',                       require: false
 
 group :production do
   # Analytics
-  gem 'newrelic_rpm',     '>= 3.8.1'
+  gem 'newrelic_rpm',        '>= 3.8.1'
 end
 
 group :development do

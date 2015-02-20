@@ -51,9 +51,9 @@ class UsersController < ApplicationController
                       tag:       params['user']['tag'],
                       email:     params['user']['email'],
                       about:     params['user']['about'],
-                      avatar:    params['file']['0'])
+                      avatar:    params['user']['file'])
         flash[:notice] = 'Данные обновлены.'
-        render json: { success: true, url: user_path(@user.username) }
+        render json: { url: user_path(@user.username) }
       else
         render json: { error: @user.errors.first[1] }
       end

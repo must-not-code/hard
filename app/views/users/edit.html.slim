@@ -8,20 +8,13 @@
       .col-md-3
         = render 'user_menu'
       .col-md-9
-        = form_for @user, remote: true, html: {id: 'dropzone', class: 'dropzone'} do |f|
-          #fileinput.btn.btn-hard
-            => fa_icon 'plus'
-            | Выбрать Аватар
-          #current-img.upload_preview
-            = image_tag @user.avatar
-          #previews
-            #preview
-              img.upload_preview data-dz-thumbnail=''
-              .dz-message
-              button#cancel.btn.btn-warning data-dz-remove=''
-                => fa_icon 'ban'
-                | Отменить
+        = form_for @user, remote: true, html: { 'data-type' => :json } do |f|
           table.table.table-bordered.hard-table
+            tr
+              td Аватар
+              td
+                = image_tag(@user.avatar)
+                = f.file_field :file
             tr
               td Имя
               td
@@ -33,7 +26,7 @@
             tr
               td Страна
               td
-                = f.country_select :country, {priority: %w(RU UA BY), prompt: 'Выберите страну'}
+                = f.country_select :country, { priority: %w(RU UA BY), prompt: 'Выберите страну' }
             tr
               td Город
               td
@@ -81,7 +74,8 @@
             tr
               td colspan='2'
                 = f.text_area :about, rows: 8, maxlength: 5000
+            = hidden_field_tag :authenticity_token, form_authenticity_token
           .actions
             = f.submit 'Сохранить',
                        class: 'btn btn-hard btn-block',
-                       data: {disable_with: 'Отправляется...'}
+                       data: { disable_with: 'Отправляется...' }

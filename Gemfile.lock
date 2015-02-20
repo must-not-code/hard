@@ -222,6 +222,7 @@ GEM
       i18n
       polyamorous (~> 1.1)
     ref (1.0.5)
+    remotipart (1.2.1)
     request_store (1.1.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
@@ -332,6 +333,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.7)
   rails-i18n
+  remotipart (~> 1.0)
   rspec-rails
   sass-rails (~> 4.0.2)
   shoulda-matchers
