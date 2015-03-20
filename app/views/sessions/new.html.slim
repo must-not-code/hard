@@ -13,5 +13,5 @@
         = password_field_tag :password, nil, class: 'full-input'
         = check_box_tag :remember, nil, checked: true
         = label_tag :remember, 'Запомнить меня'
-        = submit_tag 'Войти', class: 'btn btn-hard', data: {disable_with: 'Вход...'}
+        = submit_tag 'Войти', class: 'btn btn-default', data: {disable_with: 'Вход...'}
       = link_to 'Забыли пароль?', new_password_reset_path

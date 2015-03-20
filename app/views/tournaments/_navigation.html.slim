@@ -8,7 +8,7 @@ h2
           - if @tournament.check_in_end > Time.now
             - unless (@tournament.kinds.find_by(user_id: current_user.id) if logged_in?)
               .dropdown.btn-group
-                button#tournament-signup.btn.btn-hard.btn-large.dropdown-toggle data-toggle='dropdown'
+                button#tournament-signup.btn.btn-default.btn-large.dropdown-toggle data-toggle='dropdown'
                   | Записаться
                 ul#tournament-class.dropdown-menu
                   li.text-center
@@ -60,7 +60,7 @@ h2
                   button#tournament-signout.btn.btn-danger.btn-large
                     | Отменить
 #alert-placeholder
-ul.nav.nav-tabs.nav-justified
+ul.nav.nav-tabs.nav-justified.navbar-default
   li class=('active' if action_name == 'show')
     = link_to 'Инфо', tournament_path(@tournament.id)
   li class=('active' if action_name == 'list')

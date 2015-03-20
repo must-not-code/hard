@@ -9,4 +9,4 @@
         = f.label :password_confirmation, 'Подтвердите пароль'
         = f.password_field :password_confirmation, class: 'full-input'
         = hidden_field_tag :token, @token
-        = f.submit 'Применить', class: 'btn btn-hard btn-block', data: {disable_with: 'Отправляется...'}
+        = f.submit 'Применить', class: 'btn btn-default btn-block', data: {disable_with: 'Отправляется...'}

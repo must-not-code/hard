@@ -20,7 +20,7 @@
 
 body
   font-size: 14px
-  font-family: "Exo 2","Helvetica Neue",Helvetica,Arial,sans-serif
+  font-family: $font-family-base
 
 .mce-tinymce
   width: calc(80% - 2px) !important
@@ -35,11 +35,11 @@ body
     margin: 0 0 18px
 
   a
-    color: $links-color
-    text-decoration: none
+    color: $link-color
+    text-decoration: $link-hover-decoration
 
   a:hover, a:focus
-    color: $links-hover--color
+    color: $link-hover-color
 
 #carousel_image_input,
 .carousel

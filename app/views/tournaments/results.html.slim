@@ -20,6 +20,6 @@
             = form_tag results_path, remote: true do
               = text_area_tag :text, nil, rows: 4, maxlength: 5000
               = hidden_field_tag 'tournament_id', @tournament.id
-              = submit_tag 'Отправить', class: 'btn btn-hard', data: {disable_with: 'Отправляется...'}
+              = submit_tag 'Отправить', class: 'btn btn-default', data: {disable_with: 'Отправляется...'}
     - else
       p Когда турнир начнется, вы сможете вносить результаты матчей на этой странице.
