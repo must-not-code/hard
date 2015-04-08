@@ -13,7 +13,7 @@ describe 'Routing for Password Resets' do
     expect(put: '/password_resets/123').to route_to(controller: 'password_resets', action: 'update', id: '123')
   end
 
-  it 'routes "/password_reset" to password_resets#new' do
-    expect(get: '/password_reset').to route_to(controller: 'password_resets', action: 'new')
+  it 'routes "/password_resets" to password_resets#new' do
+    expect(get: '/password_resets').to route_to(controller: 'password_resets', action: 'new')
   end
 end
