@@ -1,29 +1,90 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   views:
+    navbar:
+      news: 'News'
+      tourney: 'Tournaments'
+      streams: 'Streams'
+      video: 'Video'
+      team: 'Team'
+      admin: 'Admin'
+      signup: 'Sign up'
+      login: 'Login'
+      logout: 'Logout'
+      invitation: 'Invitations'
+    sidebar:
+      events: 'Events'
+      tourney: 'Our tournaments'
+      posts: 'Last news'
+      streams: 'Streams'
+    footer:
+      promo1: 'We are always open for cooperation.'
+      promo2: 'On any arising questions and offers'
+      promo3: 'you can address on the specified contacts:'
+    login:
+      login: 'Login'
+      signup: 'Sign up?'
+      username: 'Username'
+      password: 'Password'
+      remember: 'Remember me'
+      forgot: 'Forgot password?'
+      submit: 'Submit'
+      submiting: 'Submiting...'
+    signup:
+      signup: 'Sign up'
+      username: 'Username'
+      email: 'Email'
+      password: 'Password'
+      confirm: 'Confirm password'
+      submit: '༼ つ ◕_◕ ༽つ'
+      submiting: 'Submiting...'
+    user:
+      settings: 'Settings'
+      change_password: 'Change password'
+      team: 'Team'
+      new_team: 'Create Team'
+      old_password: 'Current password'
+      new_password: 'New password'
+      confirm: 'Confirm password'
+      avatar: 'Avatar'
+      firstname: 'Name'
+      lastname: 'Lastname'
+      country: 'Country'
+      choose_country: 'Choose country'
+      city: 'City'
+      nick_ru: 'Nickname (RU)'
+      nick_euw: 'Nickname (EUW)'
+      skype: 'Skype'
+      vk: 'VK'
+      fb: 'Facebook'
+      site: 'Site'
+      twitch: 'Twitch'
+      twitter: 'Twitter'
+      tag: 'BattleTag'
+      email: 'Email'
+      about: 'About'
+      created_at: 'Registered'
+      submit: 'Submit'
+      submiting: 'Submiting...'
+    news:
+      delete: 'Delete'
+      confirm: 'Are you sure that you want to remove this comment?'
+      post: 'Post'
+      posting: 'Posting...'
+    tourney:
+      tourney_list: 'Tournaments list'
+    crews:
+      hr: 'Hard Random Team'
+    streams:
+      streams: 'Streams'
+    video:
+      video: 'Video'
     pagination:
-      first: "&laquo; Первая"
-      last: "Последняя &raquo;"
-      previous: "&lsaquo; Вперёд"
-      next: "Назад &rsaquo;"
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Forward"
+      next: "Back &rsaquo;"
       truncate: "&hellip;"
+  time:
+    formats:
+      news: "%d %B %Y, %H:%M"
+      tourney: "%d %m %Y at %H:%M"

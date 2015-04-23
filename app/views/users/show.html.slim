@@ -12,84 +12,24 @@
         = render 'user_menu'
       .col-md-9
         table.table.table-bordered.table-hover
-          - if @user.firstname
-            tr
-              td Имя
-              td
-                = @user.firstname
-          - if @user.lastname
-            tr
-              td Фамилия
-              td
-                = @user.lastname
-          - if @user.country
-            tr
-              td Страна
-              td
-                i class="famfamfam-flag-#{@user.country.downcase}"
-          - if @user.city
-            tr
-              td Город
-              td
-                = @user.city
-          - if @user.nick_ru
-            tr
-              td Ник (RU)
-              td
-                = @user.nick_ru
-          - if @user.nick_euw
-            tr
-              td Ник (EUW)
-              td
-                = @user.nick_euw
-          - if @user.skype
-            tr
-              td Skype
-              td
-                = link_to @user.skype, "skype:#{@user.skype}?chat"
-          - if @user.vk
-            tr
-              td ВКонтакте
-              td
-                = link_to @user.vk, @user.vk, target: 'blank'
-          - if @user.fb
-            tr
-              td Facebook
-              td
-                = link_to @user.fb, @user.fb, target: 'blank'
-          - if @user.site
-            tr
-              td Сайт
-              td
-                = link_to @user.site, @user.site, target: 'blank'
-          - if @user.twitch
-            tr
-              td Twitch
-              td
-                = link_to @user.twitch, @user.twitch, target: 'blank'
-          - if @user.twitter
-            tr
-              td Twitter
-              td
-                = link_to @user.twitter, @user.twitter, target: 'blank'
-          - if @user.tag
-            tr
-              td BattleTag
-              td
-                = @user.tag
-          - if @user == current_user
-            tr
-              td Email
-              td
-                = @user.email
-          tr
-            td Зарегистрирован
-            td
-              = @user.created_at.strftime("%d.%m.%Y")
-          - if @user.about
-            tr
-              td colspan='2'
-                = @user.about
+          - %w(firstname lastname country city nick_ru nick_euw skype vk fb site twitch twitter tag email created_at about).each do |val|
+            - if @user.send(val)
+              - next if val == 'email' && @user != current_user
+              tr
+                td
+                  = t("views.user.#{val}")
+                td
+                  - if val == 'country'
+                    i class="famfamfam-flag-#{@user.country.downcase}"
+                  - elsif %w(vk fb site twitch twitter).include?(val)
+                    = link_to @user.send(val), @user.send(val), target: 'blank'
+                  - elsif val == 'skype'
+                    = link_to @user.send(val), "skype:#{@user.send(val)}?chat"
+                  - elsif val == 'created_at'
+                    = @user.created_at.strftime("%d.%m.%Y")
+                  - else
+                    = @user.send(val)
+
         .achievement
           - achievements = Achievement.where(user_id: @user.id)
           - if achievements

@@ -1,7 +1,7 @@
 .col-md-8
   .well
     h2
-      = link_to 'Список турниров', tournaments_path
+      = link_to t('views.tourney.tourney_list'), tournaments_path
     hr
     table.table.tourney-table
       - @tournaments.each do |tournament|

@@ -4,22 +4,22 @@ footer
       .col-md-2
         ul
           li
-            = link_to 'Новости', root_path
+            = link_to t('views.navbar.news'), root_path
           li
-            = link_to 'Турниры', tournaments_path
+            = link_to t('views.navbar.tourney'), tournaments_path
           li
-            = link_to 'Стримы', streams_path
+            = link_to t('views.navbar.streams'), streams_path
           li
-            = link_to 'Видео', videos_path
+            = link_to t('views.navbar.video'), videos_path
           li
-            = link_to 'Команда', crews_path
+            = link_to t('views.navbar.team'), crews_path
       .col-md-7.text-center
         div
-          | Мы всегда открыты для сотрудничества.
+          = t('views.footer.promo1')
           br
-          | По любым возникающим вопросам и предложениям
+          = t('views.footer.promo2')
           br
-          | Вы можете обратиться по указанным контактам:
+          = t('views.footer.promo3')
         div
           => fa_icon 'skype'
           = link_to 'hard.random', 'skype:hard.random?chat'
@@ -32,3 +32,4 @@ footer
             = fa_icon 'vk 2x'
           = link_to 'https://twitter.com/HardRandom', target: 'blank', class: 'btn' do
             = fa_icon 'twitter 2x'
+

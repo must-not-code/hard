@@ -11,16 +11,12 @@
           = link_to post.title, post_path(post.id)
         hr
         p.muted
-          = post.published_at.strftime('%d.%m.%Y в %H:%M') if post.published_at
-        .post-content.preview
-          = HTML_Truncator.truncate(post.content, 100).html_safe
-        .post-info
-          hr
+          => l(post.published_at, format: :news) if post.published_at
           => fa_icon 'user'
           - username = User.find(post.user_id).username
           => link_to username, user_path(username)
           => fa_icon 'pencil'
           = post.comments.count
-          .pull-right
-            = link_to 'Читать дальше →', post_path(post.id)
+        .post-content.preview
+          = HTML_Truncator.truncate(post.content, 100).html_safe
     = paginate @posts

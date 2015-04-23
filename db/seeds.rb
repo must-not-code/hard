@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create([{ username: 'admin', password: '123456', email: 'test4food@me.com', group: 'admin' }])
+
 Carousel.create([{ title: 'Lorem ipsum 1', url: '/', position: 1 },
                  { title: 'Lorem ipsum 2', url: '/', position: 2 }])
 

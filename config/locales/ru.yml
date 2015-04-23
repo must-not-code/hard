@@ -1,5 +1,83 @@
 ru:
   views:
+    navbar:
+      news: 'Новости'
+      tourney: 'Турниры'
+      streams: 'Стримы'
+      video: 'Видео'
+      team: 'Команда'
+      admin: 'Админка'
+      signup: 'Регистрация'
+      login: 'Войти'
+      logout: 'Выйти'
+      invitation: 'Приглашения'
+    sidebar:
+      events: 'Матчи'
+      tourney: 'Наши турниры'
+      posts: 'Последние новости'
+      streams: 'Стримы'
+    footer:
+      promo1: 'Мы всегда открыты для сотрудничества.'
+      promo2: 'По любым возникающим вопросам и предложениям'
+      promo3: 'вы можете обратиться по указанным контактам:'
+    login:
+      login: 'Вход'
+      signup: 'Зарегистрироваться?'
+      username: 'Логин'
+      password: 'Пароль'
+      remember: 'Запомнить меня'
+      forgot: 'Забыли пароль?'
+      submit: 'Войти'
+      submiting: 'Вход...'
+    signup:
+      signup: 'Регистрация'
+      username: 'Логин'
+      email: 'Email'
+      password: 'Пароль'
+      confirm: 'Подтвердите пароль'
+      submit: '༼ つ ◕_◕ ༽つ'
+      submiting: 'Отправляется...'
+    user:
+      settings: 'Настройки'
+      change_password: 'Сменить пароль'
+      team: 'Команда'
+      new_team: 'Создать команду'
+      old_password: 'Старый пароль'
+      new_password: 'Новый пароль'
+      confirm: 'Подтвердите пароль'
+      avatar: 'Аватар'
+      firstname: 'Имя'
+      lastname: 'Фамилия'
+      country: 'Страна'
+      choose_country: 'Выберите страну'
+      city: 'Город'
+      nick_ru: 'Ник (RU)'
+      nick_euw: 'Ник (EUW)'
+      skype: 'Skype'
+      vk: 'ВКонтакте'
+      fb: 'Facebook'
+      site: 'Сайт'
+      twitch: 'Twitch'
+      twitter: 'Twitter'
+      tag: 'BattleTag'
+      email: 'Email'
+      about: 'О себе'
+      created_at: 'Зарегистрирован'
+      submit: 'Применить'
+      submiting: 'Отправляется...'
+    news:
+      delete: 'Удалить'
+      confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+      post: 'Отправить'
+      posting: 'Отправляется...'
+    tourney:
+      tourney_list: 'Список турниров'
+    crews:
+      hr: 'Команда Hard Random'
+    streams:
+      streams: 'Стримы'
+    video:
+      video: 'Видео'
     pagination:
       first: "&laquo; Первая"
       last: "Последняя &raquo;"
@@ -8,7 +86,5 @@ ru:
       truncate: "&hellip;"
   time:
     formats:
-      long: "%d.%m.%Y в %H:%M"
-  date:
-    formats:
-      long: "%-d %B %Y"
+      news: "%d %B %Y, %H:%M"
+      tourney: "%d %m %Y в %H:%M"

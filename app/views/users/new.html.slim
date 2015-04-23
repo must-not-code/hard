@@ -1,17 +1,18 @@
 #login
   .well
     fieldset
-      legend Регистрация
+      legend
+        = t('views.signup.signup')
       #notice
       = form_tag users_path, remote: true do
-        = label_tag :username, 'Логин'
+        = label_tag :username, t('views.signup.username')
         = text_field_tag :username, nil, class: 'full-input', autofocus: true
-        = label_tag :email, 'Email'
+        = label_tag :email, t('views.signup.email')
         = text_field_tag :email, nil, class: 'full-input'
-        = label_tag :password, 'Пароль'
+        = label_tag :password, t('views.signup.password')
         = password_field_tag :password, nil, class: 'full-input'
-        = label_tag :password_confirmation, 'Подтвердите пароль'
+        = label_tag :password_confirmation, t('views.signup.confirm')
         = password_field_tag :password_confirmation, nil, class: 'full-input'
-        = submit_tag '༼ つ ◕_◕ ༽つ',
+        = submit_tag t('views.signup.submit'),
                      class: 'btn btn-default btn-block',
-                     data: {disable_with: 'Отправляется...'}
+                     data: { disable_with: t('views.signup.submiting') }

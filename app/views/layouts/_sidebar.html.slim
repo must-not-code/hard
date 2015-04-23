@@ -2,7 +2,8 @@
   .col-md-4
     aside.well
       ul.nav.nav-list
-        li.dropdown-header Матчи
+        li.dropdown-header
+          = t('views.sidebar.events')
         table.sidebar-table
           - Event.order(start_at: :desc).limit(8).each do |event|
             tr
@@ -20,7 +21,8 @@
                 = event.tourney
         - tournaments = Tournament.where(show: true).order(created_at: :desc)
         - unless tournaments.empty?
-          li.dropdown-header Наши турниры
+          li.dropdown-header
+            = t('views.sidebar.tourney')
           - tournaments.each do |tourney|
             li
               = link_to tournament_path(tourney.id) do
@@ -31,7 +33,8 @@
                     .pull-right
                       => tourney.users.count
                       = fa_icon 'user'
-        li.dropdown-header Последние посты
+        li.dropdown-header
+          = t('views.sidebar.posts')
         - Post.where.not(published_at: nil).limit(5).order(published_at: :desc).each do |post|
           li
             = link_to post_path(post.id) do
@@ -42,7 +45,8 @@
                   .pull-right
                     => post.comments.count
                     = fa_icon 'pencil'
-        li.dropdown-header Стримы
+        li.dropdown-header
+          = t('views.sidebar.streams')
         - Stream.order(views: :desc).each do |stream|
           li
             = link_to stream_path(stream.channel) do

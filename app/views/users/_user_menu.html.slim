@@ -5,11 +5,11 @@
     = @user.rating
   - if @user == current_user
     div
-      = link_to 'Настройки', edit_user_path(@user.username)
+      = link_to t('views.user.settings'), edit_user_path(@user.username)
     div
-      = link_to 'Сменить пароль', change_password_path(@user.username)
+      = link_to t('views.user.change_password'), change_password_path(@user.username)
     div
       - if current_user.team_id
-        = link_to 'Команда', team_path(Team.find(@user.team_id).title)
+        = link_to t('views.user.team'), team_path(Team.find(@user.team_id).title)
       - else
-        = link_to 'Создать команду', new_team_path
+        = link_to t('views.user.new_team'), new_team_path
