@@ -31,12 +31,6 @@ Hard::Application.routes.draw do
       post ':id/shuffle'        => :shuffle,         as: 'shuffle'
     end
 
-    controller :crews, path: '/crews' do
-      #get '/'                  => :index,           as: 'crews'
-      get  '/', to: redirect("%{locale}/crews/lol"),          as: 'crews'
-      get  ':game'              => :show,            as: 'crew'
-    end
-
     resources :posts, only: [:index, :show] do
       get 'page/:page', action: :index, on: :collection
     end
@@ -54,6 +48,7 @@ Hard::Application.routes.draw do
       resources :invites, only: [:index]
     end
 
+    resources :crews, only: [:index, :show], param: :game
     resources :streams, only: [:index, :show]
     resources :comments, only: [:create, :destroy]
     resources :post_attachments, only: [:create, :destroy]

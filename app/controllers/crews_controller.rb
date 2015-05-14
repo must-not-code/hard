@@ -1,6 +1,6 @@
 class CrewsController < ApplicationController
   def index
-    @crews = Crew.where(game: 'lol')
+    @crews = Crew.all
   end
 
   def show
