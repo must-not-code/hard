@@ -4,11 +4,11 @@
       thead
         tr
           th.col-md-2
-            | Место
+            = t('views.tournaments.place')
           th
-            | Ник
+            = t('views.tournaments.nick')
           th.col-md-2
-            | Очки
+            = t('views.tournaments.points')
       tbody
         - User.where('rating > 0').order('rating desc').each_with_index do |player, i|
           tr

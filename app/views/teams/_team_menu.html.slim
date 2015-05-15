@@ -3,17 +3,17 @@
   - if logged_in?
     - if current_user.username == @team.owner
       div
-        = link_to 'Настройки', edit_team_path(@team.title)
+        = link_to t('views.teams.settings'), edit_team_path(@team.title)
       div
-        = link_to 'Пригласить в команду', new_team_invite_path(@team.title)
+        = link_to t('views.teams.invite'), new_team_invite_path(@team.title)
       div
-        = link_to 'Удалить команду',
+        = link_to t('views.teams.remove'),
                    team_path(@team.title),
                    method: :delete,
-                   data: {confirm: 'Вы уверены, что хотите удалить команду?'}
+                   data: { confirm: t('views.teams.confirm_remove') }
     - elsif current_user.team_id == @team.id
       div
-        = link_to 'Выйти из команды',
-                   team_leave_path(@team.title),
-                   method: :post,
-                   data: {confirm: 'Вы уверены, что хотите выйти из команды?'}
+        = link_to t('views.teams.leave'),
+                  team_leave_path(@team.title),
+                  method: :post,
+                  data: { confirm: t('views.teams.confirm_leave') }

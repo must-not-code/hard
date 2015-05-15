@@ -13,5 +13,6 @@
             = render partial: 'player', collection: players.first(seats).reverse
             - unless players[seats..-1].nil?
               tr
-                th.queue-th.text-center colspan='7' В очереди:
+                th.queue-th.text-center colspan='7'
+                  = t('views.tournament.in_turn')
               = render partial: 'player', collection: players[seats..-1]

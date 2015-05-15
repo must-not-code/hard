@@ -1,12 +1,15 @@
 #login
   .well
     fieldset
-      legend Восстановление пароля
+      legend
+        = t('views.password_recovery.password_recovery')
       #notice
       = form_for @user, url: password_reset_path(@user), method: :put, remote: true do |f|
-        = f.label :password, 'Новый пароль'
+        = f.label :password, t('views.password_recovery.new_password')
         = f.password_field :password, class: 'full-input', autofocus: 'autofocus'
-        = f.label :password_confirmation, 'Подтвердите пароль'
+        = f.label :password_confirmation, t('views.password_recovery.confirm_password')
         = f.password_field :password_confirmation, class: 'full-input'
         = hidden_field_tag :token, @token
-        = f.submit 'Применить', class: 'btn btn-default btn-block', data: {disable_with: 'Отправляется...'}
+        = f.submit t('views.password_recovery.submit'),
+                   class: 'btn btn-default btn-block',
+                   data: { disable_with: t('views.password_recovery.submiting') }

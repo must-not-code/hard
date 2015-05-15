@@ -1,7 +1,7 @@
 .col-md-8
   .well
     h2
-      = link_to t('views.tourney.tourney_list'), tournaments_path
+      = link_to t('views.tournaments.tourney_list'), tournaments_path
     hr
     table.table.tourney-table
       - @tournaments.each do |tournament|
@@ -10,4 +10,4 @@
             = link_to tournament.title, tournament_path(tournament.id)
           th
             .pull-right
-              = tournament.beginning.strftime("%d.%m.%Y в %H:%M")
+              = l(tournament.beginning, format: :tourney)

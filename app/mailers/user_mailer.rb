@@ -5,13 +5,13 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url  = "http://hardrandom.com/#{I18n.locale}/users/#{user.activation_token}/activate"
     mail(to: user.email,
-         subject: 'Регистрация на HardRandom.com')
+         subject: t('mails.activation_email.subject'))
   end
 
   def reset_password_email(user)
     @user = user
     @url  = edit_password_reset_url(I18n.locale, user.reset_password_token)
     mail(to: user.email,
-         subject: 'Сброс пароля на HardRandom.com')
+         subject: t('mails.reset_password_email.subject'))
   end
 end

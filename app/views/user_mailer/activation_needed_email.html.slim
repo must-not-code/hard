@@ -4,10 +4,12 @@ html
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
   body
     h3
-      | Приветствуем #{@user.username}.
+      = t('mails.activation_email.greeting', username: @user.username)
     p
-      | Вы были успешно зарегистрированы на HardRandom.com.</br>
-      | Для подтверждения вашей учетной записи перейдите по ссылке:</br>
+      = t('mails.activation_email.paragraph1')
+    p
+      = t('mails.activation_email.paragraph2')
+    p
       = @url
     p
-      | С уважением, команда HardRandom.com.
+      = t('mails.activation_email.sign')

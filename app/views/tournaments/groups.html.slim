@@ -5,5 +5,7 @@
       #groups
         - @tournament.groups.each do |group|
           - index = group.first
-          h3 Группа #{index}
+          h3
+            => t('views.tournaments.group')
+            = index
           div id="group-#{index}"

@@ -12,51 +12,22 @@
         = render 'team_menu'
       .col-md-9
         table.table.table-bordered.table-hover
-          - if @team.title
-            tr
-              td Полное название
-              td
-                = @team.title
-          - if @team.tag
-            tr
-              td Сокращенное название
-              td
-                = @team.tag
-          - if @team.country
-            tr
-              td Страна
-              td
-                i class="famfamfam-flag-#{@team.country.downcase}"
-          - if @team.site
-            tr
-              td Сайт
-              td
-                = link_to @team.site, @team.site, target: 'blank'
-          - if @team.vk
-            tr
-              td ВКонтакте
-              td
-                = link_to @team.vk, @team.vk, target: 'blank'
-          - if @team.fb
-            tr
-              td Facebook
-              td
-                = link_to @team.fb, @team.fb, target: 'blank'
-          - if @team.twitter
-            tr
-              td Twitter
-              td
-                = link_to @team.twitter, @team.twitter, target: 'blank'
-          - if @team.youtube
-            tr
-              td YouTube
-              td
-                = link_to @team.youtube, @team.youtube, target: 'blank'
-          tr
-            td Создана
-            td
-              = @team.created_at.strftime("%d.%m.%Y")
-        p Состав команды:
+          - %w(logo title tag country vk fb site twitter youtube created_at).each do |val|
+            - if @team.send(val)
+              tr
+                td
+                  = t("views.teams.#{val}")
+                td
+                  - if val == 'country'
+                    i class="famfamfam-flag-#{@team.country.downcase}"
+                  - elsif %w(vk fb site twitter).include?(val)
+                    = link_to @team.send(val), @team.send(val), target: 'blank'
+                  - elsif val == 'created_at'
+                    = @team.created_at.strftime("%d.%m.%Y")
+                  - else
+                    = @team.send(val)
+        p
+          = t('views.teams.membership')
         table.table.table-responsive.tourney-table
           - User.where(team_id: @team.id).each do |user|
             tr
