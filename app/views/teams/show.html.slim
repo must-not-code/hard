@@ -12,7 +12,7 @@
         = render 'team_menu'
       .col-md-9
         table.table.table-bordered.table-hover
-          - %w(logo title tag country vk fb site twitter youtube created_at).each do |val|
+          - %w(title tag country vk fb site twitter youtube created_at).each do |val|
             - if @team.send(val)
               tr
                 td
