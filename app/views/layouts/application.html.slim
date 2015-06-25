@@ -26,8 +26,8 @@ html
                 = link_to t('views.navbar.streams'), streams_path
               li class=('active' if controller_name == 'videos')
                 = link_to t('views.navbar.video'), videos_path
-              li class=('active' if controller_name == 'crews')
-                = link_to t('views.navbar.team'), crews_path
+              li class=('active' if controller_name == 'teams')
+                = link_to t('views.navbar.team'), teams_path
               - if logged_in? && current_user.group[/admin/]
                 li
                   = link_to t('views.navbar.admin'), admin_root_path

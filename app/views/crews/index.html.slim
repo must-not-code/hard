@@ -1,9 +1,0 @@
-.col-md-8
-  .well
-    h2
-      = link_to t('views.crews.hr'), crews_path
-    hr
-    .overflow
-      - @crews.each do |crew|
-        .col-md-6
-          = link_to image_tag(crew.logo, class: 'game-logo'), crew_path(crew.game)

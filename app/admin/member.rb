@@ -1,5 +1,5 @@
 ActiveAdmin.register Member do
-  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :crew_id
+  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :team_id
 
   index do
     column :id
@@ -12,7 +12,7 @@ ActiveAdmin.register Member do
     actions
   end
 
-  filter :crew
+  filter :team
   filter :name
   filter :nickname
   filter :role
@@ -21,7 +21,7 @@ ActiveAdmin.register Member do
 
   show do |f|
     attributes_table do
-      row :crew
+      row :team
       row :name
       row :nickname
       row :role
@@ -39,7 +39,7 @@ ActiveAdmin.register Member do
 
   form :html => { :multipart => true } do |f|
     f.inputs do
-      f.input :crew
+      f.input :team
       f.input :name
       f.input :nickname
       f.input :role

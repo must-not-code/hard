@@ -24,7 +24,7 @@ Hard::Application.routes.draw do
     end
 
     resources :users, except: [:destroy]
-    resources :crews, only: [:index, :show], param: :game
+    resources :teams, only: [:index, :show], param: :game
     resources :streams, only: [:index, :show]
     resources :comments, only: [:create, :destroy]
     resources :post_attachments, only: [:create, :destroy]

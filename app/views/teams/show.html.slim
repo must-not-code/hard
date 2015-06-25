@@ -1,10 +1,10 @@
 .col-md-8
   .well
     h2
-      = link_to @crew.title, crew_path
+      = link_to @team.title, team_path
     hr
     .overflow
-      - @crew.members.sort_by(&:position).each do |member|
+      - @team.members.sort_by(&:position).each do |member|
         .member.pull-left
           .col-md-4.pull-left
             .photo

@@ -137,7 +137,7 @@ en:
       confirm: 'Are you sure that you want to remove this comment?'
       post: 'Post'
       posting: 'Posting...'
-    crews:
+    teams:
       hr: 'Hard Random Teams'
     streams:
       streams: 'Streams'

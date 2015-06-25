@@ -137,7 +137,7 @@ ru:
       confirm: 'Вы уверены, что хотите удалить этот комментарий?'
       post: 'Отправить'
       posting: 'Отправляется...'
-    crews:
+    teams:
       hr: 'Команда Hard Random'
     streams:
       streams: 'Стримы'
