@@ -6,13 +6,13 @@ footer
           li
             = link_to t('views.navbar.news'), root_path
           li
-            = link_to t('views.navbar.tourney'), tournaments_path
-          li
             = link_to t('views.navbar.streams'), streams_path
           li
             = link_to t('views.navbar.video'), videos_path
           li
             = link_to t('views.navbar.team'), crews_path
+          li style="visibility: hidden"
+            = link_to t('views.navbar.news'), root_path
       .col-md-7.text-center
         div
           = t('views.footer.promo1')

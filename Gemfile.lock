@@ -32,8 +32,6 @@ GEM
       activesupport (= 4.1.7)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activeadmin_hstore_editor (0.0.5)
-      railties (>= 3.0, < 5.0)
     activemodel (4.1.7)
       activesupport (= 4.1.7)
       builder (~> 3.1)
@@ -125,11 +123,6 @@ GEM
     formtastic (3.1.2)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.1.1)
-    gon (5.2.3)
-      actionpack (>= 2.3.0)
-      json
-      multi_json
-      request_store (>= 1.0.5)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -227,7 +220,6 @@ GEM
       polyamorous (~> 1.1)
     ref (1.0.5)
     remotipart (1.2.1)
-    request_store (1.1.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rspec-core (3.1.7)
@@ -267,7 +259,6 @@ GEM
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
       oauth2 (>= 0.8.0, < 1.0.0)
-    spring (1.2.0)
     sprockets (2.11.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -307,7 +298,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  activeadmin_hstore_editor
   backup
   better_errors
   binding_of_caller
@@ -323,7 +313,6 @@ DEPENDENCIES
   factory_girl_rails
   famfamfam_flags_rails
   font-awesome-rails
-  gon
   html_truncator
   jquery-rails
   json
@@ -343,7 +332,6 @@ DEPENDENCIES
   shoulda-matchers
   slim-rails
   sorcery
-  spring
   therubyracer
   tinymce-rails
   tinymce-rails-imageupload (~> 4.0.0.beta)

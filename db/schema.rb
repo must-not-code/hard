@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219162938) do
+ActiveRecord::Schema.define(version: 20150625121429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "achievements", force: true do |t|
-    t.string   "reward"
-    t.string   "description"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -79,25 +71,6 @@ ActiveRecord::Schema.define(version: 20150219162938) do
     t.datetime "updated_at"
   end
 
-  create_table "invites", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "kinds", force: true do |t|
-    t.string   "kind"
-    t.integer  "user_id",       null: false
-    t.integer  "tournament_id", null: false
-    t.datetime "created_at"
-    t.boolean  "confirm"
-    t.datetime "updated_at"
-  end
-
-  add_index "kinds", ["tournament_id"], name: "index_kinds_tournament", using: :btree
-  add_index "kinds", ["user_id"], name: "index_kinds_user", using: :btree
-
   create_table "members", force: true do |t|
     t.string   "name"
     t.string   "nickname"
@@ -133,16 +106,6 @@ ActiveRecord::Schema.define(version: 20150219162938) do
 
   add_index "posts", ["user_id"], name: "index_posts_user", using: :btree
 
-  create_table "results", force: true do |t|
-    t.datetime "created_at"
-    t.text     "content"
-    t.integer  "user_id",       null: false
-    t.integer  "tournament_id", null: false
-  end
-
-  add_index "results", ["tournament_id"], name: "index_results_tournament", using: :btree
-  add_index "results", ["user_id"], name: "index_results_user", using: :btree
-
   create_table "streams", force: true do |t|
     t.string   "streamer"
     t.integer  "views"
@@ -151,42 +114,6 @@ ActiveRecord::Schema.define(version: 20150219162938) do
     t.string   "banner_url"
     t.datetime "updated_at"
     t.datetime "created_at"
-  end
-
-  create_table "teams", force: true do |t|
-    t.string   "title"
-    t.string   "tag"
-    t.string   "logo"
-    t.string   "site"
-    t.string   "vk"
-    t.string   "fb"
-    t.string   "youtube"
-    t.string   "twitter"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "owner"
-    t.string   "country"
-  end
-
-  create_table "tournaments", force: true do |t|
-    t.datetime "created_at"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "beginning"
-    t.datetime "sign_up_end"
-    t.datetime "check_in"
-    t.datetime "check_in_end"
-    t.integer  "seats",                  default: 64
-    t.boolean  "show",                   default: true
-    t.json     "groups"
-    t.boolean  "skip_consolation_round"
-    t.integer  "passing_score",          default: 0
-    t.boolean  "skip_secondary_final"
-    t.datetime "updated_at"
-    t.json     "standings"
-    t.text     "promo"
-    t.text     "rules"
-    t.boolean  "team"
   end
 
   create_table "users", force: true do |t|

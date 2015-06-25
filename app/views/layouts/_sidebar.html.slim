@@ -19,20 +19,6 @@
                 =< event.enemy
               th
                 = event.tourney
-        - tournaments = Tournament.where(show: true).order(created_at: :desc)
-        - unless tournaments.empty?
-          li.dropdown-header
-            = t('views.sidebar.tourney')
-          - tournaments.each do |tourney|
-            li
-              = link_to tournament_path(tourney.id) do
-                .row
-                  .col-xs-9.sidebar-title
-                    = tourney.title
-                  .col-xs-3.sidebar-icon
-                    .pull-right
-                      => tourney.users.count
-                      = fa_icon 'user'
         li.dropdown-header
           = t('views.sidebar.posts')
         - Post.where.not(published_at: nil).limit(5).order(published_at: :desc).each do |post|

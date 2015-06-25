@@ -3,9 +3,6 @@ require 'rails_helper'
 describe User do
   it { should have_many(:posts) }
   it { should have_many(:comments) }
-  it { should have_many(:achievements) }
-  it { should have_many(:tournaments).through(:kinds) }
-  it { should have_many(:kinds) }
 
   it do
     should ensure_length_of(:username).

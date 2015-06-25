@@ -29,9 +29,3 @@
                     = @user.created_at.strftime("%d.%m.%Y")
                   - else
                     = @user.send(val)
-
-        .achievement
-          - achievements = Achievement.where(user_id: @user.id)
-          - if achievements
-            - achievements.each do |achievement|
-              = image_tag "rewards/#{achievement.reward}.svg", title: achievement.description, class: 'reward'

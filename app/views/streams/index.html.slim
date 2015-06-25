@@ -15,7 +15,7 @@
             = stream.streamer
             .pull-right
               - if stream.online
-                = fa_icon 'eye', class: 'green'
+                => fa_icon 'eye', class: 'green'
                 = stream.views
               - else
                 = fa_icon 'eye-slash', class: 'red'

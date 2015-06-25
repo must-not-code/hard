@@ -11,7 +11,6 @@ gem 'sorcery'
 
 # Views
 gem 'slim-rails'
-gem 'gon'
 gem 'html_truncator'
 
 # JavaScript
@@ -50,7 +49,6 @@ gem 'remotipart',                 '~> 1.0'
 
 # Administration
 gem 'activeadmin',                github: 'activeadmin'
-gem 'activeadmin_hstore_editor'
 
 # Flags
 gem 'famfamfam_flags_rails'
@@ -77,9 +75,6 @@ group :development do
   # Useful error page
   gem 'better_errors'
   gem 'binding_of_caller'
-
-  # Keeping application running in the background
-  gem 'spring'
 
   # Deploy
   gem 'capistrano',       '~> 3.1',   require: false

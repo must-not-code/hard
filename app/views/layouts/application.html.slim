@@ -23,8 +23,6 @@ html
             ul.nav.navbar-nav
               li class=('active' if controller_name == 'posts')
                 = link_to t('views.navbar.news'), root_path
-              li class=('active' if controller_name == 'tournaments')
-                = link_to t('views.navbar.tourney'), tournaments_path
               li class=('active' if controller_name == 'streams')
                 = link_to t('views.navbar.streams'), streams_path
               li class=('active' if controller_name == 'videos')
@@ -36,11 +34,6 @@ html
                   = link_to t('views.navbar.admin'), admin_root_path
             ul.nav.navbar-nav.navbar-right
               - if logged_in?
-                - if current_user.invites.count > 0
-                  li
-                    = link_to user_invites_path(current_user.username) do
-                      => current_user.invites.count
-                      = fa_icon 'envelope', title: t('views.navbar.invitations')
                 li
                   = link_to user_path(current_user.username)
                     = image_tag current_user.avatar.mini
