@@ -5,7 +5,7 @@ class PasswordResetsController < ApplicationController
   def create
     @user = User.find_by_email(params[:email])
     @user.deliver_reset_password_instructions! if @user
-    redirect_to(root_path, notice: 'Инструкции были отправлены на указанную почту.')
+    redirect_to(root_path, notice: t('controllers.users.email_was_sent'))
   end
 
   def edit
@@ -19,7 +19,7 @@ class PasswordResetsController < ApplicationController
       @user.password_confirmation = params[:user][:password_confirmation]
       if @user.change_password!(params[:user][:password])
         login(@user.username, params[:user][:password], true)
-        flash[:notice] = 'Пароль успешно обновлён.'
+        flash[:notice] = t('controllers.users.password_updated')
         render json: { success: true, url: user_path(@user.username) }
       else
         render json: { error: @user.errors.first[1] }

@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
     else
       user = User.find_by_username(params[:username])
       if user && user.lock_expires_at
-        render json: { error: 'Превышено допустимое число попыток.<br>Вход ограничен на 30 секунд.' }
+        render json: { error: t('controllers.login.too_much_attempts') }
       else
-        render json: { error: 'Неверный логин или пароль!' }
+        render json: { error: t('controllers.login.wrong_credentials') }
       end
     end
   end

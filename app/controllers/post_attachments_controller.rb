@@ -11,7 +11,7 @@ class PostAttachmentsController < ApplicationController
       else
         render json: {
           error: {
-            message: 'Не надо загружать всякие непотребности!'
+            message: t('controllers.posts.bad_file')
           }
         }, content_type: 'text/html'
       end

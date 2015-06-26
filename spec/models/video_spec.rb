@@ -4,7 +4,8 @@ describe Video do
   it do
     should ensure_length_of(:title).
       is_at_least(4).is_at_most(255).
-      with_message('В названии видео должно быть от 4 до 255 символов.')
+      with_short_message('В названии видео должно быть не меньше 4 символов.').
+      with_long_message('В названии видео должно быть не больше 255 символов.')
   end
 
   it do

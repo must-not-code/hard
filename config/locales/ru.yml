@@ -2,7 +2,6 @@ ru:
   views:
     navbar:
       news: 'Новости'
-      tourney: 'Турниры'
       streams: 'Стримы'
       video: 'Видео'
       team: 'Команда'
@@ -13,7 +12,6 @@ ru:
       invitations: 'Приглашения'
     sidebar:
       events: 'Матчи'
-      tourney: 'Наши турниры'
       posts: 'Последние новости'
       streams: 'Стримы'
     footer:
@@ -40,8 +38,6 @@ ru:
     user:
       settings: 'Настройки'
       change_password: 'Сменить пароль'
-      team: 'Команда'
-      new_team: 'Создать команду'
       old_password: 'Старый пароль'
       new_password: 'Новый пароль'
       confirm: 'Подтвердите пароль'
@@ -72,66 +68,6 @@ ru:
       confirm_password: 'Подтвердите пароль'
       submit: 'Применить'
       submiting: 'Отправляется...'
-    tournaments:
-      info: 'Инфо'
-      participants: 'Участники'
-      groups: 'Группы'
-      bracket: 'Сетка'
-      rules: 'Правила'
-      results: 'Результаты'
-      signup: 'Записаться'
-      choose_class: 'Выберите класс'
-      confirm: 'Подтвердить'
-      cancel: 'Отменить'
-      druid: 'Друид'
-      hunter: 'Охотник'
-      mage: 'Маг'
-      paladin: 'Паладин'
-      priest: 'Жрец'
-      rogue: 'Разбойник'
-      shaman: 'Шаман'
-      warlock: 'Чернокнижник'
-      warrior: 'Воин'
-      tourney_list: 'Список турниров'
-      place: 'Место'
-      nick: 'Ник'
-      points: 'Очки'
-      post: 'Отправить'
-      posting: 'Отправляется...'
-      results_placeholder: 'Когда турнир начнется, вы сможете вносить результаты матчей на этой странице.'
-      in_turn: 'В очереди'
-      group: 'Группа'
-      no_bracket: 'Турнирная сетка пока еще не сформирована.'
-    teams:
-      new_team: 'Новая команда'
-      settings: 'Настройки'
-      invite: 'Пригласить в команду'
-      remove: 'Удалить команду'
-      leave: 'Выйти из команды'
-      confirm_remove: 'Вы уверены, что хотите удалить команду?'
-      confirm_leave: 'Вы уверены, что хотите выйти из команды?'
-      logo: 'Лого'
-      title: 'Полное название*'
-      tag: 'Сокращенное название*'
-      country: 'Страна'
-      site: 'Сайт'
-      vk: 'Вконтакте'
-      fb: 'Facebook'
-      twitter: 'Twitter'
-      youtube: 'YouTube'
-      created_at: 'Создана'
-      choose_country: 'Выберите страну'
-      membership: 'Состав:'
-      create: 'Создать'
-      submit: 'Применить'
-      submiting: 'Отправляется...'
-    invites:
-      new_invite: 'Новое приглашение'
-      invite: 'Пригласить'
-      invites: 'Приглашения'
-      invited_you: 'пригласил вас в команду'
-      confirm_invite: 'Вы уверены, что хотите вступить в команду «%{title}»?'
-      reject_invite: 'Вы уверены, что хотите отклонить приглашение в команду «%{title}»?'
     news:
       delete: 'Удалить'
       confirm: 'Вы уверены, что хотите удалить этот комментарий?'
@@ -149,6 +85,28 @@ ru:
       previous: "&lsaquo; Вперёд"
       next: "Назад &rsaquo;"
       truncate: "&hellip;"
+  controllers:
+    users:
+      successfully_updated: 'Данные обновлены.'
+      successfully_activated: 'Аккаунт успешно активирован.'
+      password_updated: 'Пароль успешно обновлен.'
+      wrong_old_password: 'Неправильный старый пароль!'
+      email_was_sent: 'Инструкции были отправлены на указанную почту.'
+    posts:
+      bad_file: 'Не надо загружать всякие непотребности!'
+    login:
+      too_much_attempts: 'Превышено допустимое число попыток.<br>Вход ограничен на 30 секунд!'
+      wrong_credentials: 'Неверный логин или пароль!'
+  activerecord:
+    errors:
+      models:
+        video:
+          attributes:
+            title:
+              too_short: 'В названии видео должно быть не меньше %{count} символов.'
+              too_long: 'В названии видео должно быть не больше %{count} символов.'
+            youtube_hash:
+              wrong_length: 'Идентификатор видео на Youtube должен состоять из %{count} символов.'
   mails:
     activation_email:
       subject: 'Регистрация на HardRandom.com'
@@ -165,4 +123,3 @@ ru:
   time:
     formats:
       news: "%d %B %Y, %H:%M"
-      tourney: "%d %m %Y в %H:%M"

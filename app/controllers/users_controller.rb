@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def activate
     if (@user = User.load_from_activation_token(params[:id]))
       @user.activate!
-      redirect_to(root_path, notice: 'Аккаунт успешно активирован.')
+      redirect_to(root_path, notice: t('controllers.users.successfully_activated'))
     else
       not_authenticated
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
                       email:     params['user']['email'],
                       about:     params['user']['about'],
                       avatar:    params['user']['file'])
-        flash[:notice] = 'Данные обновлены.'
+        flash[:notice] = t('controllers.users.successfully_updated')
         render json: { url: user_path(@user.username) }
       else
         render json: { error: @user.errors.first[1] }
@@ -72,13 +72,13 @@ class UsersController < ApplicationController
     if BCrypt::Password.new(@user.crypted_password) == params[:user][:old_password] + @user.salt
       @user.password_confirmation = params[:user][:password_confirmation]
       if @user.change_password!(params[:user][:password])
-        flash[:notice] = 'Пароль успешно обновлён.'
+        flash[:notice] = t('controllers.users.password_updated')
         render json: { success: true, url: user_path(@user.username) }
       else
         render json: { error: @user.errors.first[1] }
       end
     else
-      render json: { error: 'Неправильный старый пароль!' }
+      render json: { error: t('controllers.users.wrong_old_password') }
     end
   end
 end

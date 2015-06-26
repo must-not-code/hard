@@ -2,7 +2,6 @@ en:
   views:
     navbar:
       news: 'News'
-      tourney: 'Tournaments'
       streams: 'Streams'
       video: 'Video'
       team: 'Team'
@@ -13,7 +12,6 @@ en:
       invitations: 'Invitations'
     sidebar:
       events: 'Events'
-      tourney: 'Our tournaments'
       posts: 'Last news'
       streams: 'Streams'
     footer:
@@ -40,8 +38,6 @@ en:
     user:
       settings: 'Settings'
       change_password: 'Change password'
-      team: 'Team'
-      new_team: 'Create Team'
       old_password: 'Current password'
       new_password: 'New password'
       confirm: 'Confirm password'
@@ -72,66 +68,6 @@ en:
       confirm_password: 'Confirm password'
       submit: 'Submit'
       submiting: 'Submiting...'
-    tournaments:
-      info: 'Info'
-      participants: 'Participants'
-      groups: 'Groups'
-      bracket: 'Bracket'
-      rules: 'Rules'
-      results: 'Results'
-      signup: 'Sign up'
-      choose_class: 'Choose class'
-      confirm: 'Confirm'
-      cancel: 'Cancel'
-      druid: 'Druid'
-      hunter: 'Hunter'
-      mage: 'Mage'
-      paladin: 'Paladin'
-      priest: 'Priest'
-      rogue: 'Rogue'
-      shaman: 'Shaman'
-      warlock: 'Warlock'
-      warrior: 'Warrior'
-      tourney_list: 'Tournaments list'
-      place: 'Place'
-      nick: 'Nick'
-      points: 'Points'
-      post: 'Post'
-      posting: 'Posting...'
-      results_placeholder: 'When the tournament begins, you will be able to bring results of matches on this page.'
-      in_turn: 'In turn'
-      group: 'Group'
-      no_bracket: 'The tournament grid is still not created.'
-    teams:
-      new_team: 'New team'
-      settings: 'Settings'
-      invite: 'Invite new member'
-      remove: 'Remove team'
-      leave: 'Leave team'
-      confirm_remove: 'Are you sure, what you want to remove team?'
-      confirm_leave: 'Are you sure, what you want to leave team?'
-      logo: 'Logo'
-      title: 'Title*'
-      tag: 'Tag*'
-      country: 'Country'
-      site: 'Site'
-      vk: 'VK'
-      fb: 'Facebook'
-      twitter: 'Twitter'
-      youtube: 'YouTube'
-      created_at: 'Registered'
-      choose_country: 'Choose country'
-      membership: 'Membership:'
-      create: 'Create'
-      submit: 'Submit'
-      submiting: 'Submiting...'
-    invites:
-      new_invite: 'New invitation'
-      invite: 'Invite'
-      invites: 'Invites'
-      invited_you: 'invited you in a team'
-      confirm_invite: 'Are you sure that you want to enter team «%{title}»?'
-      reject_invite: 'Are you sure that you want to reject the invitation in team «%{title}»?'
     news:
       delete: 'Delete'
       confirm: 'Are you sure that you want to remove this comment?'
@@ -149,6 +85,28 @@ en:
       previous: "&lsaquo; Forward"
       next: "Back &rsaquo;"
       truncate: "&hellip;"
+  controllers:
+    user:
+      successfully_updated: 'Successfully updated.'
+      successfully_activated: 'Account activated.'
+      password_updated: 'Password updated.'
+      wrong_old_password: 'Wrong old password!'
+      email_was_sent: 'Instructions were sent to the specified mail.'
+  activerecord:
+    errors:
+      models:
+        video:
+          attributes:
+            title:
+              too_short: 'В названии видео должно быть не меньше %{count} символов.'
+              too_long: 'В названии видео должно быть не больше %{count} символов.'
+            youtube_hash:
+              wrong_length: 'Идентификатор видео на Youtube должен состоять из %{count} символов.'
+    post:
+      bad_file: "Don't try to load some shit!"
+    login:
+      too_much_attempts: 'The admissible number of attempts is exceeded.<br>Entrance is limited for 30 seconds!'
+      wrong_credentials: 'Incorrect login or password!'
   mails:
     activation_email:
       subject: 'Welcome to HardRandom.com'
@@ -165,4 +123,3 @@ en:
   time:
     formats:
       news: "%d %B %Y, %H:%M"
-      tourney: "%d %m %Y at %H:%M"
