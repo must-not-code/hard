@@ -24,7 +24,7 @@ ActiveAdmin.register Post do
       row :user
       row :title
       row :game
-      row (:content) {|foobar| foobar.content.html_safe if foobar.content}
+      row (:content) {|x| x.content.html_safe if x.content}
       row :published_at
       row :created_at
       row :updated_at

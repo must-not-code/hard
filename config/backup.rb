@@ -14,6 +14,7 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
     archive.add "#{path}/public/posts"
     archive.add "#{path}/public/members"
     archive.add "#{path}/public/carousels"
+    archive.add "#{path}/public/partners"
   end
 
   database PostgreSQL do |db|

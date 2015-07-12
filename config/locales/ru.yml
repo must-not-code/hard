@@ -5,6 +5,7 @@ ru:
       streams: 'Стримы'
       video: 'Видео'
       team: 'Команда'
+      partners: 'Партнеры'
       admin: 'Админка'
       signup: 'Регистрация'
       login: 'Войти'
@@ -79,6 +80,8 @@ ru:
       streams: 'Стримы'
     video:
       video: 'Видео'
+    partners:
+      partners: 'Партнеры'
     pagination:
       first: "&laquo; Первая"
       last: "Последняя &raquo;"

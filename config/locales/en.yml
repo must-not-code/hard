@@ -5,6 +5,7 @@ en:
       streams: 'Streams'
       video: 'Video'
       team: 'Team'
+      partners: 'Partners'
       admin: 'Admin'
       signup: 'Sign up'
       login: 'Login'
@@ -79,6 +80,8 @@ en:
       streams: 'Streams'
     video:
       video: 'Video'
+    partners:
+      partners: 'Partners'
     pagination:
       first: "&laquo; First"
       last: "Last &raquo;"
@@ -92,6 +95,11 @@ en:
       password_updated: 'Password updated.'
       wrong_old_password: 'Wrong old password!'
       email_was_sent: 'Instructions were sent to the specified mail.'
+    post:
+      bad_file: "Don't try to load some shit!"
+    login:
+      too_much_attempts: 'The admissible number of attempts is exceeded.<br>Entrance is limited for 30 seconds!'
+      wrong_credentials: 'Incorrect login or password!'
   activerecord:
     errors:
       models:
@@ -102,11 +110,6 @@ en:
               too_long: 'В названии видео должно быть не больше %{count} символов.'
             youtube_hash:
               wrong_length: 'Идентификатор видео на Youtube должен состоять из %{count} символов.'
-    post:
-      bad_file: "Don't try to load some shit!"
-    login:
-      too_much_attempts: 'The admissible number of attempts is exceeded.<br>Entrance is limited for 30 seconds!'
-      wrong_credentials: 'Incorrect login or password!'
   mails:
     activation_email:
       subject: 'Welcome to HardRandom.com'

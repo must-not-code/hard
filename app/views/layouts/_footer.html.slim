@@ -11,8 +11,8 @@ footer
             = link_to t('views.navbar.video'), videos_path
           li
             = link_to t('views.navbar.team'), teams_path
-          li style="visibility: hidden"
-            = link_to t('views.navbar.news'), root_path
+          li
+            = link_to t('views.navbar.partners'), partners_path
       .col-md-7.text-center
         div
           = t('views.footer.promo1')
@@ -32,4 +32,6 @@ footer
             = fa_icon 'vk 2x'
           = link_to 'https://twitter.com/HardRandom', target: 'blank', class: 'btn' do
             = fa_icon 'twitter 2x'
+          = link_to 'https://facebook.com/hardrandom', target: 'blank', class: 'btn' do
+            = fa_icon 'facebook 2x'
 

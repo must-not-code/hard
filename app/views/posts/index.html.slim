@@ -18,5 +18,5 @@
           => fa_icon 'pencil'
           = post.comments.count
         .post-content.preview
-          = HTML_Truncator.truncate(post.content, 100).html_safe
+          = HTML_Truncator.truncate(post.content, 110).html_safe
     = paginate @posts

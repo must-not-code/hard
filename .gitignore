@@ -13,6 +13,8 @@
 /public/members
 /public/teams
 /public/carousels
+/public/partners
+/public/uploads
 
 /config/secrets.yml
 

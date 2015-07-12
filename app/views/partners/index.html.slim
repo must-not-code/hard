@@ -1,0 +1,22 @@
+.col-md-8
+  .well
+    h2
+      = link_to t('views.partners.partners'), partners_path
+    hr
+    - @partners.each do |partner|
+      .partners-logo
+        = image_tag partner.logo
+      p
+        = partner.info.html_safe
+      - if partner.site
+        = link_to partner.site, target: 'blank' do
+          = image_tag partner.site_icon
+      - if partner.vk
+        = link_to partner.vk, class: 'btn', target: 'blank' do
+          = fa_icon 'vk 2x'
+      - if partner.fb
+        = link_to partner.fb, class: 'btn', target: 'blank' do
+          = fa_icon 'facebook 2x'
+      - if partner.instagram
+        = link_to partner.instagram, class: 'btn', target: 'blank' do
+          = fa_icon 'instagram 2x'

@@ -29,6 +29,7 @@ Hard::Application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :post_attachments, only: [:create, :destroy]
     resources :password_resets, except: [:index, :show, :destroy], path_names: { new: '' }
+    resources :partners, only: [:index]
 
     ActiveAdmin.routes(self)
   end
