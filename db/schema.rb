@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710092034) do
+ActiveRecord::Schema.define(version: 20150712124116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,17 +78,21 @@ ActiveRecord::Schema.define(version: 20150710092034) do
     t.string   "status"
     t.string   "country"
     t.string   "city"
+    t.string   "mouse"
+    t.string   "keyboard"
+    t.string   "headset"
+    t.string   "pad"
   end
 
   create_table "partners", force: true do |t|
-    t.string "title"
-    t.string "logo"
-    t.text   "info"
-    t.string "site"
-    t.string "site_icon"
-    t.string "vk"
-    t.string "fb"
-    t.string "instagram"
+    t.string   "title"
+    t.string   "logo"
+    t.text     "info"
+    t.string   "site"
+    t.string   "site_icon"
+    t.string   "vk"
+    t.string   "fb"
+    t.string   "instagram"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

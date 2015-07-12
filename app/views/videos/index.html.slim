@@ -3,7 +3,7 @@
     h2
       = link_to t('views.video.video'), videos_path
     hr
-    .overflow
+    .row
       - @videos.each do |video|
         .col-md-6
           .youtube-banner

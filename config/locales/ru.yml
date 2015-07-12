@@ -76,6 +76,11 @@ ru:
       posting: 'Отправляется...'
     teams:
       hr: 'Команда Hard Random'
+    members:
+      mouse: 'Мышка:'
+      keyboard: 'Клавиатура:'
+      headset: 'Гарнитура:'
+      pad: 'Коврик:'
     streams:
       streams: 'Стримы'
     video:

@@ -3,35 +3,47 @@
     h2
       = link_to @team.title, team_path
     hr
-    .overflow
-      - @team.members.sort_by(&:position).each do |member|
-        .member.pull-left
-          .col-md-4.pull-left
-            .photo
-              = image_tag member.photo
-              - if member.status
-                span
-                  = member.status
-          .col-md-5.pull-left
-            p
-              strong
-                = member.nickname
-            p
-              = member.name
-            p
-              = member.role
-            p
-              = member.birthday.strftime("%d.%m.%Y") if member.birthday
-            p
-              - if member.country
-                i class="famfamfam-flag-#{member.country.downcase}"
-              =< member.city
-          .col-md-3
-            .member-social.pull-right
-              - if member.vk
-                = link_to member.vk, class: 'btn' do
-                  = fa_icon 'vk lg'
-              - if member.twitch
-                = link_to member.twitch, class: 'btn' do
-                  = fa_icon 'twitch lg'
-              .spacer
+    - @team.members.sort_by(&:position).each do |member|
+      .row.member
+        .col-md-4.pull-left
+          .photo
+            = image_tag member.photo
+            - if member.status
+              span
+                = member.status
+        .col-md-8.pull-left
+          p
+            strong
+              = member.nickname
+          .row
+            .col-md-5.pull-left
+              p
+                = member.name
+              p
+                = member.role
+              p
+                = member.birthday.strftime("%d.%m.%Y") if member.birthday
+              p
+                - if member.country
+                  i class="famfamfam-flag-#{member.country.downcase}"
+                =< member.city
+              .member-social
+                - if member.vk
+                  = link_to member.vk, class: 'btn' do
+                    = fa_icon 'vk lg'
+                - if member.twitch
+                  = link_to member.twitch, class: 'btn' do
+                    = fa_icon 'twitch lg'
+            .col-md-7.pull-left
+              p
+                = t('views.members.mouse')
+                =< member.mouse
+              p
+                = t('views.members.keyboard')
+                =< member.keyboard
+              /p
+                = t('views.members.headset')
+                =< member.headset
+              p
+                = t('views.members.pad')
+                =< member.pad

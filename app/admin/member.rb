@@ -1,5 +1,5 @@
 ActiveAdmin.register Member do
-  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :team_id
+  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :team_id, :mouse, :keyboard, :headset, :pad
 
   index do
     column :id
@@ -34,6 +34,11 @@ ActiveAdmin.register Member do
       row :vk
       row :twitch
       row :status
+      row :position
+      row :mouse
+      row :keyboard
+      row :headset
+      row :pad
     end
   end
 
@@ -51,6 +56,10 @@ ActiveAdmin.register Member do
       f.input :twitch
       f.input :status
       f.input :position
+      f.input :mouse
+      f.input :keyboard
+      f.input :headset
+      f.input :pad
     end
     f.actions
   end

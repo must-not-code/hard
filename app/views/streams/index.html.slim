@@ -3,7 +3,7 @@
     h2
       = link_to t('views.streams.streams'), streams_path
     hr
-    .overflow
+    .row
       - @streams.each do |stream|
         .col-md-6
           - if stream.banner_url

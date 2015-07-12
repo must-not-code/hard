@@ -76,6 +76,11 @@ en:
       posting: 'Posting...'
     teams:
       hr: 'Hard Random Teams'
+    members:
+      mouse: 'Mouse:'
+      keyboard: 'Keyboard:'
+      headset: 'Headset:'
+      pad: 'Pad:'
     streams:
       streams: 'Streams'
     video:
