@@ -37,13 +37,17 @@
             .col-md-7.pull-left
               p
                 = t('views.members.mouse')
-                =< member.mouse
+                strong
+                  =< member.mouse
               p
                 = t('views.members.keyboard')
-                =< member.keyboard
+                strong
+                  =< member.keyboard
               /p
                 = t('views.members.headset')
-                =< member.headset
+                strong
+                  =< member.headset
               p
                 = t('views.members.pad')
-                =< member.pad
+                strong
+                  =< member.pad
