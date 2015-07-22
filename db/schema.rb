@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712124116) do
+ActiveRecord::Schema.define(version: 20150722142840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,10 @@ ActiveRecord::Schema.define(version: 20150712124116) do
     t.string   "keyboard"
     t.string   "headset"
     t.string   "pad"
+    t.string   "mouse_link"
+    t.string   "keyboard_link"
+    t.string   "headset_link"
+    t.string   "pad_link"
   end
 
   create_table "partners", force: true do |t|

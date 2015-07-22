@@ -28,26 +28,17 @@
                   i class="famfamfam-flag-#{member.country.downcase}"
                 =< member.city
               .member-social
-                - if member.vk
-                  = link_to member.vk, class: 'btn' do
-                    = fa_icon 'vk lg'
-                - if member.twitch
-                  = link_to member.twitch, class: 'btn' do
-                    = fa_icon 'twitch lg'
+                - %w(vk twitch).each do |val|
+                  - if member.send(val)
+                    = link_to member.send(val), class: 'btn' do
+                      = fa_icon "#{val} lg"
             .col-md-7.pull-left
-              p
-                = t('views.members.mouse')
-                strong
-                  =< member.mouse
-              p
-                = t('views.members.keyboard')
-                strong
-                  =< member.keyboard
-              /p
-                = t('views.members.headset')
-                strong
-                  =< member.headset
-              p
-                = t('views.members.pad')
-                strong
-                  =< member.pad
+              - %w(mouse keyboard pad).each do |val|
+                p
+                  => t("views.members.#{val}")
+                  - if member.send(val)
+                    strong
+                    - if member.send("#{val}_link")
+                      = link_to member.send(val), member.send("#{val}_link")
+                    - else
+                      = member.send(val)
