@@ -73,7 +73,7 @@ class UsersController < ApplicationController
       @user.password_confirmation = params[:user][:password_confirmation]
       if @user.change_password!(params[:user][:password])
         flash[:notice] = t('controllers.users.password_updated')
-        render json: { success: true, url: user_path(@user.username) }
+        render json: { url: user_path(@user.username) }
       else
         render json: { error: @user.errors.first[1] }
       end

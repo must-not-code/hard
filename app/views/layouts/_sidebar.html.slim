@@ -4,41 +4,44 @@
       ul.nav.nav-list
         li.dropdown-header
           = t('views.sidebar.events')
-        table.sidebar-table
-          - Event.order(start_at: :desc).limit(8).each do |event|
-            tr
-              th
-                = event.start_at.strftime("%d.%m &ensp; %H:%M").html_safe
-              - if event.hr_score && event.enemy_score
-                th class=(event.hr_score > event.enemy_score ? 'green' : 'red' )
-                  = event.hr_score.to_s + ':' + event.enemy_score.to_s
-              - else
-                th VS
-              th
-                i class="famfamfam-flag-#{event.country.downcase}"
-                =< event.enemy
-              th
-                = event.tourney
+        - Event.order(start_at: :desc).limit(8).each do |event|
+          li
+            = link_to event.link do
+              .row
+                .col-xs-4
+                  = event.start_at.strftime("%d.%m &ensp; %H:%M").html_safe
+                - if event.hr_score && event.enemy_score
+                  .col-xs-1 class=(event.hr_score > event.enemy_score ? 'green' : 'red' )
+                     = event.hr_score.to_s + ':' + event.enemy_score.to_s
+                - else
+                  .col-xs-1
+                    | VS
+                .col-xs-5
+                  i class="famfamfam-flag-#{event.country.downcase}"
+                  =< event.enemy
+                .col-xs-2
+                  = event.tourney
         li.dropdown-header
           = t('views.sidebar.posts')
         - Post.where.not(published_at: nil).limit(5).order(published_at: :desc).each do |post|
           li
             = link_to post_path(post.id) do
               .row
-                .col-xs-9.sidebar-title
+                .col-xs-10
                   = post.title
-                .col-xs-3.sidebar-icon
-                  .pull-right
-                    => post.comments.count
-                    = fa_icon 'pencil'
+                .col-xs-2
+                  => fa_icon 'pencil'
+                  = post.comments.count
         li.dropdown-header
           = t('views.sidebar.streams')
         - Stream.order(views: :desc).each do |stream|
           li
             = link_to stream_path(stream.channel) do
-              = stream.streamer
-              .pull-right
-                - if stream.online
-                  = fa_icon 'eye', class: 'green'
-                - else
-                  = fa_icon 'eye-slash', class: 'red'
+              .row
+                .col-xs-10
+                  = stream.streamer
+                .col-xs-2
+                  - if stream.online
+                    = fa_icon 'eye', class: 'green'
+                  - else
+                    = fa_icon 'eye-slash', class: 'red'

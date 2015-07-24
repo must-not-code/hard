@@ -1,5 +1,5 @@
 ActiveAdmin.register Event do
-  permit_params :start_at, :hr_score, :enemy_score, :country, :enemy, :tourney
+  permit_params :start_at, :hr_score, :enemy_score, :country, :enemy, :tourney, :link
 
   index do
     column :start_at
@@ -26,6 +26,7 @@ ActiveAdmin.register Event do
       f.input :country, priority_countries: ['RU', 'UA', 'BY'], prompt: 'Выберите страну'
       f.input :enemy
       f.input :tourney
+      f.input :link
     end
     f.actions
   end

@@ -3,8 +3,8 @@ en:
     navbar:
       news: 'News'
       streams: 'Streams'
-      video: 'Video'
-      team: 'Team'
+      video: 'Videos'
+      team: 'Teams'
       partners: 'Partners'
       admin: 'Admin'
       signup: 'Sign up'
@@ -84,7 +84,7 @@ en:
     streams:
       streams: 'Streams'
     video:
-      video: 'Video'
+      video: 'Videos'
     partners:
       partners: 'Partners'
     pagination:

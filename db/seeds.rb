@@ -20,8 +20,8 @@ Event.create([{ start_at: Time.now - 4*24*60*60, country: 'RU', enemy: 'RoX.KIS'
               { start_at: Time.now - 1*24*60*60, country: 'US', enemy: 'NAVI', tourney: 'SLTV', hr_score: 0, enemy_score: 3 },
               { start_at: Time.now,              country: 'UA', enemy: 'M5', tourney: 'SLTV' },
               { start_at: Time.now + 1*24*60*60, country: 'TR', enemy: 'Big Plays Inc.', tourney: 'IIT' },
-              { start_at: Time.now + 2*24*60*60, country: 'TR', enemy: 'Team Turquality', tourney: 'IIT' },
-              { start_at: Time.now + 3*24*60*60, country: 'RU', enemy: 'Virtus.pro', tourney: 'SLTV' }])
+              { start_at: Time.now + 2*24*60*60, country: 'TR', enemy: 'Team Turquality', tourney: 'IIT', link: 'http://twitch.tv' },
+              { start_at: Time.now + 3*24*60*60, country: 'RU', enemy: 'Virtus.pro', tourney: 'SLTV', link: 'http://twitch.tv' }])
 
 Stream.create([{ streamer: 'Kira', views: 123, online: true, channel: 'kirrrrra' },
                { streamer: 'Dimonko', views: 0, online: false, channel: 'd1monko' },
