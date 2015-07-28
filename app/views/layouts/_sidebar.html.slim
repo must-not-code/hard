@@ -6,13 +6,13 @@
           = t('views.sidebar.events')
         - Event.order(start_at: :desc).limit(8).each do |event|
           li
-            = link_to event.link do
+            = link_to event.link, target: 'blank' do
               .row
                 .col-xs-4
                   = event.start_at.strftime("%d.%m &ensp; %H:%M").html_safe
                 - if event.hr_score && event.enemy_score
                   .col-xs-1 class=(event.hr_score > event.enemy_score ? 'green' : 'red' )
-                     = event.hr_score.to_s + ':' + event.enemy_score.to_s
+                    = event.hr_score.to_s + ':' + event.enemy_score.to_s
                 - else
                   .col-xs-1
                     | VS

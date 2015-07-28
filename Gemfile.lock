@@ -102,7 +102,6 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colorize (0.7.3)
-    daemons (1.1.9)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     dropbox-sdk (1.5.1)
@@ -308,7 +307,6 @@ DEPENDENCIES
   carmen-rails
   carrierwave
   coffee-rails (~> 4.0.0)
-  daemons
   dropbox-sdk (= 1.5.1)
   factory_girl_rails
   famfamfam_flags_rails

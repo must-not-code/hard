@@ -58,7 +58,6 @@ gem 'carmen-rails'
 gem 'rails-i18n'
 
 # Stream
-gem 'daemons',                        require: false
 gem 'kappa'
 
 # Backup

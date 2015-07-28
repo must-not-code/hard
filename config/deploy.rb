@@ -47,7 +47,17 @@ namespace :deploy do
     end
   end
 
+  desc 'Update crontab with whenever'
+  task :update_cron do
+    on roles(:app) do
+      within current_path do
+        execute :bundle, :exec, "whenever --update-crontab #{fetch(:application)}"
+      end
+    end
+  end
+
   after :publishing, :restart
+  after :finishing, 'deploy:update_cron'
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
@@ -57,5 +67,4 @@ namespace :deploy do
       # end
     end
   end
-
 end
