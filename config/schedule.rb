@@ -8,6 +8,6 @@ every 1.day, at: '4:00 am' do
   command 'backup perform --trigger hard_backup'
 end
 
-every :minute do
+every 1.minute do
   runner 'Stream.find_each { |stream| stream.get_state }'
 end
