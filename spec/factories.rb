@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     username 'dno'
-    email {"#{username}@mail.ru".downcase}
+    email { "#{username}@mail.ru".downcase }
     skype 'dnoskype'
     tag 'dno#1234'
     about 'hard noob'
