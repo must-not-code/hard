@@ -20,7 +20,7 @@ ActiveAdmin.register Partner do
       row :logo do
         image_tag(f.logo.url)
       end
-      row (:info) {|x| x.info.html_safe if x.info}
+      row (:info) { |x| x.info.html_safe if x.info }
       row :site
       row :site_icon do
         image_tag(f.site_icon.url)

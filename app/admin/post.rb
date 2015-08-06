@@ -24,7 +24,7 @@ ActiveAdmin.register Post do
       row :user
       row :title
       row :game
-      row (:content) {|x| x.content.html_safe if x.content}
+      row (:content) { |x| x.content.html_safe if x.content }
       row :published_at
       row :created_at
       row :updated_at
@@ -43,7 +43,7 @@ ActiveAdmin.register Post do
   end
 
   member_action :publish, method: :get do
-    resource.update(published_at: Time.now)
+    resource.update(published_at: Time.zone.now)
     redirect_to resource_path, notice: 'Published!'
   end
 
@@ -59,10 +59,10 @@ ActiveAdmin.register Post do
     end
 
     before_filter do
-       # Disabling this is probably not a good idea,
-       # but the header causes Chrome to choke when being
-       # redirected back after a submit and the page contains an iframe.
-       response.headers['X-XSS-Protection'] = '0'
+      # Disabling this is probably not a good idea,
+      # but the header causes Chrome to choke when being
+      # redirected back after a submit and the page contains an iframe.
+      response.headers['X-XSS-Protection'] = '0'
     end
   end
 end

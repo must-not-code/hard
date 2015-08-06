@@ -53,8 +53,8 @@ ActiveAdmin.register Member do
       f.input :nickname
       f.input :role
       f.input :photo, as: :file, hint: image_tag(object.photo.url)
-      f.input :birthday, start_year: 1900, end_year: Date.today.year
-      f.input :country, priority_countries: ['RU', 'UA', 'BY'], prompt: 'Выберите страну'
+      f.input :birthday, start_year: 1900, end_year: Time.zone.today.year
+      f.input :country, priority_countries: %w(RU UA BY), prompt: 'Выберите страну'
       f.input :city
       f.input :vk
       f.input :twitch

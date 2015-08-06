@@ -79,7 +79,7 @@ Hard::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = {host: 'hardrandom.com'}
+  config.action_mailer.default_url_options = { host: 'hardrandom.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -90,5 +90,5 @@ Hard::Application.configure do
     password:             Rails.application.secrets.mail_password,
     authentication:       'plain',
     enable_starttls_auto: true,
-    openssl_verify_mode:  'none'}
+    openssl_verify_mode:  'none' }
 end

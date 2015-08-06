@@ -14,14 +14,14 @@ User.create([{ username: 'admin', password: '123456', email: 'test4food@me.com',
 Carousel.create([{ title: 'Lorem ipsum 1', url: '/', position: 1 },
                  { title: 'Lorem ipsum 2', url: '/', position: 2 }])
 
-Event.create([{ start_at: Time.now - 4*24*60*60, country: 'RU', enemy: 'RoX.KIS', tourney: 'SLTV', hr_score: 0, enemy_score: 1 },
-              { start_at: Time.now - 3*24*60*60, country: 'RU', enemy: 'GPX', tourney: 'SLTV', hr_score: 1, enemy_score: 0 },
-              { start_at: Time.now - 2*24*60*60, country: 'UA', enemy: 'Carpe Diem', tourney: 'SLTV' , hr_score: 2, enemy_score: 1 },
-              { start_at: Time.now - 1*24*60*60, country: 'US', enemy: 'NAVI', tourney: 'SLTV', hr_score: 0, enemy_score: 3 },
-              { start_at: Time.now,              country: 'UA', enemy: 'M5', tourney: 'SLTV' },
-              { start_at: Time.now + 1*24*60*60, country: 'TR', enemy: 'Big Plays Inc.', tourney: 'IIT' },
-              { start_at: Time.now + 2*24*60*60, country: 'TR', enemy: 'Team Turquality', tourney: 'IIT', link: 'http://twitch.tv' },
-              { start_at: Time.now + 3*24*60*60, country: 'RU', enemy: 'Virtus.pro', tourney: 'SLTV', link: 'http://twitch.tv' }])
+Event.create([{ start_at: Time.zone.now - 4 * 24 * 60 * 60, country: 'RU', enemy: 'RoX.KIS', tourney: 'SLTV', hr_score: 0, enemy_score: 1 },
+              { start_at: Time.zone.now - 3 * 24 * 60 * 60, country: 'RU', enemy: 'GPX', tourney: 'SLTV', hr_score: 1, enemy_score: 0 },
+              { start_at: Time.zone.now - 2 * 24 * 60 * 60, country: 'UA', enemy: 'Carpe Diem', tourney: 'SLTV', hr_score: 2, enemy_score: 1 },
+              { start_at: Time.zone.now - 1 * 24 * 60 * 60, country: 'US', enemy: 'NAVI', tourney: 'SLTV', hr_score: 0, enemy_score: 3 },
+              { start_at: Time.zone.now,                    country: 'UA', enemy: 'M5', tourney: 'SLTV' },
+              { start_at: Time.zone.now + 1 * 24 * 60 * 60, country: 'TR', enemy: 'Big Plays Inc.', tourney: 'IIT' },
+              { start_at: Time.zone.now + 2 * 24 * 60 * 60, country: 'TR', enemy: 'Team Turquality', tourney: 'IIT', link: 'http://twitch.tv' },
+              { start_at: Time.zone.now + 3 * 24 * 60 * 60, country: 'RU', enemy: 'Virtus.pro', tourney: 'SLTV', link: 'http://twitch.tv' }])
 
 Stream.create([{ streamer: 'Kira', views: 123, online: true, channel: 'kirrrrra' },
                { streamer: 'Dimonko', views: 0, online: false, channel: 'd1monko' },
@@ -31,8 +31,8 @@ Stream.create([{ streamer: 'Kira', views: 123, online: true, channel: 'kirrrrra'
 Team.create([{ game: 'lol', title: 'HR Pro', logo: 'lol_logo.png' },
              { game: 'lol_academy', title: 'HR Academy', logo: 'lol_academy_logo.png' }])
 
-Member.create([{ name: 'John Doe', nickname: 'Dno', role: 'Support', team_id: 1, vk: 'https://vk.com/hardrandom', twitch: 'https://vk.com/hardrandom', birthday: Date.current, position: 2, status: 'captain', country: 'ru', city: 'Бобруйск', mouse: 'Coguar 200M', mouse_link: 'https://vk.com/hardrandom', keyboard: 'Coguar 500K', headset: 'Couguar 300H', pad: 'Couguar SPEED', pad_link: 'https://vk.com/hardrandom' },
-               { name: 'John Doe', nickname: 'Smurf', role: 'Top Laner', team_id: 1, vk: 'https://vk.com/hardrandom', twitch: 'https://vk.com/hardrandom', birthday: Date.current, position: 1, country: 'ua', city: 'Бобруйск' }])
+Member.create([{ name: 'John Doe', nickname: 'Dno', role: 'Support', team_id: 1, vk: 'https://vk.com/hardrandom', twitch: 'https://vk.com/hardrandom', birthday: Time.zone.today, position: 2, status: 'captain', country: 'ru', city: 'Бобруйск', mouse: 'Coguar 200M', mouse_link: 'https://vk.com/hardrandom', keyboard: 'Coguar 500K', headset: 'Couguar 300H', pad: 'Couguar SPEED', pad_link: 'https://vk.com/hardrandom' },
+               { name: 'John Doe', nickname: 'Smurf', role: 'Top Laner', team_id: 1, vk: 'https://vk.com/hardrandom', twitch: 'https://vk.com/hardrandom', birthday: Time.zone.today, position: 1, country: 'ua', city: 'Бобруйск' }])
 
 Post.create(title: 'Lorem ipsum', user_id: 1, game: 'lol', content: "<p><img style='float: left;' src='http://hardrandom.com/posts/14/d7de72552.png' height='150' width='150'/>#{LOREM}</p>")
 

@@ -1,7 +1,5 @@
 # encoding: utf-8
-
 class PostUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -13,7 +11,7 @@ class PostUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "posts/#{Time.now.strftime("%y/%m")}"
+    "posts/#{Time.zone.now.strftime('%y/%m')}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -45,6 +43,6 @@ class PostUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{Digest::SHA1.hexdigest(Time.now.to_i.to_s)[8..16]}.#{file.extension}" if original_filename
+    "#{Digest::SHA1.hexdigest(Time.zone.now.to_i.to_s)[8..16]}.#{file.extension}" if original_filename
   end
 end

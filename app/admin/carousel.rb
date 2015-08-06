@@ -29,12 +29,12 @@ ActiveAdmin.register Carousel do
     end
   end
 
-  form :html => { :multipart => true } do |f|
+  form html: { multipart: true } do |f|
     f.inputs do
       f.input :title
       f.input :url
       f.input :position
-      f.input :image, :as => :file, :hint => image_tag(object.image.url)
+      f.input :image, as: :file, hint: image_tag(object.image.url)
     end
     f.actions
   end

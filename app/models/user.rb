@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   validates :tag,
             uniqueness: { case_sensitive: false },
-            format: {with: /\A[a-zа-яё][a-zа-яё0-9]{2,11}#[0-9]{3,5}\z/i },
+            format: { with: /\A[a-zа-яё][a-zа-яё0-9]{2,11}#[0-9]{3,5}\z/i },
             allow_blank: true
 
   validates :about,

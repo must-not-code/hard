@@ -1,5 +1,5 @@
-#http://meskyanichi.github.io/backup/v4
-#backup perform --trigger hard_backup
+# http://meskyanichi.github.io/backup/v4
+# backup perform --trigger hard_backup
 
 require 'yaml'
 

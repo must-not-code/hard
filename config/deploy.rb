@@ -23,10 +23,10 @@ set :deploy_to, '/home/dev/hard'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/secrets.yml}
+set :linked_files, %w(config/secrets.yml)
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{log tmp public/avatars public/posts public/members public/carousels public/partners}
+set :linked_dirs, %w(log tmp public/avatars public/posts public/members public/carousels public/partners)
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -38,7 +38,6 @@ set :linked_dirs, %w{log tmp public/avatars public/posts public/members public/c
 set :bundle_binstubs, nil
 
 namespace :deploy do
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -57,7 +56,6 @@ namespace :deploy do
   end
 
   after :publishing, :restart
-  after :finishing, 'deploy:update_cron'
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do

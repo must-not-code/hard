@@ -23,7 +23,7 @@ ActiveAdmin.register Event do
       f.input :start_at
       f.input :hr_score
       f.input :enemy_score
-      f.input :country, priority_countries: ['RU', 'UA', 'BY'], prompt: 'Выберите страну'
+      f.input :country, priority_countries: %w(RU UA BY), prompt: 'Выберите страну'
       f.input :enemy
       f.input :tourney
       f.input :link
