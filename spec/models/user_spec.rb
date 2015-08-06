@@ -74,19 +74,6 @@ describe User do
   end
 
   it do
-    should validate_uniqueness_of(:tag).case_insensitive
-      .with_message('Пользователь с таким BattleTag уже зарегистрирован.')
-  end
-
-  it do
-    should allow_value('', 'jopa#12345', 'Ёжик#7777').for(:tag)
-  end
-
-  it do
-    should_not allow_value('jopa@12345').for(:tag)
-  end
-
-  it do
     should ensure_length_of(:about)
       .is_at_least(3).is_at_most(3000)
       .with_short_message('Не скромничайте. Оставьте о себе больше трех букв.')

@@ -48,7 +48,6 @@ class UsersController < ApplicationController
                       site:      params['user']['site'],
                       twitch:    params['user']['twitch'],
                       twitter:   params['user']['twitter'],
-                      tag:       params['user']['tag'],
                       email:     params['user']['email'],
                       about:     params['user']['about'],
                       avatar:    params['user']['file'])

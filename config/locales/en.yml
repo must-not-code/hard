@@ -56,7 +56,6 @@ en:
       site: 'Site'
       twitch: 'Twitch'
       twitter: 'Twitter'
-      tag: 'BattleTag'
       email: 'Email'
       about: 'About'
       created_at: 'Registered'

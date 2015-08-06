@@ -28,19 +28,15 @@ class User < ActiveRecord::Base
             format: { with: /\A[a-z][a-z0-9\.,\-_]{5,32}\z/i },
             allow_blank: true
 
-  validates :tag,
-            uniqueness: { case_sensitive: false },
-            format: { with: /\A[a-zа-яё][a-zа-яё0-9]{2,11}#[0-9]{3,5}\z/i },
-            allow_blank: true
-
   validates :about,
             length: { minimum: 3, maximum: 3_000 },
             allow_blank: true
 
   private
+
   def fix_urls
     %w(vk fb site twitch twitter).each do |column|
-      self.send("#{column}=", (self.send(column)[/^$|https?:\/\//] ? '' : 'http://') + self.send(column)) if self.send(column)
+      send("#{column}=", (send(column)[/^$|https?:\/\//] ? '' : 'http://') + send(column)) if send(column)
     end
   end
 end

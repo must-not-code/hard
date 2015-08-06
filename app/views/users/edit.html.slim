@@ -10,7 +10,7 @@
       .col-md-9
         = form_for @user, remote: true, html: { 'data-type' => :json } do |f|
           table.table.table-bordered.hard-table
-            - %w(avatar firstname lastname country city nick_ru nick_euw skype vk fb site twitch twitter tag email about).each do |val|
+            - %w(avatar firstname lastname country city nick_ru nick_euw skype vk fb site twitch twitter email about).each do |val|
               tr
                 td
                   = t("views.user.#{val}")

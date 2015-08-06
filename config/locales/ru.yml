@@ -56,7 +56,6 @@ ru:
       site: 'Сайт'
       twitch: 'Twitch'
       twitter: 'Twitter'
-      tag: 'BattleTag'
       email: 'Email'
       about: 'О себе'
       created_at: 'Зарегистрирован'
@@ -128,9 +127,6 @@ ru:
             skype:
               taken: 'Пользователь с таким Skype уже зарегистрирован.'
               invalid: 'Некорректный Skype.'
-            tag:
-              taken: 'Пользователь с таким BattleTag уже зарегистрирован.'
-              invalid: 'Некорректный BattleTag.'
             about:
               too_short: 'Не скромничайте. Оставьте о себе больше трех букв.'
               too_long: 'Недопустимое количество символов.'
