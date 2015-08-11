@@ -12,7 +12,7 @@
         = render 'user_menu'
       .col-md-9
         table.table.table-bordered.table-hover
-          - %w(firstname lastname country city nick_ru nick_euw skype vk fb site twitch twitter email created_at about).each do |val|
+          - %w(name country city nick_ru nick_euw skype vk fb site twitch twitter email created_at about).each do |val|
             - if @user.send(val)
               - next if val == 'email' && @user != current_user
               tr

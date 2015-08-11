@@ -3,9 +3,7 @@ FactoryGirl.define do
     username 'dno'
     email { "#{username}@mail.ru".downcase }
     skype 'dnoskype'
-    tag 'dno#1234'
     about 'hard noob'
-    rating 0
     group 'admin'
     avatar 'default_avatar'
     salt 'pepper'

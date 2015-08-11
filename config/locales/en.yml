@@ -43,8 +43,7 @@ en:
       new_password: 'New password'
       confirm: 'Confirm password'
       avatar: 'Avatar'
-      firstname: 'Name'
-      lastname: 'Lastname'
+      name: 'Name'
       country: 'Country'
       choose_country: 'Choose country'
       city: 'City'
@@ -104,21 +103,6 @@ en:
     login:
       too_much_attempts: 'The admissible number of attempts is exceeded.<br>Entrance is limited for 30 seconds!'
       wrong_credentials: 'Incorrect login or password!'
-  activerecord:
-    errors:
-      models:
-        video:
-          attributes:
-            title:
-              too_short: 'Title should consist at least of %{count} characters.'
-              too_long: 'Title should consist at most of %{count} characters.'
-            youtube_hash:
-              wrong_length: 'YouTube hash should consist of %{count} characters.'
-        comment:
-          attributes:
-            content:
-              too_short: 'Your comment is insufficiently informative.'
-              too_long: 'Too long comment (maximum %{count} characters).'
   mails:
     activation_email:
       subject: 'Welcome to HardRandom.com'
@@ -135,3 +119,60 @@ en:
   time:
     formats:
       news: "%d %B %Y, %H:%M"
+  activerecord:
+    errors:
+      messages:
+        confirmation: 'Passwords do not match.'
+      models:
+        user:
+          attributes:
+            username:
+              taken: 'This login is already taken'
+              too_short: 'The login has to contain from 6 to 20 symbols'
+              too_long: 'The login has to contain from 6 to 20 symbols'
+              invalid: 'Login must contain only letters and numbers, also space, hyphen or underscore between them.'
+            email:
+              taken: 'This Email is already taken.'
+              too_short: 'Incorrect Email format.'
+              too_long: 'Incorrect Email format.'
+              invalid: 'Incorrect Email format'
+            password:
+              too_short: 'The password has to contain from 6 to 20 symbols'
+              too_long: 'The password has to contain from 6 to 20 symbols'
+            skype:
+              taken: 'This Skype is already taken.'
+              invalid: 'Incorrect Skype format'
+            about:
+              too_short: 'Too short description.'
+              too_long: 'Too large description.'
+        post:
+          attributes:
+            title:
+              too_short: 'Посту нужен заголовок адекватной длины!'
+              too_long: 'Посту нужен заголовок адекватной длины!'
+            game:
+              too_short: 'Пост должен относиться к какой-то игре!'
+              too_long: 'Пост должен относиться к какой-то игре!'
+            content:
+              too_short: 'Это вам не твиттер!'
+              too_long: 'Слишком многа букаф!!!111'
+        comment:
+          attributes:
+            content:
+              too_short: 'Your comment is insufficiently informative.'
+              too_long: 'Too long comment (maximum %{count} characters).'
+        stream:
+          attributes:
+            streamer:
+              too_short: 'В названии стрима должно быть от 2 до 255 символов.'
+              too_long: 'В названии стрима должно быть от 2 до 255 символов.'
+            channel:
+              too_short: 'В названии канала должно быть от 2 до 255 символов.'
+              too_long: 'В названии канала должно быть от 2 до 255 символов.'
+        video:
+          attributes:
+            title:
+              too_short: 'Title should consist at least of %{count} characters.'
+              too_long: 'Title should consist at most of %{count} characters.'
+            youtube_hash:
+              wrong_length: 'YouTube hash should consist of %{count} characters.'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806145809) do
+ActiveRecord::Schema.define(version: 20150811134409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20150806145809) do
     t.string   "username"
     t.string   "crypted_password"
     t.string   "email"
-    t.integer  "rating",                          default: 0
     t.string   "skype"
     t.text     "about"
     t.string   "group",                           default: "user"
@@ -161,14 +160,12 @@ ActiveRecord::Schema.define(version: 20150806145809) do
     t.datetime "reset_password_email_sent_at"
     t.datetime "updated_at"
     t.string   "avatar"
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "name"
     t.string   "vk"
     t.string   "fb"
     t.string   "site"
     t.string   "twitch"
     t.string   "twitter"
-    t.integer  "team_id"
     t.string   "nick_ru"
     t.string   "nick_euw"
     t.string   "country"

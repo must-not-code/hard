@@ -36,8 +36,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user == current_user
-      if @user.update(firstname: params['user']['firstname'],
-                      lastname:  params['user']['lastname'],
+      if @user.update(firstname: params['user']['name'],
                       country:   params['user']['country'],
                       city:      params['user']['city'],
                       nick_ru:   params['user']['nick_ru'],

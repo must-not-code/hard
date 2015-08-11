@@ -28,14 +28,22 @@ class User < ActiveRecord::Base
             format: { with: /\A[a-z][a-z0-9\.,\-_]{5,32}\z/i },
             allow_blank: true
 
+  validates :name,
+            length: { minimum: 2, maximum: 3_000 },
+            allow_blank: true
+
   validates :about,
             length: { minimum: 3, maximum: 3_000 },
+            allow_blank: true
+
+  validates :vk,
+            format: { with: /\Ahttps?:\/\/vk.com\/\w{,30}\z/i },
             allow_blank: true
 
   private
 
   def fix_urls
-    %w(vk fb site twitch twitter).each do |column|
+    %w(fb site twitch twitter).each do |column|
       send("#{column}=", (send(column)[/^$|https?:\/\//] ? '' : 'http://') + send(column)) if send(column)
     end
   end

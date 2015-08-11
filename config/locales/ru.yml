@@ -43,8 +43,7 @@ ru:
       new_password: 'Новый пароль'
       confirm: 'Подтвердите пароль'
       avatar: 'Аватар'
-      firstname: 'Имя'
-      lastname: 'Фамилия'
+      name: 'Имя'
       country: 'Страна'
       choose_country: 'Выберите страну'
       city: 'Город'
@@ -104,6 +103,22 @@ ru:
     login:
       too_much_attempts: 'Превышено допустимое число попыток.<br>Вход ограничен на 30 секунд!'
       wrong_credentials: 'Неверный логин или пароль!'
+  mails:
+    activation_email:
+      subject: 'Регистрация на HardRandom.com'
+      greeting: 'Приветствуем %{username}.'
+      paragraph1: 'Вы были успешно зарегистрированы на HardRandom.com.'
+      paragraph2: 'Для подтверждения вашей учетной записи перейдите по ссылке:'
+      sign: 'С уважением, команда HardRandom.com.'
+    reset_password_email:
+      subject: 'Сброс пароля на HardRandom.com'
+      greeting: 'Сброс пароля.'
+      paragraph1: 'Забыли пароль? Ничего страшного.'
+      paragraph2: 'Для установки нового пароля перейдите по ссылке:'
+      sign: 'С уважением, команда HardRandom.com.'
+  time:
+    formats:
+      news: "%d %B %Y, %H:%M"
   activerecord:
     errors:
       messages:
@@ -115,7 +130,7 @@ ru:
               taken: 'Пользователь с таким логином уже зарегистрирован.'
               too_short: 'Логин должен содержать от 3 до 20 символов.'
               too_long: 'Логин должен содержать от 3 до 20 символов.'
-              invalid: 'Логин может содержать только буквы латинского и кириллического алфавитов, цифры и символы между ними: пробел, тире, нижнее подчеркивание.'
+              invalid: 'В логине допустимы только буквы и цифры, а также пробел, дефис и нижнее подчеркивание между ними.'
             email:
               taken: 'Пользователь с таким Email уже зарегистрирован.'
               too_short: 'Некорректная длина Email.'
@@ -161,19 +176,3 @@ ru:
               too_long: 'В названии видео должно быть не больше %{count} символов.'
             youtube_hash:
               wrong_length: 'Идентификатор видео на Youtube должен состоять из %{count} символов.'
-  mails:
-    activation_email:
-      subject: 'Регистрация на HardRandom.com'
-      greeting: 'Приветствуем %{username}.'
-      paragraph1: 'Вы были успешно зарегистрированы на HardRandom.com.'
-      paragraph2: 'Для подтверждения вашей учетной записи перейдите по ссылке:'
-      sign: 'С уважением, команда HardRandom.com.'
-    reset_password_email:
-      subject: 'Сброс пароля на HardRandom.com'
-      greeting: 'Сброс пароля.'
-      paragraph1: 'Забыли пароль? Ничего страшного.'
-      paragraph2: 'Для установки нового пароля перейдите по ссылке:'
-      sign: 'С уважением, команда HardRandom.com.'
-  time:
-    formats:
-      news: "%d %B %Y, %H:%M"
