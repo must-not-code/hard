@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  before_save :fix_urls
-
   mount_uploader :avatar, AvatarUploader
 
   has_many :comments
@@ -29,22 +27,46 @@ class User < ActiveRecord::Base
             allow_blank: true
 
   validates :name,
-            length: { minimum: 2, maximum: 3_000 },
+            length: { in: 2..3_000 },
             allow_blank: true
 
   validates :about,
-            length: { minimum: 3, maximum: 3_000 },
+            length: { in: 3..3_000 },
             allow_blank: true
 
   validates :vk,
-            format: { with: /\Ahttps?:\/\/vk.com\/\w{,30}\z/i },
+            format: { with: /\Ahttps?:\/\/vk.com\/.{,30}\z/i },
             allow_blank: true
 
-  private
+  validates :fb,
+            format: { with: /\Ahttps?:\/\/www.facebook.com\/.{,30}\z/i },
+            allow_blank: true
 
-  def fix_urls
-    %w(fb site twitch twitter).each do |column|
-      send("#{column}=", (send(column)[/^$|https?:\/\//] ? '' : 'http://') + send(column)) if send(column)
-    end
-  end
+  validates :twitch,
+            format: { with: /\Ahttps?:\/\/www.twitch.tv\/.{,30}\z/i },
+            allow_blank: true
+
+  validates :twitter,
+            format: { with: /\Ahttps?:\/\/twitter.com\/.{,30}\z/i },
+            allow_blank: true
+
+  validates :site,
+            format: { with: /\Ahttps?:\/\/.{,50}\z/i },
+            allow_blank: true
+
+  validates :nick_ru,
+            length: { maximum: 30 },
+            allow_blank: true
+
+  validates :nick_euw,
+            length: { maximum: 30 },
+            allow_blank: true
+
+  validates :city,
+            length: { maximum: 30 },
+            allow_blank: true
+
+  validates :country,
+            length: { is: 2 },
+            allow_blank: true
 end

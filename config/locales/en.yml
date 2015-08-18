@@ -145,6 +145,24 @@ en:
             about:
               too_short: 'Too short description.'
               too_long: 'Too large description.'
+            vk:
+              invalid: 'Link to VK has to be in a format http://vk.com/hardrandom'
+            fb:
+              invalid: 'Link to Facebook has to be in a format https://www.facebook.com/hardrandom'
+            twitch:
+              invalid: 'Link to Twitch has to be in a format http://www.twitch.tv/hardrandom'
+            twitter:
+              invalid: 'Link to Twitter has to be in a format https://twitter.com/hardrandom'
+            site:
+              invalid: 'Link to your site has to be in a format http://hardrandom.com'
+            nick_ru:
+              too_long: 'Too long Nickname (RU).'
+            nick_euw:
+              too_long: 'Too long Nickname (EUW).'
+            city:
+              too_long: 'Too long city name.'
+            country:
+              wrong_length: 'Code of the country has to consist of 2 symbols.'
         post:
           attributes:
             title:
