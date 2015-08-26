@@ -31,6 +31,8 @@ Hard::Application.routes.draw do
     resources :password_resets, except: [:index, :show, :destroy], path_names: { new: '' }
     resources :partners, only: [:index]
 
+    get '/about' => 'pages#about'
+
     ActiveAdmin.routes(self)
   end
 end

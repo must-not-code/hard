@@ -6,6 +6,7 @@ en:
       video: 'Videos'
       team: 'Teams'
       partners: 'Partners'
+      about: 'About'
       admin: 'Admin'
       signup: 'Sign up'
       login: 'Login'
@@ -85,6 +86,8 @@ en:
       video: 'Videos'
     partners:
       partners: 'Partners'
+    about:
+      about: 'About'
     pagination:
       first: "&laquo; First"
       last: "Last &raquo;"
@@ -127,9 +130,9 @@ en:
         user:
           attributes:
             username:
-              taken: 'This login is already taken'
-              too_short: 'The login has to contain from 6 to 20 symbols'
-              too_long: 'The login has to contain from 6 to 20 symbols'
+              taken: 'This login is already taken.'
+              too_short: 'Login has to contain from 6 to 20 symbols.'
+              too_long: 'Login has to contain from 6 to 20 symbols.'
               invalid: 'Login must contain only letters and numbers, also space, hyphen or underscore between them.'
             email:
               taken: 'This Email is already taken.'
@@ -137,11 +140,11 @@ en:
               too_long: 'Incorrect Email format.'
               invalid: 'Incorrect Email format'
             password:
-              too_short: 'The password has to contain from 6 to 20 symbols'
-              too_long: 'The password has to contain from 6 to 20 symbols'
+              too_short: 'Password has to contain from 6 to 20 symbols.'
+              too_long: 'Password has to contain from 6 to 20 symbols.'
             skype:
               taken: 'This Skype is already taken.'
-              invalid: 'Incorrect Skype format'
+              invalid: 'Incorrect Skype format.'
             about:
               too_short: 'Too short description.'
               too_long: 'Too large description.'
@@ -194,3 +197,12 @@ en:
               too_long: 'Title should consist at most of %{count} characters.'
             youtube_hash:
               wrong_length: 'YouTube hash should consist of %{count} characters.'
+        page:
+          attributes:
+            title:
+              too_short: 'Title has to contain from 6 to 20 symbols.'
+              too_long: 'Title has to contain from 6 to 20 symbols.'
+            content_ru:
+              too_long: 'Russian content should consist at most of %{count} characters.'
+            content_en:
+              too_long: 'English content should consist at most of %{count} characters.'

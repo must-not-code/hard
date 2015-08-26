@@ -6,6 +6,7 @@ ru:
       video: 'Видео'
       team: 'Команда'
       partners: 'Партнеры'
+      about: 'О нас'
       admin: 'Админка'
       signup: 'Регистрация'
       login: 'Войти'
@@ -85,6 +86,8 @@ ru:
       video: 'Видео'
     partners:
       partners: 'Партнеры'
+    about:
+      about: 'О нас'
     pagination:
       first: "&laquo; Первая"
       last: "Последняя &raquo;"
@@ -194,3 +197,12 @@ ru:
               too_long: 'В названии видео должно быть не больше %{count} символов.'
             youtube_hash:
               wrong_length: 'Идентификатор видео на Youtube должен состоять из %{count} символов.'
+        page:
+          attributes:
+            title:
+              too_short: 'В названии страницы должно быть от 2 до 20 символов.'
+              too_long: 'В названии страницы должно быть от 2 до 20 символов.'
+            content_ru:
+              too_long: 'Контент на русском должен быть не больше %{count} символов.'
+            content_en:
+              too_long: 'Контент на английском должен быть не больше %{count} символов.'
