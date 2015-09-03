@@ -7,7 +7,10 @@
       .partners-logo
         = image_tag partner.logo
       p
-        = partner.info.html_safe
+        - if I18n.locale == :ru
+          = partner.content_ru.html_safe
+        - else
+          = partner.content_en.html_safe
       - if partner.site
         = link_to partner.site, target: 'blank' do
           = image_tag partner.site_icon

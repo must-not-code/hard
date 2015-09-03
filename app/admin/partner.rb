@@ -1,5 +1,5 @@
 ActiveAdmin.register Partner do
-  permit_params :title, :info, :logo, :site, :site_icon, :vk, :fb, :instagram
+  permit_params :title, :content_ru, :content_en, :logo, :site, :site_icon, :vk, :fb, :instagram
 
   index do
     column :id
@@ -20,7 +20,8 @@ ActiveAdmin.register Partner do
       row :logo do
         image_tag(f.logo.url)
       end
-      row (:info) { |x| x.info.html_safe if x.info }
+      row (:content_ru) { |x| x.content_ru.html_safe if x.content_ru }
+      row (:content_en) { |x| x.content_en.html_safe if x.content_en }
       row :site
       row :site_icon do
         image_tag(f.site_icon.url)
@@ -35,7 +36,8 @@ ActiveAdmin.register Partner do
     f.inputs do
       f.input :title
       f.input :logo, as: :file, hint: image_tag(object.logo.url)
-      f.input :info
+      f.input :content_ru
+      f.input :content_en
       f.input :site
       f.input :site_icon, as: :file, hint: image_tag(object.site_icon.url)
       f.input :vk

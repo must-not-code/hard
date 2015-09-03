@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825132236) do
+ActiveRecord::Schema.define(version: 20150903130728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20150825132236) do
   create_table "partners", force: true do |t|
     t.string   "title"
     t.string   "logo"
-    t.text     "info"
+    t.text     "content_ru"
     t.string   "site"
     t.string   "site_icon"
     t.string   "vk"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20150825132236) do
     t.string   "instagram"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "content_en"
   end
 
   create_table "post_attachments", force: true do |t|
