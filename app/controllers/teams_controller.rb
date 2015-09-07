@@ -4,6 +4,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find_by(game: params[:game])
+    @team = Team.find_by_game!(params[:game])
   end
 end

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def activate
-    if (@user = User.load_from_activation_token(params[:id]))
+    if @user = User.load_from_activation_token(params[:id])
       @user.activate!
       redirect_to(root_path, notice: t('controllers.users.successfully_activated'))
     else
@@ -25,11 +25,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by_username!(params[:id])
   end
 
   def edit
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by_username!(params[:id])
     redirect_to user_path unless @user == current_user
   end
 
@@ -61,12 +61,12 @@ class UsersController < ApplicationController
   end
 
   def change_password
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by_username!(params[:id])
     redirect_to user_path unless @user == current_user
   end
 
   def update_password
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by_username!(params[:id])
     if BCrypt::Password.new(@user.crypted_password) == params[:user][:old_password] + @user.salt
       @user.password_confirmation = params[:user][:password_confirmation]
       if @user.change_password!(params[:user][:password])
