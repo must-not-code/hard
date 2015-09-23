@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   validates :content,
             length: { minimum: 140,
-                      maximum: 30_000 }
+                      maximum: 50_000 }
 
   validates :title,
             length: { in: 2..255 }

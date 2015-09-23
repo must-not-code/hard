@@ -17,7 +17,7 @@
     hr
     #comments data-post=post_path(@post.id)
       #comments-list
-        - @post.comments.each do |comment|
+        - @post.comments.order('created_at asc').each do |comment|
           - author = User.find(comment.user_id)
           => image_tag author.avatar.mini
           => link_to author.username, user_path(author.username)
