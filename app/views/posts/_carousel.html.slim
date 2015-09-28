@@ -11,7 +11,7 @@
             = image_tag carousel.image
             .carousel-caption
               h1
-                = carousel.title.html_safe
+                = carousel.title.html_safe if carousel.title
     a.left.carousel-control data-slide='prev' href='#carousel'
       = fa_icon 'chevron-left', class: 'chevron'
     a.right.carousel-control data-slide='next' href='#carousel'

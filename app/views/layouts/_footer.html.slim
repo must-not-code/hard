@@ -1,37 +1,18 @@
 footer
   .container
     .row
-      .col-md-2
-        ul
-          li
-            = link_to t('views.navbar.news'), root_path
-          li
-            = link_to t('views.navbar.streams'), streams_path
-          li
-            = link_to t('views.navbar.video'), videos_path
-          li
-            = link_to t('views.navbar.team'), teams_path
-          li
-            = link_to t('views.navbar.partners'), partners_path
-      .col-md-7.text-center
-        div
-          = t('views.footer.promo1')
-          br
-          = t('views.footer.promo2')
-          br
-          = t('views.footer.promo3')
-        div
-          => fa_icon 'skype'
-          = link_to 'hard.random', 'skype:hard.random?chat'
-        div
-          => fa_icon 'envelope'
-          = link_to 'feedback@hardrandom.com', 'mailto:feedback@hardrandom.com'
-      .col-md-3
-        .social
+      .col-xs-4
+        .copyright
+          => "&copy;&nbsp;2013&ndash;#{Date.current.year}".html_safe
+          strong
+            = "Hard&nbsp;Random".html_safe
+      .col-xs-7.pull-right
+        .social.pull-right
+          = link_to 'mailto:feedback@hardrandom.com', class: 'btn' do
+            = fa_icon 'envelope 2x'
           = link_to 'http://vk.com/hardrandom', target: 'blank', class: 'btn' do
             = fa_icon 'vk 2x'
           = link_to 'https://twitter.com/HardRandom', target: 'blank', class: 'btn' do
             = fa_icon 'twitter 2x'
           = link_to 'https://facebook.com/hardrandom', target: 'blank', class: 'btn' do
             = fa_icon 'facebook 2x'
-

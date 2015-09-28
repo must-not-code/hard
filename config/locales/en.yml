@@ -16,10 +16,6 @@ en:
       events: 'Events'
       posts: 'Last news'
       streams: 'Streams'
-    footer:
-      promo1: 'We are always open for cooperation.'
-      promo2: 'On any arising questions and offers'
-      promo3: 'you can address on the specified contacts:'
     login:
       login: 'Login'
       signup: 'Sign up?'
