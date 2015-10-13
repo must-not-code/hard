@@ -3,12 +3,13 @@
 
 $(document).ready ->
   tinyMCE.init
-    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | uploadimage'
+    menubar: false
+    toolbar: 'undo redo | bold italic underline strikethrough forecolor | alignleft aligncenter alignright alignjustify | bullist numlist | link uploadimage media | code'
     selector: '.text textarea'
     height: 400
     convert_urls: false
     valid_elements: '*[*]'
-    plugins: 'link, image, code, media, table, uploadimage'
+    plugins: 'link, image, code, media, uploadimage, textcolor'
     content_css: "<%= asset_path('application.css')%>"
     uploadimage_form_url: '/post_attachments'
 
