@@ -2,8 +2,6 @@ doctype html
 html
   head
     title Hard Random
-    = javascript_include_tag "application", async: true
-    = stylesheet_link_tag    "application"
     = csrf_meta_tags
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     link href="/favicon.ico" rel="shortcut icon"
@@ -62,3 +60,5 @@ html
           = render 'layouts/sidebar'
     = render 'layouts/footer'
     = link_to image_tag('top.png'), '#', class: 'scrollup'
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag    'application'

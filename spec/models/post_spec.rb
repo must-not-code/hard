@@ -18,7 +18,7 @@ describe Post do
 
   it do
     should ensure_length_of(:content)
-      .is_at_least(140).is_at_most(30_000)
+      .is_at_least(140).is_at_most(50_000)
       .with_short_message('Это вам не твиттер!')
       .with_long_message('Слишком многа букаф!!!111')
   end

@@ -47,7 +47,7 @@ ActiveAdmin.register Post do
     redirect_to resource_path, notice: 'Published!'
   end
 
-  action_item only: :edit do
+  action_item(:publish, only: :edit) do
     unless resource.published_at
       link_to 'Publish', 'publish'
     end
