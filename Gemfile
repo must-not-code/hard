@@ -26,6 +26,7 @@ gem 'font-awesome-rails'
 
 # Assets
 gem 'uglifier',           '>= 1.3.0'
+gem 'therubyracer'
 gem 'quiet_assets'
 
 # JSON
