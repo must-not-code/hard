@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',                 '4.1.7'
+gem 'rails',                 '4.2.4'
 
 # Database
 gem 'pg'
@@ -15,10 +15,10 @@ gem 'html_truncator'
 
 # JavaScript
 gem 'jquery-rails'
-gem 'coffee-rails',       '~> 4.0.0'
+gem 'coffee-rails'
 
 # CSS
-gem 'sass-rails',         '~> 4.0.2'
+gem 'sass-rails'
 gem 'bootstrap-sass',     '~> 3.3.3'
 
 # Icons
@@ -26,7 +26,6 @@ gem 'font-awesome-rails'
 
 # Assets
 gem 'uglifier',           '>= 1.3.0'
-gem 'therubyracer'
 gem 'quiet_assets'
 
 # JSON

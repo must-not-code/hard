@@ -138,6 +138,9 @@ en:
             password:
               too_short: 'Password has to contain from 6 to 20 symbols.'
               too_long: 'Password has to contain from 6 to 20 symbols.'
+            name:
+              too_short: 'Too short name.'
+              too_long: 'Too long name.'
             skype:
               taken: 'This Skype is already taken.'
               invalid: 'Incorrect Skype format.'
