@@ -28,6 +28,14 @@ Stream.create([{ streamer: 'Kira', views: 123, online: true, channel: 'kirrrrra'
                { streamer: 'DinSHDin', views: 321, online: true, channel: 'dinshdin' },
                { streamer: 'WildHeart', views: 0, online: false, channel: 'wildheartpwn3r' }])
 
+Video.create([{ title: 'PSY - GANGNAM STYLE', youtube_hash: '9bZkp7q19f0' },
+              { title: 'PSY - GANGNAM STYLE', youtube_hash: '9bZkp7q19f0' },
+              { title: 'PSY - GANGNAM STYLE', youtube_hash: '9bZkp7q19f0' },
+              { title: 'PSY - GANGNAM STYLE', youtube_hash: '9bZkp7q19f0' },
+              { title: 'PSY - GANGNAM STYLE', youtube_hash: '9bZkp7q19f0' },
+              { title: 'PSY - GANGNAM STYLE', youtube_hash: '9bZkp7q19f0' }])
+
+
 Team.create([{ game: 'lol', title: 'HR Pro', logo: 'lol_logo.png' },
              { game: 'lol_academy', title: 'HR Academy', logo: 'lol_academy_logo.png' }])
 
