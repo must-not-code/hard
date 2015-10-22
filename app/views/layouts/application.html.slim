@@ -41,7 +41,7 @@ html
                     =< current_user.username
                 li
                   = link_to logout_path do
-                    = fa_icon 'power-off', title: t('views.navbar.logout')
+                    = fa_icon 'sign-out', title: t('views.navbar.logout')
               - else
                 li class=('active' if current_page?(signup_path))
                   = link_to t('views.navbar.signup'), signup_path

@@ -1,5 +1,5 @@
 .col-md-8
-  .well.zoom
+  .well
     h2
       = link_to @post.title, post_path(@post.id)
     hr
@@ -12,7 +12,7 @@
       => fa_icon 'user'
       - username = User.find(@post.user_id).username
       => link_to username, user_path(username)
-      => fa_icon 'pencil'
+      => fa_icon 'comment'
       = @post.comments.count
     hr
     #comments data-post=post_path(@post.id)

@@ -15,7 +15,7 @@
           => fa_icon 'user'
           - username = User.find(post.user_id).username
           => link_to username, user_path(username)
-          => fa_icon 'pencil'
+          => fa_icon 'comment'
           = post.comments.count
         .post-content.preview
           = HTML_Truncator.truncate(post.content, 110).html_safe
