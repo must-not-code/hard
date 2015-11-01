@@ -13,7 +13,7 @@
         p.muted
           => l(post.published_at, format: :news) if post.published_at
           => fa_icon 'user'
-          - username = User.find(post.user_id).username
+          - username = post.author
           => link_to username, user_path(username)
           => fa_icon 'comment'
           = post.comments.count
