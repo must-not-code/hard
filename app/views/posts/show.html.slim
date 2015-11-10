@@ -13,16 +13,17 @@
       - username = @post.author
       => link_to username, user_path(username)
       => fa_icon 'comment'
-      = @post.comments.count
+      = @post.comments_count
     hr
     #comments data-post=post_path(@post.id)
       #comments-list
         - @comments.each do |comment|
           => image_tag comment.user.avatar.mini
-          => link_to comment.author, user_path(comment.author)
+          => link_to comment.user.username, user_path(comment.user.username)
           span.muted
             => l(comment.created_at, format: :news)
-          - if comment.author == current_user.username && \
+          - if logged_in? && \
+          comment.user.username == current_user.username && \
           Time.parse(comment.created_at.to_s) > Time.now - 10*60
             .pull-right
               = button_to comment_path(comment.id, post_id: @post.id),

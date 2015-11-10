@@ -16,7 +16,8 @@
           - username = post.author
           => link_to username, user_path(username)
           => fa_icon 'comment'
-          = post.comments.count
+          = post.comments_count
         .post-content.preview
           = HTML_Truncator.truncate(post.content, 110).html_safe
-    = paginate @posts
+    / Workaround for https://github.com/amatsuda/kaminari/issues/572
+    = paginate Post.where.not(published_at: nil).page(params[:page]).per(10)

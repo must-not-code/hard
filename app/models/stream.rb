@@ -12,5 +12,6 @@ class Stream < ActiveRecord::Base
     else
       self.update(online: false, views: 0)
     end
+  rescue Twitch::Error::ServerError
   end
 end
