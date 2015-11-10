@@ -23,7 +23,12 @@
                   = event.tourney
         li.dropdown-header
           = t('views.sidebar.posts')
-        - Post.where.not(published_at: nil).limit(5).order(published_at: :desc).each do |post|
+        - Post.joins('LEFT JOIN comments on comments.post_id = posts.id')\
+              .select('posts.id, posts.title, count(comments.id) as comments_count')\
+              .group('posts.id')\
+              .where.not(published_at: nil)\
+              .order('published_at desc')\
+              .limit(5).each do |post|
           li
             = link_to post_path(post.id) do
               .row
@@ -31,7 +36,7 @@
                   = post.title
                 .col-xs-2
                   => fa_icon 'comment'
-                  = post.comments.count
+                  = post.comments_count
         li.dropdown-header
           = t('views.sidebar.streams')
         - Stream.order(views: :desc).each do |stream|
