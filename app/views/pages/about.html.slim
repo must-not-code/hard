@@ -1,9 +1,8 @@
-.col-md-8
-  .well
-    h2
-      = link_to t('views.about.about'), about_path
-    hr
-    - if I18n.locale == :ru
-      = @page.content_ru.html_safe
-    - else
-      = @page.content_en.html_safe
+.well
+  h2
+    = link_to t('views.about.about'), about_path
+  hr
+  - if I18n.locale == :ru
+    = @page.content_ru.html_safe
+  - else
+    = @page.content_en.html_safe

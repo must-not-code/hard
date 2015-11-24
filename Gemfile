@@ -11,7 +11,6 @@ gem 'sorcery'
 
 # Views
 gem 'slim-rails'
-gem 'html_truncator'
 
 # JavaScript
 gem 'jquery-rails'

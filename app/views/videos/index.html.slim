@@ -1,14 +1,11 @@
-.col-md-8
-  .well
-    h2
-      = link_to t('views.video.video'), videos_path
-    hr
-    .row
-      - @videos.each do |video|
-        .col-md-6
-          .youtube-banner
-            = link_to video_path(video.youtube_hash) do
-              = image_tag "http://i.ytimg.com/vi/#{video.youtube_hash}/mqdefault.jpg"
-            span
-              = video.title
-    = paginate @videos
+h2
+  = link_to t('views.video.video'), videos_path
+hr
+- @videos.each do |video|
+  .col-md-4
+    .youtube-banner
+      = link_to video_path(video.youtube_hash) do
+        = image_tag "http://i.ytimg.com/vi/#{video.youtube_hash}/mqdefault.jpg"
+      span
+        = video.title
+= paginate @videos

@@ -57,8 +57,6 @@ html
                   = link_to url_for(locale: 'en') do
                     i.famfamfam-flag-gb
       .container
-        .logo.hidden-xs
-          = link_to image_tag('logo.svg', class: 'center-block'), root_path
         .row
           = yield
           /= render 'layouts/sidebar'

@@ -1,44 +1,42 @@
-.col-md-8
-  .well
-    h2
-      = link_to @team.title, team_path
-    hr
-    - @team.members.sort_by(&:position).each do |member|
-      .row.member
-        .col-md-4.pull-left
-          .photo
-            = image_tag member.photo
-            - if member.status
-              span
-                = member.status
-        .col-md-8.pull-left
+h2
+  = link_to @team.title, team_path
+hr
+- @team.members.sort_by(&:position).each do |member|
+  .row.member
+    .col-md-4.pull-left
+      .photo
+        = image_tag member.photo
+        - if member.status
+          span
+            = member.status
+    .col-md-8.pull-left
+      p
+        strong
+          = member.nickname
+      .row
+        .col-md-5.pull-left
           p
-            strong
-              = member.nickname
-          .row
-            .col-md-5.pull-left
-              p
-                = member.name
-              p
-                = member.role
-              p
-                = member.birthday.strftime("%d.%m.%Y") if member.birthday
-              p
-                - if member.country
-                  i class="famfamfam-flag-#{member.country.downcase}"
-                =< member.city
-              .member-social
-                - %w(vk twitch).each do |val|
-                  - if member.send(val)
-                    = link_to member.send(val), target: 'blank', class: 'btn' do
-                      = fa_icon "#{val} lg"
-            .col-md-7.pull-left
-              - %w(mouse keyboard pad).each do |val|
-                p
-                  => t("views.members.#{val}")
-                  - if member.send(val)
-                    strong
-                      - if member.send("#{val}_link")
-                        = link_to member.send(val), member.send("#{val}_link"), target: 'blank'
-                      - else
-                        = member.send(val)
+            = member.name
+          p
+            = member.role
+          p
+            = member.birthday.strftime("%d.%m.%Y") if member.birthday
+          p
+            - if member.country
+              i class="famfamfam-flag-#{member.country.downcase}"
+            =< member.city
+          .member-social
+            - %w(vk twitch).each do |val|
+              - if member.send(val)
+                = link_to member.send(val), target: 'blank', class: 'btn' do
+                  = fa_icon "#{val} lg"
+        .col-md-7.pull-left
+          - %w(mouse keyboard pad).each do |val|
+            p
+              => t("views.members.#{val}")
+              - if member.send(val)
+                strong
+                  - if member.send("#{val}_link")
+                    = link_to member.send(val), member.send("#{val}_link"), target: 'blank'
+                  - else
+                    = member.send(val)

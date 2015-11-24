@@ -136,8 +136,6 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
-    html_truncator (0.4.0)
-      nokogiri (~> 1.5)
     httparty (0.12.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -332,7 +330,6 @@ DEPENDENCIES
   factory_girl_rails
   famfamfam_flags_rails
   font-awesome-rails
-  html_truncator
   jquery-rails
   json
   kaminari
