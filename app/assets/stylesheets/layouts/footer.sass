@@ -1,24 +1,24 @@
+$footer-height: 70px
+
+html, body
+  height: 100%
+
 #wrap
   min-height: 100%
-  padding-bottom: 90px
+  padding-bottom: $footer-height
 
 footer
-  margin-top: -90px
+  min-height: $footer-height
+  margin-top: - $footer-height
   background: $footer-bg
 
   .copyright
     font-size: 16px
-    margin-top: 35px
+    margin-top: 25px
 
   .social
-    margin: 21px 30px 21px 0px
+    margin-top: 20px
+    margin-bottom: 20px
 
-  .col-xs-7
-    margin-right: 25px
-
-    .btn
-      margin: 4px
-      width: 48px
-      color: $well-bg
-      background: $main-color
-      padding: 5px
+    a
+      padding: 10px

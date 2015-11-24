@@ -3,6 +3,7 @@ html
   head
     title Hard Random
     = csrf_meta_tags
+    = stylesheet_link_tag 'application'
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     link href="/favicon.ico" rel="shortcut icon"
     link href="//fonts.googleapis.com/css?family=Exo+2&subset=latin,cyrillic" rel="stylesheet"
@@ -15,7 +16,8 @@ html
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            = link_to image_tag('logo.svg'), root_path, class: 'brand'
+            .small-logo.visible-xs
+              = link_to image_tag('logo.svg'), root_path
           .collapse.navbar-collapse
             ul.nav.navbar-nav
               li class=('active' if controller_name == 'posts')
@@ -55,10 +57,11 @@ html
                   = link_to url_for(locale: 'en') do
                     i.famfamfam-flag-gb
       .container
+        .logo.hidden-xs
+          = link_to image_tag('logo.svg', class: 'center-block'), root_path
         .row
           = yield
-          = render 'layouts/sidebar'
+          /= render 'layouts/sidebar'
     = render 'layouts/footer'
     = link_to image_tag('top.png'), '#', class: 'scrollup'
     = javascript_include_tag 'application'
-    = stylesheet_link_tag    'application'
