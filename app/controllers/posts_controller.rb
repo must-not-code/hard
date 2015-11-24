@@ -23,6 +23,9 @@ class PostsController < ApplicationController
                 .group('posts.id, users.username')
                 .find(params[:id])
 
+    # increment views without touch updated_at
+    @post.update_column(:views, @post.views + 1)
+
     @comments = Comment.where(post_id: @post.id).includes(:user).order('created_at asc')
   end
 end

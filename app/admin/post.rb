@@ -1,10 +1,11 @@
 ActiveAdmin.register Post do
-  permit_params :title, :user, :game, :content, :published_at
+  permit_params :title, :user, :game, :content, :views, :preview, :published_at
 
   index do
     column :id
     column :title
     column :user
+    column :views
     column :published_at
     column :created_at
     column :updated_at
@@ -18,12 +19,16 @@ ActiveAdmin.register Post do
   filter :created_at
   filter :updated_at
 
-  show do
+  show do |f|
     attributes_table do
       row :id
       row :user
       row :title
       row :game
+      row :views
+      row :preview do
+        image_tag(f.preview.url)
+      end
       row (:content) { |x| x.content.html_safe if x.content }
       row :published_at
       row :created_at
@@ -31,11 +36,13 @@ ActiveAdmin.register Post do
     end
   end
 
-  form do |f|
+  form html: { multipart: true } do |f|
     f.inputs do
       f.input :title
+      f.input :preview, as: :file, hint: image_tag(object.preview.url)
       f.input :game
       f.input :content
+      f.input :views
       f.input :published_at
     end
 

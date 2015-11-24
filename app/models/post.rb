@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  mount_uploader :preview, PreviewUploader
+
   validates :content,
             length: { minimum: 140,
                       maximum: 50_000 }
