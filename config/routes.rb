@@ -1,6 +1,6 @@
 Hard::Application.routes.draw do
   scope "(:locale)", locale: /en|ru/ do
-    root 'posts#index'
+    root 'home#index'
 
     controller :sessions do
       get  'login'              => :new,             as: 'login'

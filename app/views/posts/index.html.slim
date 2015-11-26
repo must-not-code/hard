@@ -1,11 +1,7 @@
-.logo.hidden-xs
-  = link_to image_tag('logo.svg', class: 'center-block'), root_path
-= render 'carousel'
-#notice
-  - unless flash[:notice].blank?
-    .alert.alert-info
-      = flash[:notice]
-#posts
+h2
+  = link_to t('views.news.news'), streams_path
+hr
+.row
   - @posts.each do |post|
     .col-md-4.col-sm-6.col-xs-12
       .thumbnail
@@ -18,5 +14,5 @@
           => link_to post.author, user_path(post.author)
           => fa_icon 'comment'
           = post.comments_count
-  / Workaround for https://github.com/amatsuda/kaminari/issues/572
-= paginate Post.where.not(published_at: nil).page(params[:page]).per(10)
+/ Workaround for https://github.com/amatsuda/kaminari/issues/572
+= paginate Post.where.not(published_at: nil).page(params[:page]).per(12)

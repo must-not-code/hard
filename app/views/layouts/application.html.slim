@@ -21,7 +21,7 @@ html
           .collapse.navbar-collapse
             ul.nav.navbar-nav
               li class=('active' if controller_name == 'posts')
-                = link_to t('views.navbar.news'), root_path
+                = link_to t('views.navbar.news'), posts_path
               li class=('active' if controller_name == 'streams')
                 = link_to t('views.navbar.streams'), streams_path
               li class=('active' if controller_name == 'videos')
@@ -57,9 +57,8 @@ html
                   = link_to url_for(locale: 'en') do
                     i.famfamfam-flag-gb
       .container
-        .row
-          = yield
-          /= render 'layouts/sidebar'
+        = yield
+        /= render 'layouts/sidebar'
     = render 'layouts/footer'
     = link_to image_tag('top.png'), '#', class: 'scrollup'
     = javascript_include_tag 'application'

@@ -1,0 +1,67 @@
+#notice
+  - unless flash[:notice].blank?
+    .alert.alert-info
+      = flash[:notice]
+.logo.hidden-xs
+  = link_to image_tag('logo.svg', class: 'center-block'), root_path
+
+.spotlight
+  .row
+    .col-md-8
+      = image_tag 'http://placehold.it/780x400'
+    .col-md-4
+      ul.nav.nav-list
+        - @events.each do |event|
+          li
+            = link_to event.link, target: 'blank' do
+              .row
+                .col-xs-4
+                  = event.start_at.strftime("%d.%m &ensp; %H:%M").html_safe
+                - if event.hr_score && event.enemy_score
+                  .col-xs-1 class=(event.hr_score > event.enemy_score ? 'green' : 'red' )
+                    = event.hr_score.to_s + ':' + event.enemy_score.to_s
+                - else
+                  .col-xs-1
+                    | VS
+                .col-xs-5
+                  i class="famfamfam-flag-#{event.country.downcase}"
+                  =< event.enemy
+                .col-xs-2
+                  = event.tourney
+    .col-md-4
+      = render 'carousel'
+
+.row
+  - @posts.each do |post|
+    .col-md-4.col-sm-6.col-xs-12
+      .thumbnail
+        = link_to post_path(post.id)
+          = image_tag(post.preview)
+          h3
+            = post.title
+          => l(post.published_at, format: :news) if post.published_at
+          => fa_icon 'user'
+          => link_to post.author, user_path(post.author)
+          => fa_icon 'comment'
+          = post.comments_count
+h1 Стримы
+.row
+  - @streams.each do |stream|
+    .col-md-4.col-sm-6.col-xs-12
+      .thumbnail
+        = link_to stream_path(stream.channel) do
+          - banner = stream.banner_url || 'stream_banner.png'
+          = image_tag(banner)
+          = stream.streamer
+          .pull-right
+            - if stream.online
+              => fa_icon 'eye', class: 'green'
+              = stream.views
+h1 Видео
+.row
+  - @videos.each do |video|
+    .col-md-4.col-sm-6.col-xs-12
+      .thumbnail
+        = link_to video_path(video.youtube_hash) do
+          = image_tag "http://i.ytimg.com/vi/#{video.youtube_hash}/mqdefault.jpg"
+          = video.title

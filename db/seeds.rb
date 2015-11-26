@@ -20,7 +20,7 @@ Event.create([{ start_at: Time.zone.now - 4 * 24 * 60 * 60, country: 'RU', enemy
               { start_at: Time.zone.now - 1 * 24 * 60 * 60, country: 'US', enemy: 'NAVI', tourney: 'SLTV', hr_score: 0, enemy_score: 3 },
               { start_at: Time.zone.now,                    country: 'UA', enemy: 'M5', tourney: 'SLTV' },
               { start_at: Time.zone.now + 1 * 24 * 60 * 60, country: 'TR', enemy: 'Big Plays Inc.', tourney: 'IIT' },
-              { start_at: Time.zone.now + 2 * 24 * 60 * 60, country: 'TR', enemy: 'Team Turquality', tourney: 'IIT', link: 'http://twitch.tv' },
+              { start_at: Time.zone.now + 2 * 24 * 60 * 60, country: 'TR', enemy: 'Turquality', tourney: 'IIT', link: 'http://twitch.tv' },
               { start_at: Time.zone.now + 3 * 24 * 60 * 60, country: 'RU', enemy: 'Virtus.pro', tourney: 'SLTV', link: 'http://twitch.tv' }])
 
 Stream.create([{ streamer: 'Kira', views: 123, online: true, channel: 'kirrrrra' },
@@ -42,8 +42,8 @@ Team.create([{ game: 'lol', title: 'HR Pro', logo: 'lol_logo.png' },
 Member.create([{ name: 'John Doe', nickname: 'Dno', role: 'Support', team_id: 1, vk: 'https://vk.com/hardrandom', twitch: 'https://vk.com/hardrandom', birthday: Time.zone.today, position: 2, status: 'captain', country: 'ru', city: 'Бобруйск', mouse: 'Coguar 200M', mouse_link: 'https://vk.com/hardrandom', keyboard: 'Coguar 500K', headset: 'Couguar 300H', pad: 'Couguar SPEED', pad_link: 'https://vk.com/hardrandom' },
                { name: 'John Doe', nickname: 'Smurf', role: 'Top Laner', team_id: 1, vk: 'https://vk.com/hardrandom', twitch: 'https://vk.com/hardrandom', birthday: Time.zone.today, position: 1, country: 'ua', city: 'Бобруйск' }])
 
-12.times { Post.create(title: 'Lorem ipsum', user_id: 1, game: 'lol', content: "<p><img style='float: left;' src='http://hardrandom.com/posts/14/d7de72552.png' height='150' width='150'/>#{LOREM}</p>", published_at: Time.zone.now - 60) }
+36.times { Post.create(title: 'Lorem ipsum', user_id: 1, game: 'lol', content: "<p><img style='float: left;' src='http://hardrandom.com/posts/14/d7de72552.png' height='150' width='150'/>#{LOREM}</p>", published_at: Time.zone.now - 60) }
 
 Partner.create(title: 'Durex', content_ru: LOREM, content_en: LOREM, vk: 'https://vk.com/hardrandom', fb: 'https://facebook.com/hardrandom', instagram: 'https://instagram.com/hardrandom', site: 'http://hardrandom.com/')
 
-Page.create(title: 'about', content_ru: 'русc', content_en: 'engl')
+Page.create(title: 'about', content_ru: LOREM, content_en: LOREM)

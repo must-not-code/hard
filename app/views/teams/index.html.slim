@@ -1,6 +1,7 @@
 h2
   = link_to t('views.teams.hr'), teams_path
 hr
-- @teams.each do |team|
-  .col-md-4
-    = link_to image_tag(team.logo, class: 'game-logo'), team_path(team.game)
+.row
+  - @teams.each do |team|
+    .col-md-4
+      = link_to image_tag(team.logo, class: 'game-logo'), team_path(team.game)

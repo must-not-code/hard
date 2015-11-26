@@ -65,6 +65,7 @@ en:
       submit: 'Submit'
       submiting: 'Submiting...'
     news:
+      news: 'News'
       delete: 'Delete'
       confirm: 'Are you sure that you want to remove this comment?'
       post: 'Post'

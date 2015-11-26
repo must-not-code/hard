@@ -1,16 +1,17 @@
 h2
   = link_to t('views.streams.streams'), streams_path
 hr
-- @streams.each do |stream|
-  .col-md-4.col-sm-6.col-xs-12
-    .thumbnail
-      = link_to stream_path(stream.channel) do
-        - banner = stream.banner_url || 'stream_banner.png'
-        = image_tag(banner)
-        = stream.streamer
-        .pull-right
-          - if stream.online
-            => fa_icon 'eye', class: 'green'
-            = stream.views
-          - else
-            = fa_icon 'eye-slash', class: 'red'
+.row
+  - @streams.each do |stream|
+    .col-md-4.col-sm-6.col-xs-12
+      .thumbnail
+        = link_to stream_path(stream.channel) do
+          - banner = stream.banner_url || 'stream_banner.png'
+          = image_tag(banner)
+          = stream.streamer
+          .pull-right
+            - if stream.online
+              => fa_icon 'eye', class: 'green'
+              = stream.views
+            - else
+              = fa_icon 'eye-slash', class: 'red'
