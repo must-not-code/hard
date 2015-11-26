@@ -1,12 +1,13 @@
 footer
   .container
     .row
-      .copyright.col-md-4
-        => "&copy;&nbsp;2013&ndash;#{Date.current.year}".html_safe
-        strong
-          = "Hard&nbsp;Random".html_safe
-      .social.col-md-4.col-md-offset-4
-        .pull-right
+      .col-sm-4
+        .copyright
+          => "&copy;&nbsp;2013&ndash;#{Date.current.year}".html_safe
+          strong
+            = "Hard&nbsp;Random".html_safe
+      .col-sm-4.col-sm-offset-4
+        .social
           = link_to 'mailto:feedback@hardrandom.com' do
             = fa_icon 'envelope 2x'
           = link_to 'http://vk.com/hardrandom', target: 'blank' do

@@ -37,7 +37,7 @@ html
                   = link_to t('views.navbar.admin'), admin_root_path
             ul.nav.navbar-nav.navbar-right
               - if logged_in?
-                li
+                li class=('active' if controller_name == 'users')
                   = link_to user_path(current_user.username)
                     = image_tag current_user.avatar.mini
                     =< current_user.username
