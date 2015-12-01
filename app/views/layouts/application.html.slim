@@ -6,7 +6,7 @@ html
     = stylesheet_link_tag 'application'
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     link href="/favicon.ico" rel="shortcut icon"
-    link href="//fonts.googleapis.com/css?family=Exo+2&subset=latin,cyrillic" rel="stylesheet"
+    link href='//fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet'
   body
     #wrap
       .navbar.navbar-default
@@ -17,7 +17,7 @@ html
               span.icon-bar
               span.icon-bar
             .small-logo.visible-xs
-              = link_to image_tag('logo.svg'), root_path
+              = link_to image_tag('white_logo.png'), root_path
           .collapse.navbar-collapse
             ul.nav.navbar-nav
               li class=('active' if controller_name == 'posts')
@@ -56,6 +56,8 @@ html
                 .pull-left
                   = link_to url_for(locale: 'en') do
                     i.famfamfam-flag-gb
+      .logo.hidden-xs
+        = link_to image_tag('dark_logo.png', class: 'center-block'), root_path
       .container
         = yield
         /= render 'layouts/sidebar'
