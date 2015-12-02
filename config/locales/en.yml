@@ -118,7 +118,7 @@ en:
       sign: 'Cheers, HardRandom.com Team.'
   time:
     formats:
-      news: "%d %B %Y, %H:%M"
+      news: "%d.%m.%Y, %H:%M"
   activerecord:
     errors:
       messages:

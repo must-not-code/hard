@@ -1,5 +1,5 @@
 h2
-  = link_to @video.title, video_path(@video.youtube_hash)
+  = @video.title
 hr
 .embed-responsive.embed-responsive-16by9
   iframe.embed-responsive-item allowfullscreen='' frameborder='0' src="//www.youtube.com/embed/#{@video.youtube_hash}"

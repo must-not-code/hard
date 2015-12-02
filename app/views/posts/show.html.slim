@@ -1,6 +1,6 @@
 .well
   h2
-    = link_to @post.title, post_path(@post.id)
+    = @post.title
   hr
   p.muted
     = l(@post.published_at, format: :news) if @post.published_at
@@ -11,6 +11,8 @@
     => fa_icon 'user'
     - username = @post.author
     => link_to username, user_path(username)
+    => fa_icon 'eye'
+    => @post.views
     => fa_icon 'comment'
     = @post.comments_count
   hr

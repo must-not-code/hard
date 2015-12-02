@@ -1,6 +1,6 @@
 .well
   h2
-    = link_to @stream.streamer, stream_path(@stream.channel)
+    = @stream.streamer
   hr
   .embed-responsive.embed-responsive-16by9
     iframe.embed-responsive-item src="http://www.twitch.tv/#{@stream.channel}/embed" frameborder='0'

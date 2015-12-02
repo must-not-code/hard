@@ -4,11 +4,11 @@ html
     title Hard Random
     = csrf_meta_tags
     = stylesheet_link_tag 'application'
-    meta content="width=device-width, initial-scale=1.0" name="viewport"
-    link href="/favicon.ico" rel="shortcut icon"
+    meta content='width=device-width, initial-scale=1.0' name='viewport'
+    link href='/favicon.ico' rel='shortcut icon'
     link href='//fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet'
   body
-    #wrap
+    .wrap
       .navbar.navbar-default
         .container
           .navbar-header
@@ -17,7 +17,7 @@ html
               span.icon-bar
               span.icon-bar
             .small-logo.visible-xs
-              = link_to image_tag('white_logo.png'), root_path
+              = link_to image_tag('logo.svg'), root_path
           .collapse.navbar-collapse
             ul.nav.navbar-nav
               li class=('active' if controller_name == 'posts')

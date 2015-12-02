@@ -1,11 +1,6 @@
 h2
-  = link_to t('views.video.video'), videos_path
+  = t('views.video.video')
 hr
 .row
-  - @videos.each do |video|
-    .col-md-4.col-sm-6.col-xs-12
-      .thumbnail
-        = link_to video_path(video.youtube_hash) do
-          = image_tag "http://i.ytimg.com/vi/#{video.youtube_hash}/mqdefault.jpg"
-          = video.title
+  = render partial: 'video', collection: @videos
 = paginate @videos

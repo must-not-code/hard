@@ -1,7 +1,7 @@
 .col-md-8
   .well
     h2
-      = link_to @user.username, user_path(@user.username)
+      = @user.username
     hr
     #notice
       - unless flash[:notice].blank?

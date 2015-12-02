@@ -1,0 +1,15 @@
+.col-md-4.col-sm-6.col-xs-12
+  .thumbnail
+    = link_to post_path(post.id) do
+      = image_tag(post.preview)
+    .content
+      h4
+        = post.title
+      => l(post.published_at, format: :news) if post.published_at
+      .pull-right
+        => fa_icon 'user'
+        => link_to post.author, user_path(post.author)
+        => fa_icon 'eye'
+        => post.views
+        => fa_icon 'comment'
+        = post.comments_count

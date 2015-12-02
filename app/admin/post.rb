@@ -49,17 +49,6 @@ ActiveAdmin.register Post do
     f.actions
   end
 
-  member_action :publish, method: :get do
-    resource.update(published_at: Time.zone.now)
-    redirect_to resource_path, notice: 'Published!'
-  end
-
-  action_item(:publish, only: :edit) do
-    unless resource.published_at
-      link_to 'Publish', 'publish'
-    end
-  end
-
   controller do
     before_create do
       resource.user_id = current_user.id

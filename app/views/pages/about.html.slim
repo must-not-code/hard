@@ -1,6 +1,6 @@
 .well
   h2
-    = link_to t('views.about.about'), about_path
+    = t('views.about.about')
   hr
   - if I18n.locale == :ru
     = @page.content_ru.html_safe
