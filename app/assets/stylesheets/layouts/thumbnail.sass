@@ -1,0 +1,23 @@
+.thumbnail
+  padding: 0px
+  border: none
+  background-color: #FFF
+
+  img
+    width: 100%
+
+  .content
+    padding: 10px
+
+.thumbnail:hover
+  -ms-transform: scale(1.02,1.02)
+  -webkit-transform: scale(1.02,1.02)
+  transform: scale(1.02,1.02)
+
+@media (min-width: 768px) and (max-width: 991px)
+  .row > .equal:nth-child(2n+1)
+    clear: left
+
+@media (min-width: 992px)
+  .row > .equal:nth-child(3n+1)
+    clear: left
