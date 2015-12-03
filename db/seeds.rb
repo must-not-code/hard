@@ -24,6 +24,9 @@ Event.create([{ start_at: Time.zone.now - 4 * 24 * 60 * 60, country: 'RU', enemy
               { start_at: Time.zone.now + 3 * 24 * 60 * 60, country: 'RU', enemy: 'Virtus.pro', tourney: 'SLTV', link: 'http://twitch.tv' }])
 
 Stream.create([{ streamer: 'Kira', views: 123, online: true, channel: 'kirrrrra' },
+               { streamer: 'TeamleSS', views: 555, online: true, channel: 'teamless2' },
+               { streamer: 'Likkrit', views: 0, online: false, channel: 'likkrit' },
+               { streamer: 'PvPStejos', views: 69, online: true, channel: 'chesland' },
                { streamer: 'Dimonko', views: 0, online: false, channel: 'd1monko' },
                { streamer: 'DinSHDin', views: 321, online: true, channel: 'dinshdin' },
                { streamer: 'WildHeart', views: 0, online: false, channel: 'wildheartpwn3r' }])

@@ -1,0 +1,14 @@
+- streams = @streams.each_slice(3).to_a
+#streams-carousel.carousel.slide data-ride='carousel'
+  ol.carousel-indicators
+    - streams.each_with_index do |triple_streams, index|
+      li class=('active' if index == 0) data-slide-to='#{index}' data-target='#streams-carousel'
+  .carousel-inner
+    - streams.each_with_index do |triple_streams, index|
+      .item class=('active' if index == 0)
+        .row
+          = render partial: 'streams/stream', collection: triple_streams
+  a.left.carousel-control data-slide='prev' href='#streams-carousel'
+    = fa_icon 'chevron-left', class: 'chevron'
+  a.right.carousel-control data-slide='next' href='#streams-carousel'
+    = fa_icon 'chevron-right', class: 'chevron'
