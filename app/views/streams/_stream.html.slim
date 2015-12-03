@@ -1,8 +1,7 @@
 .col-md-4.col-sm-6.col-xs-12
   .thumbnail
     = link_to stream_path(stream.channel) do
-      - banner = stream.banner_url || 'stream_banner.png'
-      = image_tag(banner)
+      = image_tag(stream.banner)
     .content
       = stream.streamer
       .pull-right

@@ -1,4 +1,6 @@
 class Stream < ActiveRecord::Base
+  mount_uploader :banner, StreamBannerUploader
+
   validates :streamer,
             length: { in: 2..255 }
 
@@ -8,7 +10,7 @@ class Stream < ActiveRecord::Base
   def get_state
     stream = Twitch.streams.get(self.channel)
     if stream
-      self.update(online: true, views: stream.viewer_count, banner_url: stream.channel.video_banner_url)
+      self.update(online: true, views: stream.viewer_count)
     else
       self.update(online: false, views: 0)
     end

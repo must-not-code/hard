@@ -60,7 +60,6 @@ html
         = link_to image_tag('dark_logo.png', class: 'center-block'), root_path
       .container
         = yield
-        /= render 'layouts/sidebar'
     = render 'layouts/footer'
     = link_to image_tag('top.png'), '#', class: 'scrollup'
     = javascript_include_tag 'application'

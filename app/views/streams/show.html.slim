@@ -1,8 +1,7 @@
-.well
-  h2
-    = @stream.streamer
-  hr
-  .embed-responsive.embed-responsive-16by9
-    iframe.embed-responsive-item src="http://www.twitch.tv/#{@stream.channel}/embed" frameborder='0'
-  .embed-responsive.embed-responsive-16by9
-    iframe.embed-responsive-item src="http://www.twitch.tv/#{@stream.channel}/chat?popout=" frameborder='0' scrolling='yes'
+h2
+  = @stream.streamer
+hr
+.embed-responsive.embed-responsive-16by9
+  iframe.embed-responsive-item src="http://www.twitch.tv/#{@stream.channel}/embed" frameborder='0'
+.embed-responsive.embed-responsive-16by9
+  iframe.embed-responsive-item src="http://www.twitch.tv/#{@stream.channel}/chat?popout=" frameborder='0' scrolling='yes'
