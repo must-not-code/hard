@@ -49,14 +49,12 @@ html
                   = link_to t('views.navbar.signup'), signup_path
                 li class=('active' if current_page?(login_path))
                   = link_to t('views.navbar.login'), login_path
-              li.lang
-                .pull-left
-                  = link_to url_for(locale: 'ru') do
-                    i.famfamfam-flag-ru
-                .pull-left
-                  = link_to url_for(locale: 'en') do
-                    i.famfamfam-flag-gb
-      .logo.hidden-xs
+              li
+                = link_to url_for(locale: 'ru'), class: 'lang-ru' do
+                  i.famfamfam-flag-ru
+                = link_to url_for(locale: 'en'), class: 'lang-en' do
+                  i.famfamfam-flag-gb
+      .hidden-xs
         = link_to image_tag('dark_logo.png', class: 'center-block'), root_path
       .container
         = yield
