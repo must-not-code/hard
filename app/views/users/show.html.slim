@@ -1,31 +1,30 @@
-.col-md-8
-  .well
-    h2
-      = @user.username
-    hr
-    #notice
-      - unless flash[:notice].blank?
-        .alert.alert-info
-          = flash[:notice].html_safe
-    .row
-      .col-md-3
-        = render 'user_menu'
-      .col-md-9
-        table.table.table-bordered.table-hover
-          - %w(name country city nick_ru nick_euw skype vk fb site twitch twitter email created_at about).each do |val|
-            - if @user.send(val)
-              - next if val == 'email' && @user != current_user
-              tr
-                td
-                  = t("views.user.#{val}")
-                td
-                  - if val == 'country'
-                    i class="famfamfam-flag-#{@user.country.downcase}"
-                  - elsif %w(vk fb site twitch twitter).include?(val)
-                    = link_to @user.send(val), @user.send(val), target: 'blank'
-                  - elsif val == 'skype'
-                    = link_to @user.send(val), "skype:#{@user.send(val)}?chat"
-                  - elsif val == 'created_at'
-                    = @user.created_at.strftime("%d.%m.%Y")
-                  - else
-                    = @user.send(val)
+h3
+  = @user.username
+hr
+.well
+  #notice
+    - unless flash[:notice].blank?
+      .alert.alert-info
+        = flash[:notice].html_safe
+  .row
+    .col-md-3
+      = render 'user_menu'
+    .col-md-9
+      table.table.table-bordered.table-hover
+        - %w(name country city nick_ru nick_euw skype vk fb site twitch twitter email created_at about).each do |val|
+          - if @user.send(val)
+            - next if val == 'email' && @user != current_user
+            tr
+              td
+                = t("views.user.#{val}")
+              td
+                - if val == 'country'
+                  i class="famfamfam-flag-#{@user.country.downcase}"
+                - elsif %w(vk fb site twitch twitter).include?(val)
+                  = link_to @user.send(val), @user.send(val), target: 'blank'
+                - elsif val == 'skype'
+                  = link_to @user.send(val), "skype:#{@user.send(val)}?chat"
+                - elsif val == 'created_at'
+                  = @user.created_at.strftime("%d.%m.%Y")
+                - else
+                  = @user.send(val)

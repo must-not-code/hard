@@ -30,18 +30,18 @@
                   .col-xs-2
                     = event.tourney
   .news
-    h2
+    h3
       = t('views.news.news')
     hr
     .row
       = render partial: 'posts/post', collection: @posts
   .streams
     .container
-      h2
+      h3
         = t('views.streams.streams')
       = render 'streams_carousel'
   .videos
-    h2
+    h3
       = t('views.video.video')
     hr
     .row
