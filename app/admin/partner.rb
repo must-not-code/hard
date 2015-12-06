@@ -1,5 +1,6 @@
 ActiveAdmin.register Partner do
-  permit_params :title, :content_ru, :content_en, :logo, :site, :site_icon, :vk, :fb, :instagram
+  permit_params :title, :content_ru, :content_en, :logo,
+                :site, :site_icon, :vk, :fb, :instagram
 
   index do
     column :id

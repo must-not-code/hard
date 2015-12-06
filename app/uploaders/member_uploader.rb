@@ -11,12 +11,12 @@ class MemberUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "members/#{model.id}/avatar"
+    'uploads/members'
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    'http://placehold.it/200x200'
+    'http://placehold.it/360x420'
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
@@ -24,7 +24,7 @@ class MemberUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [200, 200]
+  process resize_to_fill: [360, 420]
   #
   # def scale(width, height)
   #   # do something
@@ -44,11 +44,6 @@ class MemberUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "member-#{secure_token}.#{file.extension}" if original_filename
-  end
-
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(8))
+    "#{Digest::SHA1.hexdigest(Time.zone.now.to_i.to_s)[8..16]}.#{file.extension}" if original_filename
   end
 end

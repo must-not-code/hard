@@ -1,5 +1,6 @@
 ActiveAdmin.register Event do
-  permit_params :start_at, :hr_score, :enemy_score, :country, :enemy, :tourney, :link
+  permit_params :start_at, :hr_score, :enemy_score,
+                :country, :enemy, :tourney, :link
 
   index do
     column :start_at

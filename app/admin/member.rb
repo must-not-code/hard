@@ -1,5 +1,8 @@
 ActiveAdmin.register Member do
-  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo, :vk, :twitch, :status, :position, :team_id, :mouse, :mouse_link, :keyboard, :keyboard_link, :headset, :headset_link, :pad, :pad_link
+  permit_params :name, :nickname, :role, :birthday, :country, :city, :photo,
+                :vk, :twitch, :status, :position, :team_id, :mouse, :mouse_link,
+                :keyboard, :keyboard_link, :headset, :headset_link, :pad,
+                :pad_link, :about
 
   index do
     column :id
@@ -21,7 +24,9 @@ ActiveAdmin.register Member do
 
   show do |f|
     attributes_table do
-      row :team
+      # No route matches {:action=>"show", :controller=>"admin/teams",
+      # :id=>nil, :locale=>"1"} missing required keys: [:id]
+      #row :team
       row :name
       row :nickname
       row :role
@@ -35,6 +40,7 @@ ActiveAdmin.register Member do
       row :twitch
       row :status
       row :position
+      row (:about) { |x| x.about.html_safe if x.about }
       row :mouse
       row :mouse_link
       row :keyboard
@@ -60,6 +66,7 @@ ActiveAdmin.register Member do
       f.input :twitch
       f.input :status
       f.input :position
+      f.input :about
       f.input :mouse
       f.input :mouse_link
       f.input :keyboard
