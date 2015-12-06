@@ -1,7 +1,7 @@
+h2
+  = @post.title
+hr
 .well
-  h2
-    = @post.title
-  hr
   p.muted
     = l(@post.published_at, format: :news) if @post.published_at
   .post-content

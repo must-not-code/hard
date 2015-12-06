@@ -1,7 +1,7 @@
+h2
+  = t('views.partners.partners')
+hr
 .well
-  h2
-    = t('views.partners.partners')
-  hr
   - @partners.each do |partner|
     .partners-logo
       = image_tag partner.logo

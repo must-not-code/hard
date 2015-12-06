@@ -2,43 +2,47 @@
   - unless flash[:notice].blank?
     .alert.alert-info
       = flash[:notice]
-.spotlight
-  .row
-    .col-md-8
-      = image_tag 'http://placehold.it/780x400'
-    .col-md-4
-      ul.nav.nav-list
-        - @events.each do |event|
-          li
-            = link_to event.link, target: 'blank' do
-              .row
-                .col-xs-4
-                  = event.start_at.strftime("%d.%m &ensp; %H:%M").html_safe
-                - if event.hr_score && event.enemy_score
-                  .col-xs-1 class=(event.hr_score > event.enemy_score ? 'green' : 'red' )
-                    = event.hr_score.to_s + ':' + event.enemy_score.to_s
-                - else
-                  .col-xs-1
-                    | VS
-                .col-xs-5
-                  i class="famfamfam-flag-#{event.country.downcase}"
-                  =< event.enemy
-                .col-xs-2
-                  = event.tourney
-    .col-md-4
-      = render 'spotlight_carousel'
-h2
-  = t('views.news.news')
-hr
-.row
-  = render partial: 'posts/post', collection: @posts
-.streams
-  .container
+.homepage
+  .spotlight
+    .row
+      .col-md-12
+        .tmp
+          = image_tag 'http://placehold.it/1080x300'
+      .col-md-8
+        = render 'spotlight_carousel'
+      .col-md-4
+        ul.nav.nav-list
+          - @events.each do |event|
+            li
+              = link_to event.link, target: 'blank' do
+                .row
+                  .col-xs-4
+                    = event.start_at.strftime("%d.%m &ensp; %H:%M").html_safe
+                  - if event.hr_score && event.enemy_score
+                    .col-xs-1 class=(event.hr_score > event.enemy_score ? 'green' : 'red' )
+                      = event.hr_score.to_s + ':' + event.enemy_score.to_s
+                  - else
+                    .col-xs-1
+                      | VS
+                  .col-xs-5
+                    i class="famfamfam-flag-#{event.country.downcase}"
+                    =< event.enemy
+                  .col-xs-2
+                    = event.tourney
+  .news
     h2
-      = t('views.streams.streams')
-    = render 'streams_carousel'
-h2
-  = t('views.video.video')
-hr
-.row
-  = render partial: 'videos/video', collection: @videos
+      = t('views.news.news')
+    hr
+    .row
+      = render partial: 'posts/post', collection: @posts
+  .streams
+    .container
+      h2
+        = t('views.streams.streams')
+      = render 'streams_carousel'
+  .videos
+    h2
+      = t('views.video.video')
+    hr
+    .row
+      = render partial: 'videos/video', collection: @videos

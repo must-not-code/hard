@@ -1,7 +1,7 @@
+h2
+  = t('views.about.about')
+hr
 .well
-  h2
-    = t('views.about.about')
-  hr
   - if I18n.locale == :ru
     = @page.content_ru.html_safe
   - else

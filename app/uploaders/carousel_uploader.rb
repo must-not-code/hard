@@ -11,12 +11,12 @@ class CarouselUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "carousels/#{model.id}"
+    'uploads/carousels'
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    'http://placehold.it/360x200'
+    'http://placehold.it/720x200'
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
@@ -45,11 +45,6 @@ class CarouselUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "carousel-#{secure_token}.#{file.extension}" if original_filename
-  end
-
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(8))
+    "#{Digest::SHA1.hexdigest(Time.zone.now.to_i.to_s)[8..16]}.#{file.extension}" if original_filename
   end
 end
