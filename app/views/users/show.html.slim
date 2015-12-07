@@ -1,17 +1,42 @@
 h3
   = @user.username
 hr
-.well
-  #notice
-    - unless flash[:notice].blank?
-      .alert.alert-info
-        = flash[:notice].html_safe
-  .row
-    .col-md-3
+#notice
+  - unless flash[:notice].blank?
+    .alert.alert-info
+      = flash[:notice].html_safe
+.row
+  .col-md-4.col-sm-6
+    .well.test
       = render 'user_menu'
-    .col-md-9
-      table.table.table-bordered.table-hover
-        - %w(name country city nick_ru nick_euw skype vk fb site twitch twitter email created_at about).each do |val|
+  .col-md-4.col-sm-6
+    .well
+      = image_tag 'http://lorempixel.com/g/300/300/cats/'
+    /.well
+      h4
+        i.famfamfam-flag-ru
+        =< 'Вася пупкин'
+      p
+        => fa_icon 'map-marker lg'
+        =< 'Зажопинск'
+      p
+        = fa_icon 'link lg'
+        =< 'https://vk.com/hardrandom'
+      p
+        = fa_icon 'vk lg '
+        =< 'https://vk.com/hardrandom'
+      p
+        = fa_icon 'skype lg'
+        =< 'https://vk.com/hardrandom'
+      p
+        = fa_icon 'linux lg'
+        =< 'https://vk.com/hardrandom'
+
+
+
+
+      /table.table.table-bordered.table-hover
+        - %w(name country city nick_ru nick_euw skype vk fb site twitch twitter email).each do |val|
           - if @user.send(val)
             - next if val == 'email' && @user != current_user
             tr
@@ -24,7 +49,33 @@ hr
                   = link_to @user.send(val), @user.send(val), target: 'blank'
                 - elsif val == 'skype'
                   = link_to @user.send(val), "skype:#{@user.send(val)}?chat"
-                - elsif val == 'created_at'
-                  = @user.created_at.strftime("%d.%m.%Y")
                 - else
                   = @user.send(val)
+  .col-md-4.col-sm-6
+    .well
+      ul.nav.navbar-nav.jopa
+        li
+          = '3'
+          br
+          = 'Комментарии'
+        li
+          = '0'
+          br
+          = 'Посты'
+        li
+          = '69'
+          br
+          = 'Лайки'
+      p
+        = 'Зарегистрирован:'
+      p
+        = @user.created_at.strftime("%d.%m.%Y")
+      p
+        = 'Последняя активность:'
+      p
+        = @user.created_at.strftime("%d.%m.%Y")
+  .col-md-12.col-sm-6
+    .well
+      h3 Biography
+      = @user.about
+      = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur aliquam ante, et consequat felis aliquet in. Sed aliquet, libero vel ultricies suscipit, mi nibh efficitur est, a pretium ligula metus eu risus. Phasellus molestie tellus id posuere aliquam. Nam ullamcorper ex et ipsum porttitor gravida. Donec lacinia mi id ornare blandit. Sed vitae sem odio. Proin nisi urna, dictum at urna in, semper congue ex. Nam in tellus in mauris efficitur dignissim. Suspendisse luctus sapien fermentum, efficitur erat ut, luctus elit. Duis gravida tellus est, et porttitor ante euismod vitae. Praesent id feugiat elit. Suspendisse eros elit, iaculis malesuada facilisis sed, sagittis sed neque. Praesent eu dolor laoreet mauris finibus gravida. Aliquam vulputate metus tortor.'
