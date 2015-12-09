@@ -7,73 +7,11 @@ hr
       = flash[:notice].html_safe
 .row
   .col-md-4.col-sm-6
-    .well.test
-      = render 'user_menu'
+    = render 'user_menu'
   .col-md-4.col-sm-6
-    .well
-      = image_tag 'http://lorempixel.com/g/300/300/cats/'
-    /.well
-      h4
-        i.famfamfam-flag-ru
-        =< 'Вася пупкин'
-      p
-        => fa_icon 'map-marker lg'
-        =< 'Зажопинск'
-      p
-        = fa_icon 'link lg'
-        =< 'https://vk.com/hardrandom'
-      p
-        = fa_icon 'vk lg '
-        =< 'https://vk.com/hardrandom'
-      p
-        = fa_icon 'skype lg'
-        =< 'https://vk.com/hardrandom'
-      p
-        = fa_icon 'linux lg'
-        =< 'https://vk.com/hardrandom'
-
-
-
-
-      /table.table.table-bordered.table-hover
-        - %w(name country city nick_ru nick_euw skype vk fb site twitch twitter email).each do |val|
-          - if @user.send(val)
-            - next if val == 'email' && @user != current_user
-            tr
-              td
-                = t("views.user.#{val}")
-              td
-                - if val == 'country'
-                  i class="famfamfam-flag-#{@user.country.downcase}"
-                - elsif %w(vk fb site twitch twitter).include?(val)
-                  = link_to @user.send(val), @user.send(val), target: 'blank'
-                - elsif val == 'skype'
-                  = link_to @user.send(val), "skype:#{@user.send(val)}?chat"
-                - else
-                  = @user.send(val)
+    = render 'user_info'
   .col-md-4.col-sm-6
-    .well
-      ul.nav.navbar-nav.jopa
-        li
-          = '3'
-          br
-          = 'Комментарии'
-        li
-          = '0'
-          br
-          = 'Посты'
-        li
-          = '69'
-          br
-          = 'Лайки'
-      p
-        = 'Зарегистрирован:'
-      p
-        = @user.created_at.strftime("%d.%m.%Y")
-      p
-        = 'Последняя активность:'
-      p
-        = @user.created_at.strftime("%d.%m.%Y")
+    = render 'user_stats'
   .col-md-12.col-sm-6
     .well
       h3 Biography

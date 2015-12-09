@@ -1,0 +1,22 @@
+.well.user-stats
+  ul.nav.navbar-nav
+    li
+      = '3'
+      br
+      = 'Комментарии'
+    li
+      = '0'
+      br
+      = 'Посты'
+    li
+      = '69'
+      br
+      = 'Лайки'
+  p
+    = 'Зарегистрирован:'
+  p
+    = @user.created_at.strftime("%d.%m.%Y")
+  p
+    = 'Последняя активность:'
+  p
+    = @user.created_at.strftime("%d.%m.%Y")

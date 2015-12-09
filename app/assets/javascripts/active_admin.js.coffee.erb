@@ -12,6 +12,7 @@ $(document).ready ->
     plugins: 'link, code, media, uploadimage'
     content_css: "<%= asset_path('application.css')%>"
     uploadimage_form_url: '/post_attachments'
+    browser_spellcheck: true
 
   readURL = (input) ->
     if input.files and input.files[0]
