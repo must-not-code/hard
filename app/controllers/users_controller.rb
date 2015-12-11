@@ -25,7 +25,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_username!(params[:id])
+    @user = User.joins('LEFT JOIN comments ON comments.user_id = users.id')
+                .joins('LEFT JOIN posts ON posts.user_id = users.id')
+                .select('users.*, count(distinct comments.id) AS comments_count, ' +
+                                 'count(distinct posts.id) AS posts_count')
+                .group('users.id')
+                .find_by_username!(params[:id])
   end
 
   def edit
@@ -39,8 +44,6 @@ class UsersController < ApplicationController
       if @user.update(name:      params['user']['name'],
                       country:   params['user']['country'],
                       city:      params['user']['city'],
-                      nick_ru:   params['user']['nick_ru'],
-                      nick_euw:  params['user']['nick_euw'],
                       skype:     params['user']['skype'],
                       vk:        params['user']['vk'],
                       fb:        params['user']['fb'],

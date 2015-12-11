@@ -1,7 +1,8 @@
-.well.user-menu
-  = image_tag @user.avatar, class: 'avatar'
-  - if @user == current_user
-    div
-      = link_to t('views.user.settings'), edit_user_path(@user.username)
-    div
-      = link_to t('views.user.change_password'), change_password_path(@user.username)
+.user-menu
+  .well
+    = image_tag @user.avatar
+    - if @user == current_user
+      div
+        = link_to t('views.user.settings'), edit_user_path(@user.username)
+      div
+        = link_to t('views.user.change_password'), change_password_path(@user.username)

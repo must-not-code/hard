@@ -57,6 +57,12 @@ en:
       created_at: 'Registered'
       submit: 'Submit'
       submiting: 'Submiting...'
+      comments: 'Comments'
+      posts: 'Posts'
+      likes: 'Likes'
+      reg: 'Registered:'
+      last: 'Last activity:'
+      kittens: 'User has not written anything about himself, but we have kittens.'
     password_recovery:
       password_recovery: 'Password recovery'
       password_reset: 'Reset password'

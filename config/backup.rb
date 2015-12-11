@@ -10,10 +10,7 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
   split_into_chunks_of 50
 
   archive :hard_archive do |archive|
-    archive.add "#{path}/public/avatars"
     archive.add "#{path}/public/posts"
-    archive.add "#{path}/public/members"
-    archive.add "#{path}/public/carousels"
     archive.add "#{path}/public/partners"
     archive.add "#{path}/public/uploads"
   end

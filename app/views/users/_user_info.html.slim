@@ -1,6 +1,7 @@
-.well.user-info
-  = 'Пользователь не написал о себе ничего, но зато у нас есть котики.'
-  = image_tag "placeholders/#{rand(1..16)}.jpg"
+.user-info
+  .well
+    = t('views.user.kittens')
+    = image_tag "placeholders/#{rand(1..16)}.jpg"
 /.well
   h4
     i.famfamfam-flag-ru

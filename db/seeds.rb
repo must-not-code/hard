@@ -10,7 +10,7 @@ LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consecte
 
 SHORT_LOREM  = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur aliquam ante, et consequat felis aliquet in. Sed aliquet, libero vel ultricies suscipit, mi nibh efficitur est, a pretium ligula metus eu risus. Phasellus molestie tellus id posuere aliquam. Nam ullamcorper ex et ipsum porttitor gravida. Donec lacinia mi id ornare blandit. Sed vitae sem odio. Proin nisi urna, dictum at urna in, semper congue ex. Nam in tellus in mauris efficitur dignissim. Suspendisse luctus sapien fermentum, efficitur erat ut, luctus elit. Duis gravida tellus est, et porttitor ante euismod vitae. Praesent id feugiat elit. Suspendisse eros elit, iaculis malesuada facilisis sed, sagittis sed neque. Praesent eu dolor laoreet mauris finibus gravida. Aliquam vulputate metus tortor. Fusce finibus, dolor ac sodales efficitur, lectus libero.'
 
-User.create([{ username: 'admin', password: '123456', email: 'test4food@me.com', group: 'admin' },
+User.create([{ username: 'admin', password: '123456', email: 'test4food@me.com', group: 'admin', about: SHORT_LOREM },
              { username: 'user',  password: '123456', email: 'omfg.exe@gmail.com' }])
 
 Carousel.create([{ title: 'Lorem ipsum 1', url: '/', position: 1 },

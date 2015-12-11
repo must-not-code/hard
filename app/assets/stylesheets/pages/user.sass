@@ -1,6 +1,3 @@
-.avatar
-  max-width: 100%
-
 .hard-table tr td
   input,
   select
@@ -13,14 +10,20 @@
     width: 150px
     height: 150px
 
-.user-menu
+.user-menu,
+.user-info,
+.user-stats
+  @media (min-width: 768px)
+    .well
+      min-height: 380px
+
+.user-menu,
+.user-info
   text-align: center
 
   img
-    width: 300px
-
-.user-info
-  text-align: center
+    max-width: 300px
+    width: 100%
 
 .user-stats
   li

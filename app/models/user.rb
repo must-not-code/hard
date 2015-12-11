@@ -54,14 +54,6 @@ class User < ActiveRecord::Base
             format: { with: /\Ahttps?:\/\/.{,50}\z/i },
             allow_blank: true
 
-  validates :nick_ru,
-            length: { maximum: 30 },
-            allow_blank: true
-
-  validates :nick_euw,
-            length: { maximum: 30 },
-            allow_blank: true
-
   validates :city,
             length: { maximum: 30 },
             allow_blank: true

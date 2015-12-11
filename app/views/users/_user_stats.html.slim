@@ -1,22 +1,24 @@
-.well.user-stats
-  ul.nav.navbar-nav
-    li
-      = '3'
-      br
-      = 'Комментарии'
-    li
-      = '0'
-      br
-      = 'Посты'
-    li
-      = '69'
-      br
-      = 'Лайки'
-  p
-    = 'Зарегистрирован:'
-  p
-    = @user.created_at.strftime("%d.%m.%Y")
-  p
-    = 'Последняя активность:'
-  p
-    = @user.created_at.strftime("%d.%m.%Y")
+.user-stats
+  .well
+    ul.nav.navbar-nav
+      li
+        = @user.comments_count
+        br
+        = t('views.user.comments')
+      li
+        = @user.posts_count
+        br
+        = t('views.user.posts')
+      li
+        = 0
+        br
+        = t('views.user.likes')
+    p
+      = t('views.user.reg')
+    p
+      = @user.created_at.strftime("%d.%m.%Y")
+    - if @user.last_activity_at
+      p
+        = t('views.user.last')
+      p
+        = @user.last_activity_at.strftime("%d.%m.%Y, %H:%M")

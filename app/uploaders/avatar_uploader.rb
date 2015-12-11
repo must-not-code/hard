@@ -11,7 +11,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "avatars/#{model.id}"
+    "uploads/avatars/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -23,7 +23,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [150, 150]
+  process resize_to_fill: [300, 300]
   #
   # def scale(width, height)
   #   # do something

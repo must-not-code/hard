@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'Routing for Posts' do
-  it 'routes "/" to posts#index' do
-    expect(get: '/').to route_to(controller: 'posts', action: 'index')
+  it 'routes "/posts" to posts#index' do
+    expect(get: '/posts').to route_to(controller: 'posts', action: 'index')
   end
 
   it 'routes "/posts/:id" to posts#show' do
