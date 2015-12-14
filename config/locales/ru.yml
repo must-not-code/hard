@@ -156,13 +156,13 @@ ru:
               too_long: 'Недопустимое количество символов.'
             vk:
               invalid: 'Ссылка на ВКонтакте должна быть в формате http://vk.com/hardrandom'
-            fb:
+            facebook:
               invalid: 'Ссылка на Facebook должна быть в формате https://www.facebook.com/hardrandom'
             twitch:
               invalid: 'Ссылка на Twitch должна быть в формате http://www.twitch.tv/hardrandom'
             twitter:
               invalid: 'Ссылка на Twitter должна быть в формате https://twitter.com/hardrandom'
-            site:
+            link:
               invalid: 'Ссылка на ваш сайт должна быть в формате http://hardrandom.com'
             nick_ru:
               too_long: 'Слишком длинный Ник (RU).'

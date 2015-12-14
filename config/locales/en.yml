@@ -156,13 +156,13 @@ en:
               too_long: 'Too large description.'
             vk:
               invalid: 'Link to VK has to be in a format http://vk.com/hardrandom'
-            fb:
+            facebook:
               invalid: 'Link to Facebook has to be in a format https://www.facebook.com/hardrandom'
             twitch:
               invalid: 'Link to Twitch has to be in a format http://www.twitch.tv/hardrandom'
             twitter:
               invalid: 'Link to Twitter has to be in a format https://twitter.com/hardrandom'
-            site:
+            link:
               invalid: 'Link to your site has to be in a format http://hardrandom.com'
             nick_ru:
               too_long: 'Too long Nickname (RU).'

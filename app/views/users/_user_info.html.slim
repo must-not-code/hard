@@ -1,40 +1,32 @@
 .user-info
   .well
-    = t('views.user.kittens')
-    = image_tag "placeholders/#{rand(1..16)}.jpg"
-/.well
-  h4
-    i.famfamfam-flag-ru
-    =< 'Вася пупкин'
-  p
-    => fa_icon 'map-marker lg'
-    =< 'Зажопинск'
-  p
-    = fa_icon 'link lg'
-    =< 'https://vk.com/hardrandom'
-  p
-    = fa_icon 'vk lg '
-    =< 'https://vk.com/hardrandom'
-  p
-    = fa_icon 'skype lg'
-    =< 'https://vk.com/hardrandom'
-  p
-    = fa_icon 'linux lg'
-    =< 'https://vk.com/hardrandom'
-
-      /table.table.table-bordered.table-hover
-        - %w(name country city nick_ru nick_euw skype vk fb site twitch twitter email).each do |val|
-          - if @user.send(val)
-            - next if val == 'email' && @user != current_user
-            tr
-              td
-                = t("views.user.#{val}")
-              td
-                - if val == 'country'
-                  i class="famfamfam-flag-#{@user.country.downcase}"
-                - elsif %w(vk fb site twitch twitter).include?(val)
-                  = link_to @user.send(val), @user.send(val), target: 'blank'
-                - elsif val == 'skype'
-                  = link_to @user.send(val), "skype:#{@user.send(val)}?chat"
-                - else
-                  = @user.send(val)
+    - filled_columns = []
+    - %w(name country city skype vk facebook twitch twitter link).each do |val|
+      - filled_columns << val unless @user.send(val).nil?
+    - if filled_columns.empty?
+      .kittens
+        = t('views.user.kittens')
+        = image_tag "placeholders/#{rand(1..16)}.jpg"
+    - else
+      h4
+        - if @user.country
+          i class="famfamfam-flag-#{@user.country.downcase}"
+        =< @user.name if @user.name
+      p
+        - if @user.city
+          = fa_icon 'map-marker lg'
+          =< @user.city
+      - if @user.skype
+        p
+          = link_to "skype:#{@user.skype}?chat"
+            = fa_icon 'skype lg'
+            =< @user.skype
+      - %w(vk facebook link twitch twitter).each do |val|
+        - if @user.send(val)
+          p
+            = link_to @user.send(val), target: 'blank'
+              = fa_icon "#{val} lg"
+              =< @user.send(val)
+      - if @user == current_user
+        = fa_icon 'envelope lg'
+        =< @user.email

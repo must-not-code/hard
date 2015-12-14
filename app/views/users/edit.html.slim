@@ -1,15 +1,15 @@
 h3
   = @user.username
 hr
-.well
-  #notice
-  .row
-    .col-md-3
-      = render 'user_menu'
-    .col-md-9
+#notice
+.row
+  .col-md-4
+    = render 'user_menu'
+  .col-md-8
+    .well
       = form_for @user, remote: true, html: { 'data-type' => :json } do |f|
         table.table.table-bordered.hard-table
-          - %w(avatar name country city skype vk fb site twitch twitter email about).each do |val|
+          - %w(avatar name country city skype vk facebook link twitch twitter email about).each do |val|
             tr
               td
                 = t("views.user.#{val}")

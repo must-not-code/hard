@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
             format: { with: /\Ahttps?:\/\/vk.com\/.{,30}\z/i },
             allow_blank: true
 
-  validates :fb,
+  validates :facebook,
             format: { with: /\Ahttps?:\/\/www.facebook.com\/.{,30}\z/i },
             allow_blank: true
 
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
             format: { with: /\Ahttps?:\/\/twitter.com\/.{,30}\z/i },
             allow_blank: true
 
-  validates :site,
+  validates :link,
             format: { with: /\Ahttps?:\/\/.{,50}\z/i },
             allow_blank: true
 
