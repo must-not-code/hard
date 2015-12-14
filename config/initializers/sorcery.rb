@@ -58,17 +58,19 @@ Rails.application.config.sorcery.configure do |config|
   # will register the time of last user login, every login.
   # Default: `true`
   #
-  # config.register_login_time =
+  config.register_login_time = false
 
   # will register the time of last user logout, every logout.
   # Default: `true`
   #
-  # config.register_logout_time =
+  config.register_logout_time = false
 
   # will register the time of last user action, every action.
   # Default: `true`
   #
   # config.register_last_activity_time =
+
+  config.register_last_ip_address = false
 
   # -- external --
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid] .
