@@ -6,7 +6,8 @@ User.create([{ username: 'admin', password: '123456', email: 'test4food@me.com',
              { username: 'user',  password: '123456', email: 'omfg.exe@gmail.com' }])
 
 Carousel.create([{ title: 'Lorem ipsum 1', url: '/', position: 1 },
-                 { title: 'Lorem ipsum 2', url: '/', position: 2 }])
+                 { title: 'Lorem ipsum 2', url: '/', position: 2 },
+                 { title: 'Lorem ipsum 3', url: '/', position: 3 }])
 
 Event.create([{ start_at: Time.zone.now - 4 * 24 * 60 * 60, country: 'RU', enemy: 'RoX.KIS', tourney: 'SLTV', hr_score: 0, enemy_score: 1 },
               { start_at: Time.zone.now - 3 * 24 * 60 * 60, country: 'RU', enemy: 'GPX', tourney: 'SLTV', hr_score: 1, enemy_score: 0 },

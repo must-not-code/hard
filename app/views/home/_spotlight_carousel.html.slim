@@ -1,12 +1,12 @@
 #spotlight-carousel.carousel.slide data-ride='carousel'
   ol.carousel-indicators
-    - @carousels.each_with_index do |carousel, index|
+    - @carousels[1..-1].each_with_index do |carousel, index|
       li class=('active' if index == 0) data-slide-to='#{index}' data-target='#spotlight-carousel'
   .carousel-inner
-    - @carousels.each_with_index do |carousel, index|
+    - @carousels[1..-1].each_with_index do |carousel, index|
       .item class=('active' if index == 0)
         = link_to carousel.url do
-          = image_tag carousel.image
+          = image_tag carousel.image.mini
           .carousel-caption
             h1
               = carousel.title.html_safe if carousel.title

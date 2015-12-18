@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @carousels = Carousel.order(:position)
-    @events = Event.order(start_at: :desc).limit(5)
+    @events = Event.order(start_at: :desc).limit(8)
     @posts = Post.joins('LEFT JOIN users ON users.id = posts.user_id')
                  .joins('LEFT JOIN comments ON comments.post_id = posts.id')
                  .select('posts.*, users.username AS author, count(comments.id) AS comments_count')

@@ -1,3 +1,5 @@
+$event-bg: #FFF
+
 .homepage
   h3
     text-transform: uppercase
@@ -13,6 +15,27 @@
 .spotlight
   margin-top: 20px
 
+  img
+    width: 100%
+    max-width: 10
+
+.events
+  ul
+    background: $event-bg
+
+  li
+    a
+      padding: 2.3px 15px
+
+  @media (min-width: 992px)
+    margin-left: -15px
+    padding: 0px
+    background: $event-bg
+
+  @media (max-width: 768px)
+    [class*="col-"]
+      padding: 4px
+
 .streams
   background: url(/assets/streams_bg.png) no-repeat
   background-position: center
@@ -25,7 +48,3 @@
   h3
     margin-top: 0px
     margin-bottom: 20px
-
-.tmp
-  img
-    width: 100%

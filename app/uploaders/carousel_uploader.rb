@@ -16,7 +16,7 @@ class CarouselUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    'http://placehold.it/720x200'
+    'http://placehold.it/1140x300'
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
@@ -25,7 +25,11 @@ class CarouselUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
-  process resize_to_fill: [360, 200]
+  process resize_to_fill: [1140, 300]
+
+  version :mini do
+    process resize_to_fit: [750, 200]
+  end
   #
   # def scale(width, height)
   #   # do something
