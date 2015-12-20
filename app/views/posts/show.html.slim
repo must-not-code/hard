@@ -24,16 +24,17 @@ hr
         span.muted
           => l(comment.created_at, format: :news)
         - if logged_in? && \
-        comment.user.username == current_user.username && \
-        Time.parse(comment.created_at.to_s) > Time.now - 10*60
+        (current_user.group[/admin/] || \
+        (comment.user.username == current_user.username && \
+        Time.parse(comment.created_at.to_s) > Time.now - 10*60))
           .pull-right
             = button_to comment_path(comment.id, post_id: @post.id),
                         method: :delete,
                         remote: true,
                         data:  { confirm: t('views.news.confirm') },
-                        class: 'btn btn-danger btn-xs',
+                        class: 'btn btn-xs',
                         title: t('views.news.delete') do
-              = fa_icon 'trash-o'
+              = fa_icon 'close'
         p
           = comment.content
     #comments-form

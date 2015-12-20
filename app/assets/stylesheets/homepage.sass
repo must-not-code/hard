@@ -1,4 +1,4 @@
-$event-bg: #FFF
+$event-bg: #1D2335
 
 .homepage
   h3
@@ -19,6 +19,19 @@ $event-bg: #FFF
     width: 100%
     max-width: 10
 
+.streams
+  background: url(/assets/streams_bg.png) no-repeat
+  background-position: center
+  background-color: #071221
+  position: relative
+  width: 100vw
+  left: calc(-50vw + 50%)
+  padding: 20px 0px 50px 0px
+
+  h3
+    margin-top: 0px
+    margin-bottom: 20px
+
 .events
   ul
     background: $event-bg
@@ -35,16 +48,3 @@ $event-bg: #FFF
   @media (max-width: 768px)
     [class*="col-"]
       padding: 4px
-
-.streams
-  background: url(/assets/streams_bg.png) no-repeat
-  background-position: center
-  background-color: #071221
-  position: relative
-  width: 100vw
-  left: calc(-50vw + 50%)
-  padding: 20px 0px 50px 0px
-
-  h3
-    margin-top: 0px
-    margin-bottom: 20px

@@ -17,8 +17,9 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     if logged_in? &&
-    current_user.id == @comment.user_id &&
-    Time.parse(@comment.created_at.to_s) > Time.now - 10*60
+    (current_user.group[/admin/] || \
+    (current_user.id == @comment.user_id &&
+    Time.parse(@comment.created_at.to_s) > Time.now - 10*60))
       @comment.destroy
       render json: { div: '#comments', load: post_path(params[:post_id]) }
     else
