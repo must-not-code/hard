@@ -4,6 +4,13 @@ $event-bg: #1D2335
   h3
     text-transform: uppercase
 
+.streams,
+.videos
+  @media (min-width: 768px) and (max-width: 991px)
+    .col-sm-6
+      width: 33.33333333%
+      clear: none !important
+
 .spotlight,
 .streams,
   margin-bottom: 30px
@@ -20,8 +27,10 @@ $event-bg: #1D2335
     max-width: 10
 
 .streams
-  background: url(/assets/streams_bg.png) no-repeat
-  background-position: center
+  @media (min-width: 768px)
+    background: url(/assets/streams_bg.png) no-repeat
+    background-position: center
+
   background-color: #071221
   position: relative
   width: 100vw
