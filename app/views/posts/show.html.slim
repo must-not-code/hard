@@ -1,48 +1,52 @@
 h3
   = @post.title
 hr
-.well
-  p.muted
-    = l(@post.published_at, format: :news) if @post.published_at
-  .post-content
-    = @post.content.html_safe
-  .post-info
-    hr
-    => fa_icon 'user'
-    - username = @post.author
-    => link_to username, user_path(username)
-    => fa_icon 'eye'
-    => @post.views
-    => fa_icon 'comment'
-    = @post.comments_count
-  hr
-  #comments data-post=post_path(@post.id)
-    #comments-list
-      - @comments.each do |comment|
-        => image_tag comment.user.avatar.mini
-        => link_to comment.user.username, user_path(comment.user.username)
-        span.muted
-          => l(comment.created_at, format: :news)
-        - if logged_in? && \
-        (current_user.group[/admin/] || \
-        (comment.user.username == current_user.username && \
-        Time.parse(comment.created_at.to_s) > Time.now - 10*60))
-          .pull-right
-            = button_to comment_path(comment.id, post_id: @post.id),
-                        method: :delete,
-                        remote: true,
-                        data:  { confirm: t('views.news.confirm') },
-                        class: 'btn btn-xs',
-                        title: t('views.news.delete') do
-              = fa_icon 'close'
-        p
-          = comment.content
-    #comments-form
-      - if logged_in?
-        #notice
-        = form_tag comments_path, remote: true do
-          = text_area_tag :text, nil, rows: 4, maxlength: 5000
-          = hidden_field_tag 'post_id', @post.id
-          = submit_tag t('views.news.post'),
-                       class: 'btn btn-default',
-                       data: { disable_with: t('views.news.posting') }
+.row
+  .col-md-8
+    .well
+      p.muted
+        = l(@post.published_at, format: :news) if @post.published_at
+      .post-content
+        = @post.content.html_safe
+      .post-info
+        hr
+        => fa_icon 'user'
+        - username = @post.author
+        => link_to username, user_path(username)
+        => fa_icon 'eye'
+        => @post.views
+        => fa_icon 'comment'
+        = @post.comments_count
+      hr
+      #comments data-post=post_path(@post.id)
+        #comments-list
+          - @comments.each do |comment|
+            => image_tag comment.user.avatar.mini
+            => link_to comment.user.username, user_path(comment.user.username)
+            span.muted
+              => l(comment.created_at, format: :news)
+            - if logged_in? && \
+            (current_user.group[/admin/] || \
+            (comment.user.username == current_user.username && \
+            Time.parse(comment.created_at.to_s) > Time.now - 10*60))
+              .pull-right
+                = button_to comment_path(comment.id, post_id: @post.id),
+                            method: :delete,
+                            remote: true,
+                            data:  { confirm: t('views.news.confirm') },
+                            class: 'btn btn-xs',
+                            title: t('views.news.delete') do
+                  = fa_icon 'close'
+            p
+              = comment.content
+        #comments-form
+          - if logged_in?
+            #notice
+            = form_tag comments_path, remote: true do
+              = text_area_tag :text, nil, rows: 4, maxlength: 5000
+              = hidden_field_tag 'post_id', @post.id
+              = submit_tag t('views.news.post'),
+                           class: 'btn btn-default',
+                           data: { disable_with: t('views.news.posting') }
+  .col-md-4
+    = render 'sidebar'
