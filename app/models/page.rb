@@ -3,8 +3,8 @@ class Page < ActiveRecord::Base
             length: { in: 2..20 }
 
   validates :content_ru,
-            length: { maximum: 3_000 }
+            length: { maximum: 10_000 }
 
   validates :content_en,
-            length: { maximum: 3_000 }
+            length: { maximum: 10_000 }
 end
