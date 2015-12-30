@@ -11,7 +11,6 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
 
   archive :hard_archive do |archive|
     archive.add "#{path}/public/posts"
-    archive.add "#{path}/public/partners"
     archive.add "#{path}/public/uploads"
   end
 
