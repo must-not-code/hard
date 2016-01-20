@@ -7,18 +7,18 @@
     = render 'spotlight'
   .news
     h3
-      = t('views.news.news')
+      = link_to t('views.news.news'), posts_path
     hr
     .row
       = render partial: 'posts/post', collection: @posts
   .streams
     .container
       h3
-        = t('views.streams.streams')
+        = link_to t('views.streams.streams'), streams_path
       = render 'streams_carousel'
   .videos
     h3
-      = t('views.video.video')
+      = link_to t('views.video.video'), videos_path
     hr
     .row
       = render partial: 'videos/video', collection: @videos
