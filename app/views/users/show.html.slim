@@ -6,13 +6,13 @@ hr
     .alert.alert-info
       = flash[:notice].html_safe
 .row
-  .col-md-4.col-sm-6
+  .col-lg-4.col-sm-6
     = render 'user_menu'
-  .col-md-4.col-sm-6
+  .col-lg-4.col-sm-6
     = render 'user_info'
-  .col-md-4.col-sm-6
+  .col-lg-4.col-sm-6
     = render 'user_stats'
-  .col-md-12.col-sm-6
+  .col-lg-12.col-sm-6
     - if @user.about
       .well
         h3

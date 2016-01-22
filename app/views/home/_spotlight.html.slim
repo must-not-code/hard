@@ -1,14 +1,14 @@
 .row
-  .col-md-12.main-image
+  .col-md-12.col-lg-12.main-image
     - carousel = @carousels.first
     = link_to carousel.url do
       = image_tag carousel.image
       .carousel-caption
         h1
           = carousel.title.html_safe if carousel.title
-  .col-md-8
+  .col-md-12.col-lg-8
     = render 'spotlight_carousel'
-  .col-md-4.events
+  .col-md-12.col-lg-4.events
     ul.nav.nav-list
       - @events.each do |event|
         li
