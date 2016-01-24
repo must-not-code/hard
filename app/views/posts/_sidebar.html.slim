@@ -2,12 +2,7 @@ aside.well
   ul.nav.nav-list
     li.dropdown-header
       = t('views.sidebar.posts')
-      - Post.joins('LEFT JOIN comments on comments.post_id = posts.id')\
-            .select('posts.id, posts.title, count(comments.id) as comments_count')\
-            .group('posts.id')\
-            .where.not(published_at: nil)\
-            .order('published_at desc')\
-            .limit(6).each do |post|
+      - @last_posts.each do |post|
         li
           = link_to post_path(post.id) do
             .row

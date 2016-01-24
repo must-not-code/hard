@@ -9,6 +9,6 @@ class HomeController < ApplicationController
                  .where('published_at < :now', now: Time.zone.now)
                  .order('published_at desc').limit(6)
     @streams = Stream.order(views: :desc)
-    @videos = Video.order(created_at: :desc).limit(3)
+    @videos = Video.order(created_at: :desc).limit(6)
   end
 end

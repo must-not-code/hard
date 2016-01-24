@@ -4,20 +4,18 @@ hr
 .row
   .col-md-8
     .well
-      p.muted
-        = l(@post.published_at, format: :news) if @post.published_at
       .post-content
         = @post.content.html_safe
       .post-info
         hr
+        => l(@post.published_at, format: :news) if @post.published_at
         => fa_icon 'user'
-        - username = @post.author
-        => link_to username, user_path(username)
+        => link_to @post.author, user_path(@post.author)
         => fa_icon 'eye'
         => @post.views
         => fa_icon 'comment'
         = @post.comments_count
-      hr
+        hr
       #comments data-post=post_path(@post.id)
         #comments-list
           - @comments.each do |comment|

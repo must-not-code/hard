@@ -12,7 +12,7 @@ hr
     .col-md-4.col-sm-6
       .well
         .row
-          .col-xs-6
+          .col-xs-7
             p
               strong
                 = member.nickname
@@ -26,7 +26,7 @@ hr
               - if member.country
                 i class="famfamfam-flag-#{member.country.downcase}"
               =< member.city
-          .col-xs-6
+          .col-xs-5
             .member-social.pull-right
               - %w(vk twitch).each do |val|
                 - if member.send(val)

@@ -19,5 +19,12 @@ class PostsController < ApplicationController
     @post.update_column(:views, @post.views + 1)
 
     @comments = Comment.where(post_id: @post.id).includes(:user).order('created_at asc')
+
+    @last_posts = Post.joins('LEFT JOIN comments on comments.post_id = posts.id')
+                      .select('posts.id, posts.title, count(comments.id) as comments_count')
+                      .group('posts.id')
+                      .where.not(published_at: nil)
+                      .order('published_at desc')
+                      .limit(6)
   end
 end
