@@ -2,6 +2,10 @@
   h3
     text-transform: uppercase
 
+// Fix Safari text dim bug
+.carousel-inner
+  -webkit-transform-style: preserve-3d
+
 .streams
   @media (min-width: 768px) and (max-width: 991px)
     .col-sm-6

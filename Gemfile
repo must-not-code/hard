@@ -18,7 +18,7 @@ gem 'coffee-rails'
 
 # CSS
 gem 'sass-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass',        '~> 3.3.6'
 
 # Icons
 gem 'font-awesome-rails'
