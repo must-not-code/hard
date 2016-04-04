@@ -24,9 +24,7 @@ ActiveAdmin.register Stream do
       row :id
       row :streamer
       row :channel
-      row :banner do
-        image_tag(f.banner.url)
-      end
+      row(:banner) { image_tag(f.banner.url) }
       row :created_at
       row :updated_at
     end

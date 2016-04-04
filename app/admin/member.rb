@@ -26,7 +26,7 @@ ActiveAdmin.register Member do
     attributes_table do
       # No route matches {:action=>"show", :controller=>"admin/teams",
       # :id=>nil, :locale=>"1"} missing required keys: [:id]
-      #row :team
+      # row :team
       row :name
       row :nickname
       row :role
@@ -40,7 +40,7 @@ ActiveAdmin.register Member do
       row :twitch
       row :status
       row :position
-      row (:about) { |x| x.about.html_safe if x.about }
+      row(:about) { |x| x.about.html_safe if x.about }
       row :mouse
       row :mouse_link
       row :keyboard

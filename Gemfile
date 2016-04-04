@@ -26,7 +26,7 @@ gem 'bootstrap-sass',        '~> 3.3.6'
 gem 'font-awesome-rails'
 
 # Assets
-gem 'uglifier',           '>= 1.3.0'
+gem 'uglifier',              '>= 1.3.0'
 gem 'therubyracer'
 gem 'quiet_assets'
 
@@ -49,7 +49,7 @@ gem 'tinymce-rails-imageupload',  '~> 4.0.0.beta'
 gem 'remotipart',                 '~> 1.0'
 
 # Administration
-gem 'activeadmin',                github: 'activeadmin'
+gem 'activeadmin',                '~> 1.0.0.pre2'
 
 # Flags
 gem 'famfamfam_flags_rails'

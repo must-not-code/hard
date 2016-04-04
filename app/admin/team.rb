@@ -21,9 +21,7 @@ ActiveAdmin.register Team do
       row :id
       row :game
       row :title
-      row :logo do
-        image_tag(f.logo.url)
-      end
+      row(:logo) { image_tag(f.logo.url) }
       row :created_at
       row :updated_at
     end

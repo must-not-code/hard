@@ -14,11 +14,11 @@ ActiveAdmin.register Page do
   filter :created_at
   filter :updated_at
 
-  show do |f|
+  show do
     attributes_table do
       row :title
-      row (:content_ru) { |x| x.content_ru.html_safe if x.content_ru }
-      row (:content_en) { |x| x.content_en.html_safe if x.content_en }
+      row(:content_ru) { |x| x.content_ru.html_safe if x.content_ru }
+      row(:content_en) { |x| x.content_en.html_safe if x.content_en }
     end
   end
 

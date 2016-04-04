@@ -8,11 +8,11 @@ class Stream < ActiveRecord::Base
             length: { in: 2..255 }
 
   def get_state
-    stream = Twitch.streams.get(self.channel)
+    stream = Twitch.streams.get(channel)
     if stream
-      self.update(online: true, views: stream.viewer_count)
+      update(online: true, views: stream.viewer_count)
     else
-      self.update(online: false, views: 0)
+      update(online: false, views: 0)
     end
   rescue Twitch::Error::ServerError
   end

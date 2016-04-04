@@ -26,10 +26,8 @@ ActiveAdmin.register Post do
       row :title
       row :game
       row :views
-      row :preview do
-        image_tag(f.preview.url)
-      end
-      row (:content) { |x| x.content.html_safe if x.content }
+      row(:preview) { image_tag(f.preview.url) }
+      row(:content) { |x| x.content.html_safe if x.content }
       row :published_at
       row :created_at
       row :updated_at

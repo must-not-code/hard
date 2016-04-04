@@ -21,8 +21,8 @@ ActiveAdmin.register Partner do
       row :logo do
         image_tag(f.logo.url)
       end
-      row (:content_ru) { |x| x.content_ru.html_safe if x.content_ru }
-      row (:content_en) { |x| x.content_en.html_safe if x.content_en }
+      row(:content_ru) { |x| x.content_ru.html_safe if x.content_ru }
+      row(:content_en) { |x| x.content_en.html_safe if x.content_en }
       row :site
       row :site_icon do
         image_tag(f.site_icon.url)
