@@ -26,7 +26,7 @@ Backup::Model.new(:hard_backup, 'HardRandom.com backup') do
     db.api_secret         = config['production']['dropbox_secret']
     db.access_type        = :app_folder
     db.path               = '/'
-    db.keep               = 14
+    db.keep               = 8
   end
 
   store_with Local do |local|
