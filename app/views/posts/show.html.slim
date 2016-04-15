@@ -35,8 +35,8 @@ hr
                             class: 'btn btn-xs',
                             title: t('views.news.delete') do
                   = fa_icon 'close'
-            p
-              = comment.content
+            p.user-output
+              = sanitize_filter comment.content
         #comments-form
           - if logged_in?
             #notice

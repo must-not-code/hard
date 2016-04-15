@@ -17,4 +17,5 @@ hr
       .well
         h3
           = t('views.user.about')
-        = @user.about.html_safe
+        .user-output
+          = sanitize_filter @user.about
